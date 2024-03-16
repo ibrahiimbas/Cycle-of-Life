@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
+
+//Currently not using
 public class Background : MonoBehaviour
 {
     public Texture2D backgroundTexture;
