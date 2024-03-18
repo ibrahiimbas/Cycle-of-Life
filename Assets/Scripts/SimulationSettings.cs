@@ -20,12 +20,14 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private Pattern pentominoPattern;
  [SerializeField] private Pattern pufferFishPattern;
  [SerializeField] private Pattern snackerPattern;
+ [SerializeField] private Pattern wilmaPattern;
  
  [SerializeField] private Button orionButton;
  [SerializeField] private Button tetrisButton;
  [SerializeField] private Button pentominoButton;
  [SerializeField] private Button pufferFishButton;
  [SerializeField] private Button snackerButton;
+ [SerializeField] private Button wilmaButton;
 
  public GameBoard gameBoard;
 
@@ -37,6 +39,7 @@ public class SimulationSettings : MonoBehaviour
      pentominoButton.onClick.AddListener(SelectPentominoPattern);
      pufferFishButton.onClick.AddListener(SelectPufferFishPattern);
      snackerButton.onClick.AddListener(SelectSnackerPattern);
+     wilmaButton.onClick.AddListener(SelectWilmaPattern);
  }
 
  private void RestartSimulation()
@@ -45,6 +48,15 @@ public class SimulationSettings : MonoBehaviour
      mainCamera.transform.position = new Vector3(0, 0, -10);
  }
 
+ private void SelectWilmaPattern()
+ {
+     gameBoard.pattern = wilmaPattern;
+     mainCamera.transform.position = new Vector3(0, 0, -10);
+     gameBoard.Restart();
+     currentPattern = "Wilma";
+     currentPatterntxt.text = currentPattern;
+ }
+ 
  private void SelectSnackerPattern()
  {
      gameBoard.pattern = snackerPattern;
