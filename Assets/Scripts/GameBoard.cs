@@ -40,7 +40,6 @@ public class GameBoard : MonoBehaviour
     private void Start()
     {
         SetPattern(pattern);
-        //SetRandomPattern();
     }
     
     private void SetPattern(Pattern pattern)
