@@ -1515,6 +1515,7 @@ MonoBehaviour:
   exitButton: {fileID: 258112610}
   resumeButton: {fileID: 946072866}
   pauseButton: {fileID: 1339819840}
+  rulesButton: {fileID: 1293324213}
   gameBoard: {fileID: 1948777687}
 --- !u!1 &535567596
 GameObject:

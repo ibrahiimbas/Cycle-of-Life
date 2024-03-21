@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
@@ -34,6 +35,7 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private Button exitButton;
  [SerializeField] private Button resumeButton;
  [SerializeField] private Button pauseButton;
+ [SerializeField] private Button rulesButton;
 
  public GameBoard gameBoard;
 
@@ -50,8 +52,14 @@ public class SimulationSettings : MonoBehaviour
      exitButton.onClick.AddListener(OnPressedExitButton);
      resumeButton.onClick.AddListener(ResumeGame);
      pauseButton.onClick.AddListener(PauseGame);
+     rulesButton.onClick.AddListener(JumptoRulesScene);
  }
 
+ private void JumptoRulesScene()
+ {
+     SceneManager.LoadScene("RulesScene", LoadSceneMode.Single);
+ }
+ 
  void PauseGame()
  {
      isPaused = !isPaused;
