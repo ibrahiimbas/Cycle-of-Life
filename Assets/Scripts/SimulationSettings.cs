@@ -57,6 +57,7 @@ public class SimulationSettings : MonoBehaviour
 
  private void JumptoRulesScene()
  {
+     ResumeGame();
      SceneManager.LoadScene("RulesScene", LoadSceneMode.Single);
  }
  

@@ -13,13 +13,13 @@ public class RulesSceneScript : MonoBehaviour
 {
     [SerializeField] private Button backButton;
     [SerializeField] private Button exitButton;
-
+    
     public void Start()
     {
         backButton.onClick.AddListener(JumpToSimulation);
-        exitButton.onClick.AddListener(ExitSimulation);
+        exitButton.onClick.AddListener(ExitSimulation);  
     }
-
+    
     private void JumpToSimulation()
     {
         SceneManager.LoadScene("CycleofLife", LoadSceneMode.Single);
