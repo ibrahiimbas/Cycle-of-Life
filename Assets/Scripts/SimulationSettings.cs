@@ -13,6 +13,7 @@ public class SimulationSettings : MonoBehaviour
     public Camera mainCamera;
     private string currentPattern;
     private bool isPaused=false;
+    public TextMeshProUGUI pauseText;
     
  [SerializeField] private Button restartButton;
  [SerializeField] private TextMeshProUGUI currentPatterntxt;
@@ -38,6 +39,7 @@ public class SimulationSettings : MonoBehaviour
 
  public void Start()
  {
+     pauseText.enabled = false;
      restartButton.onClick.AddListener(RestartSimulation);
      orionButton.onClick.AddListener(SelectOrionPattern);
      tetrisButton.onClick.AddListener(SelectTetrisPattern);
@@ -49,12 +51,13 @@ public class SimulationSettings : MonoBehaviour
      resumeButton.onClick.AddListener(ResumeGame);
      pauseButton.onClick.AddListener(PauseGame);
  }
- 
+
  void PauseGame()
  {
      isPaused = !isPaused;
      if (isPaused == true)
      {
+         pauseText.enabled = true;
          Time.timeScale = 0f;
      }
  }
@@ -64,6 +67,7 @@ public class SimulationSettings : MonoBehaviour
      isPaused = !isPaused;
      if (isPaused == false)
      {
+         pauseText.enabled = false;
          Time.timeScale = 1f;
      }
  }
