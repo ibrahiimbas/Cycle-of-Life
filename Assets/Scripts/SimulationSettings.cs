@@ -28,6 +28,7 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private Button pufferFishButton;
  [SerializeField] private Button snackerButton;
  [SerializeField] private Button wilmaButton;
+ [SerializeField] private Button exitButton;
 
  public GameBoard gameBoard;
 
@@ -40,6 +41,7 @@ public class SimulationSettings : MonoBehaviour
      pufferFishButton.onClick.AddListener(SelectPufferFishPattern);
      snackerButton.onClick.AddListener(SelectSnackerPattern);
      wilmaButton.onClick.AddListener(SelectWilmaPattern);
+     exitButton.onClick.AddListener(OnPressedExitButton);
  }
 
  private void RestartSimulation()
@@ -100,6 +102,11 @@ public class SimulationSettings : MonoBehaviour
      gameBoard.Restart();
      currentPattern = "Tetris";
      currentPatterntxt.text = currentPattern;
+ }
+
+ void OnPressedExitButton()
+ {
+     Application.Quit();
  }
  
 }
