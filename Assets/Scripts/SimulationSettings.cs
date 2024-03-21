@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -11,6 +12,7 @@ public class SimulationSettings : MonoBehaviour
 {
     public Camera mainCamera;
     private string currentPattern;
+    private bool isPaused=false;
     
  [SerializeField] private Button restartButton;
  [SerializeField] private TextMeshProUGUI currentPatterntxt;
@@ -29,6 +31,8 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private Button snackerButton;
  [SerializeField] private Button wilmaButton;
  [SerializeField] private Button exitButton;
+ [SerializeField] private Button resumeButton;
+ [SerializeField] private Button pauseButton;
 
  public GameBoard gameBoard;
 
@@ -42,8 +46,28 @@ public class SimulationSettings : MonoBehaviour
      snackerButton.onClick.AddListener(SelectSnackerPattern);
      wilmaButton.onClick.AddListener(SelectWilmaPattern);
      exitButton.onClick.AddListener(OnPressedExitButton);
+     resumeButton.onClick.AddListener(ResumeGame);
+     pauseButton.onClick.AddListener(PauseGame);
+ }
+ 
+ void PauseGame()
+ {
+     isPaused = !isPaused;
+     if (isPaused == true)
+     {
+         Time.timeScale = 0f;
+     }
  }
 
+ void ResumeGame()
+ {
+     isPaused = !isPaused;
+     if (isPaused == false)
+     {
+         Time.timeScale = 1f;
+     }
+ }
+ 
  private void RestartSimulation()
  {
      FindObjectOfType<GameBoard>().Restart();
