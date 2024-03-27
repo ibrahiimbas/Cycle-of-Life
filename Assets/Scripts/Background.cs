@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 
 //Currently not using
+//Not working
 public class Background : MonoBehaviour
 {
     public Texture2D backgroundTexture;
@@ -38,7 +39,6 @@ public class Background : MonoBehaviour
                     backgroundTexture.SetPixel(x,y,Color.black);
                 }
             }
-            
         }
         backgroundTexture.Apply();
         GetComponent<Renderer>().material.mainTexture = backgroundTexture;
