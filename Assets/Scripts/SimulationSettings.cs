@@ -15,7 +15,8 @@ public class SimulationSettings : MonoBehaviour
     private string currentPattern;
     private bool isPaused=false;
     public TextMeshProUGUI pauseText;
-    
+
+    [SerializeField] private ParticleSystem clickeEffectResume;
  [SerializeField] private Button restartButton;
  [SerializeField] private TextMeshProUGUI currentPatterntxt;
  
@@ -41,6 +42,7 @@ public class SimulationSettings : MonoBehaviour
 
  public void Start()
  {
+    // clickeEffectResume.Stop();
      pauseText.enabled = false;
      restartButton.onClick.AddListener(RestartSimulation);
      orionButton.onClick.AddListener(SelectOrionPattern);
@@ -71,8 +73,20 @@ public class SimulationSettings : MonoBehaviour
      }
  }
 
+ // void PlayEffect(ParticleSystem particleEffect)
+ // {
+ //     particleEffect.Play();
+ //     Invoke("StopEffect", 1f);
+ // }
+ //
+ // void StopEffect(ParticleSystem particleEffect)
+ // {
+ //    particleEffect.Stop();
+ // }
+ 
  void ResumeGame()
  {
+     //PlayEffect(clickeEffectResume);
      isPaused = !isPaused;
      if (isPaused == false)
      {
