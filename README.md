@@ -10,7 +10,7 @@ Rules of the Conway's Game of Life: <br/>
 4- Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction. <br/>
 
 
-#Screenshoots
+# Screenshoots
 
  ![Image](https://github.com/user-attachments/assets/ac1e04c1-0198-4ba6-badd-06707312c7b9)
 
