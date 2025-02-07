@@ -9,6 +9,9 @@ Rules of the Conway's Game of Life: <br/>
 3- Any live cell with more than three live neighbors dies, as if by overpopulation. <br/>
 4- Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction. <br/>
 
+# How to Strat Simulation
+Download the Cycle of Life Build file then start the Cycle of Life.exe </br>
+
 
 # Screenshoots
 
