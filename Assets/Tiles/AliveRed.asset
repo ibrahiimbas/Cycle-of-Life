@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: AliveRed
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 7482667652216324306, guid: c0ac4cfd01d6af34daec17ceed1e8c88, type: 3}
+  m_Sprite: {fileID: -1935430386196614393, guid: d4f36eae35acb564dad0e0b80b6be71d, type: 3}
   m_Color: {r: 1, g: 0.0460961, b: 0, a: 1}
   m_Transform:
     e00: 1
