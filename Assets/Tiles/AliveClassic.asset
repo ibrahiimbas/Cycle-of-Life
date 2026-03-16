@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AliveClassic
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -1935430386196614393, guid: d4f36eae35acb564dad0e0b80b6be71d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
   m_Transform:
     e00: 1
     e01: 0
