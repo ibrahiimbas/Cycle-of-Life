@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: fc6add363022085409d657138f19ce06
+guid: 70d99498fe51d5d4593e26aa3097f4bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3525166972429279655
-    second: Windows_Toggle_Selected_0
+      213: 4043519711694015446
+    second: pause_7204606_0
+  - first:
+      213: -5143862078232141383
+    second: pause_7204606_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Windows_Toggle_Selected_0
+      name: pause_7204606_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 128
+        y: 128
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95ed962d057141fc0800000000000000
-      internalID: -3525166972429279655
+      spriteID: 6dbcfc911c77d1830800000000000000
+      internalID: 4043519711694015446
       vertices: []
       indices: 
       edges: []
@@ -138,7 +141,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cc7a8f1656af84640851281fec33f0f8
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +151,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Windows_Toggle_Selected_0: -3525166972429279655
+      pause_7204606_0: 4043519711694015446
+      pause_7204606_1: -5143862078232141383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

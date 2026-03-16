@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using TMPro;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -19,6 +20,8 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private ParticleSystem clickeEffectResume;
  [SerializeField] private Button restartButton;
  [SerializeField] private TextMeshProUGUI currentPatterntxt;
+ [SerializeField] private GameObject pausePanel;
+ [SerializeField] private GameObject pauseBackground;
  
  [SerializeField] private Pattern orionPattern;
  [SerializeField] private Pattern tetrisPattern;
@@ -37,13 +40,17 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private Button resumeButton;
  [SerializeField] private Button pauseButton;
  [SerializeField] private Button rulesButton;
+ 
+ [SerializeField] private TextFlicker textFlicker;
 
  public GameBoard gameBoard;
 
  public void Start()
  {
     // clickeEffectResume.Stop();
-     pauseText.enabled = false;
+     //pauseText.enabled = false;
+     pausePanel.SetActive(false);
+     currentPatterntxt.text = "Loading...";
      restartButton.onClick.AddListener(RestartSimulation);
      orionButton.onClick.AddListener(SelectOrionPattern);
      tetrisButton.onClick.AddListener(SelectTetrisPattern);
@@ -68,7 +75,10 @@ public class SimulationSettings : MonoBehaviour
      isPaused = !isPaused;
      if (isPaused == true)
      {
-         pauseText.enabled = true;
+         pausePanel.SetActive(true);
+         pauseBackground.SetActive(true);
+         //pauseText.enabled = true;
+         //textFlicker.FlickerLoop(pauseText);   // Not working because of time scale!!
          Time.timeScale = 0f;
      }
  }
@@ -90,7 +100,9 @@ public class SimulationSettings : MonoBehaviour
      isPaused = !isPaused;
      if (isPaused == false)
      {
-         pauseText.enabled = false;
+         pausePanel.SetActive(false);
+         pauseBackground.SetActive(false);
+         //pauseText.enabled = false;
          Time.timeScale = 1f;
      }
  }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fc6add363022085409d657138f19ce06
+guid: 1854e1f37f82cf745908d738128730f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3525166972429279655
-    second: Windows_Toggle_Selected_0
+      213: 1808224024178369415
+    second: alto_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 78
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Windows_Toggle_Selected_0
+      name: alto_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
+        x: 40
+        y: 7
+        width: 78
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95ed962d057141fc0800000000000000
-      internalID: -3525166972429279655
+      spriteID: 783aa7b6b2a181910800000000000000
+      internalID: 1808224024178369415
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Windows_Toggle_Selected_0: -3525166972429279655
+      alto_0: 1808224024178369415
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
