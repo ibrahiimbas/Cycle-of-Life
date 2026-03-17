@@ -17,11 +17,13 @@ public class SimulationSettings : MonoBehaviour
     private bool isPaused=false;
     public TextMeshProUGUI pauseText;
 
-    [SerializeField] private ParticleSystem clickeEffectResume;
+    [SerializeField] private CameraScript cameraScript;
  [SerializeField] private Button restartButton;
  [SerializeField] private TextMeshProUGUI currentPatterntxt;
  [SerializeField] private GameObject pausePanel;
  [SerializeField] private GameObject pauseBackground;
+ [SerializeField] private GameObject selectPatternPanelOpened;
+ [SerializeField] private GameObject selectPatternPanelClosed;
  
  [SerializeField] private Pattern orionPattern;
  [SerializeField] private Pattern tetrisPattern;
@@ -40,6 +42,8 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private Button resumeButton;
  [SerializeField] private Button pauseButton;
  [SerializeField] private Button rulesButton;
+ [SerializeField] private Button patternMenuOpenButton;
+ [SerializeField] private Button patternMenuCloseButton;
  
  [SerializeField] private TextFlicker textFlicker;
 
@@ -50,7 +54,7 @@ public class SimulationSettings : MonoBehaviour
     // clickeEffectResume.Stop();
      //pauseText.enabled = false;
      pausePanel.SetActive(false);
-     currentPatterntxt.text = "Loading...";
+     currentPatterntxt.text = "Pentomino-R";
      restartButton.onClick.AddListener(RestartSimulation);
      orionButton.onClick.AddListener(SelectOrionPattern);
      tetrisButton.onClick.AddListener(SelectTetrisPattern);
@@ -62,8 +66,22 @@ public class SimulationSettings : MonoBehaviour
      resumeButton.onClick.AddListener(ResumeGame);
      pauseButton.onClick.AddListener(PauseGame);
      rulesButton.onClick.AddListener(JumptoRulesScene);
+     patternMenuOpenButton.onClick.AddListener(OpenPatternMenu);
+     patternMenuCloseButton.onClick.AddListener(ClosePatternMenu);
  }
 
+ private void OpenPatternMenu()
+ {
+     selectPatternPanelClosed.SetActive(false);
+     selectPatternPanelOpened.SetActive(true);
+ }
+
+ private void ClosePatternMenu()
+ {
+     selectPatternPanelOpened.SetActive(false);
+     selectPatternPanelClosed.SetActive(true);
+ }
+ 
  private void JumptoRulesScene()
  {
      ResumeGame();
@@ -72,6 +90,10 @@ public class SimulationSettings : MonoBehaviour
  
  void PauseGame()
  {
+     pauseButton.interactable = false;
+     resumeButton.interactable = true;
+     cameraScript.speedSlider.interactable = false;
+     cameraScript.zoomSlider.interactable = false;
      isPaused = !isPaused;
      if (isPaused == true)
      {
@@ -82,21 +104,13 @@ public class SimulationSettings : MonoBehaviour
          Time.timeScale = 0f;
      }
  }
-
- // void PlayEffect(ParticleSystem particleEffect)
- // {
- //     particleEffect.Play();
- //     Invoke("StopEffect", 1f);
- // }
- //
- // void StopEffect(ParticleSystem particleEffect)
- // {
- //    particleEffect.Stop();
- // }
  
  void ResumeGame()
  {
-     //PlayEffect(clickeEffectResume);
+     resumeButton.interactable = false;
+     pauseButton.interactable = true;
+     cameraScript.speedSlider.interactable = true;
+     cameraScript.zoomSlider.interactable = true;
      isPaused = !isPaused;
      if (isPaused == false)
      {

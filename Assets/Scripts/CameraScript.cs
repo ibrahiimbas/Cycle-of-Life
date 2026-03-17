@@ -12,12 +12,14 @@ public class CameraScript : MonoBehaviour
     public float moveSpeed = 5f;
     public Camera mainCamera; 
     public Slider speedSlider;
+    public Slider zoomSlider;
     
     [SerializeField] private TextMeshProUGUI cameraMovementSpeedTxt;
 
     void Start()
     {
-        speedSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        speedSlider.onValueChanged.AddListener(OnSpeedSliderValueChanged);
+        zoomSlider.onValueChanged.AddListener(OmZoomSliderValueChanged);
     }
     void Update()
     {
@@ -28,11 +30,19 @@ public class CameraScript : MonoBehaviour
         cameraMovementSpeedTxt.text = math.round(moveSpeed).ToString();
     }
     
-    void OnSliderValueChanged(float value)
+    void OnSpeedSliderValueChanged(float value)
     {
         if (mainCamera != null)
         {
             mainCamera.GetComponent<CameraScript>().moveSpeed = value;
+        }
+    }
+
+    void OmZoomSliderValueChanged(float value)
+    {
+        if (mainCamera != null)
+        {
+            mainCamera.orthographicSize = value;
         }
     }
     
