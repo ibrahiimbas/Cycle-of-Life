@@ -26,12 +26,15 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private GameObject selectPatternPanelClosed;
  [SerializeField] private GameObject rulesTab;
  
- [SerializeField] private Pattern orionPattern;
- [SerializeField] private Pattern tetrisPattern;
- [SerializeField] private Pattern pentominoPattern;
- [SerializeField] private Pattern pufferFishPattern;
- [SerializeField] private Pattern snackerPattern;
- [SerializeField] private Pattern wilmaPattern;
+ [System.Serializable]
+ public class PatternData
+ {
+     public string displayName;
+     public Pattern pattern;
+     public Button button;
+ }
+ 
+ [SerializeField] private List<PatternData> patterns = new List<PatternData>();
  
  [SerializeField] private Button orionButton;
  [SerializeField] private Button tetrisButton;
@@ -39,6 +42,7 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private Button pufferFishButton;
  [SerializeField] private Button snackerButton;
  [SerializeField] private Button wilmaButton;
+ [SerializeField] private Button achimsP16Button;
  [SerializeField] private Button exitButton;
  [SerializeField] private Button resumeButton;
  [SerializeField] private Button pauseButton;
@@ -58,12 +62,6 @@ public class SimulationSettings : MonoBehaviour
      pausePanel.SetActive(false);
      currentPatterntxt.text = "Pentomino-R";
      restartButton.onClick.AddListener(RestartSimulation);
-     orionButton.onClick.AddListener(SelectOrionPattern);
-     tetrisButton.onClick.AddListener(SelectTetrisPattern);
-     pentominoButton.onClick.AddListener(SelectPentominoPattern);
-     pufferFishButton.onClick.AddListener(SelectPufferFishPattern);
-     snackerButton.onClick.AddListener(SelectSnackerPattern);
-     wilmaButton.onClick.AddListener(SelectWilmaPattern);
      exitButton.onClick.AddListener(JumptoRulesScene);
      resumeButton.onClick.AddListener(ResumeGame);
      pauseButton.onClick.AddListener(PauseGame);
@@ -71,6 +69,12 @@ public class SimulationSettings : MonoBehaviour
      patternMenuOpenButton.onClick.AddListener(OpenPatternMenu);
      patternMenuCloseButton.onClick.AddListener(ClosePatternMenu);
      rulesTabCloseButton.onClick.AddListener(CloseRulesTab);
+     
+     // Pattern Setup
+     foreach (var patternData in patterns)
+     {
+         patternData.button.onClick.AddListener(() => SelectPattern(patternData.pattern, patternData.displayName));
+     }
  }
 
  private void OpenRulesTab()
@@ -190,61 +194,16 @@ public class SimulationSettings : MonoBehaviour
      FindObjectOfType<GameBoard>().Restart();
      mainCamera.transform.position = new Vector3(0, 0, -10);
  }
-
- private void SelectWilmaPattern()
+ 
+ private void SelectPattern(Pattern pattern, string displayName)
  {
-     gameBoard.pattern = wilmaPattern;
+     gameBoard.pattern = pattern;
      mainCamera.transform.position = new Vector3(0, 0, -10);
      gameBoard.Restart();
-     currentPattern = "Wilma";
+     currentPattern = displayName;
      currentPatterntxt.text = currentPattern;
  }
  
- private void SelectSnackerPattern()
- {
-     gameBoard.pattern = snackerPattern;
-     mainCamera.transform.position = new Vector3(0, 0, -10);
-     gameBoard.Restart();
-     currentPattern = "Snacker";
-     currentPatterntxt.text = currentPattern;
- }
- 
- void SelectPufferFishPattern()
- {
-     gameBoard.pattern = pufferFishPattern;
-     mainCamera.transform.position = new Vector3(0, 0, -10);
-     gameBoard.Restart();
-     currentPattern = "Puffer Fish";
-     currentPatterntxt.text = currentPattern;
- }
- 
- void SelectOrionPattern()
- {
-     gameBoard.pattern = orionPattern;
-     mainCamera.transform.position = new Vector3(0, 0, -10);
-     gameBoard.Restart();
-     currentPattern = "Orion-2";
-     currentPatterntxt.text = currentPattern;
- }
- 
- void SelectPentominoPattern()
- {
-     gameBoard.pattern = pentominoPattern;
-     mainCamera.transform.position = new Vector3(0, 0, -10);
-     gameBoard.Restart();
-     currentPattern = "Pentomino-R";
-     currentPatterntxt.text = currentPattern;
- }
-
- void SelectTetrisPattern()
- {
-     gameBoard.pattern = tetrisPattern;
-     mainCamera.transform.position = new Vector3(0, 0, -10);
-     gameBoard.Restart();
-     currentPattern = "Tetris";
-     currentPatterntxt.text = currentPattern;
- }
-
  void OnPressedExitButton()
  {
      Application.Quit();
