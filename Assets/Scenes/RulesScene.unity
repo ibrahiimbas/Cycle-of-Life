@@ -753,6 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButton: {fileID: 1455169555}
   exitButton: {fileID: 1011041726}
+  currentTimeText: {fileID: 332586096}
 --- !u!1 &421894608
 GameObject:
   m_ObjectHideFlags: 0
