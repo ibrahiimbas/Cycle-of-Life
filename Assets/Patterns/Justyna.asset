@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3603a69a7c30f4c8cabcfa35eb42ff, type: 3}
+  m_Name: Justyna
+  m_EditorClassIdentifier: Assembly-CSharp::Pattern
+  cells:
+  - {x: 0, y: 0}
+  - {x: 0, y: 1}
+  - {x: 0, y: 2}
+  - {x: -1, y: 4}
+  - {x: -1, y: 5}
+  - {x: -2, y: 6}
+  - {x: -1, y: 7}
+  - {x: 0, y: 5}
+  - {x: 1, y: 5}
+  - {x: 1, y: 6}
+  - {x: 2, y: 4}
+  - {x: 1, y: -8}
+  - {x: 2, y: -8}
+  - {x: 3, y: -8}
+  - {x: -5, y: -9}
+  - {x: -6, y: -9}
+  - {x: -7, y: -9}
+  - {x: -17, y: 1}
+  - {x: -17, y: 1}
+  - {x: -18, y: 2}
