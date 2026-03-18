@@ -1,81 +1,151 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
 using TMPro;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 using UnityEngine.UI;
-using Button = UnityEngine.UI.Button;
 
 public class SimulationSettings : MonoBehaviour
 {
     public Camera mainCamera;
     private string currentPattern;
-    private bool isPaused=false;
+    private bool isPaused = false;
     public TextMeshProUGUI pauseText;
 
+    [Header("Script References")]
     [SerializeField] private CameraScript cameraScript;
- [SerializeField] private Button restartButton;
- [SerializeField] private TextMeshProUGUI currentPatterntxt;
- [SerializeField] private GameObject pausePanel;
- [SerializeField] private GameObject pauseBackground;
- [SerializeField] private GameObject selectPatternPanelOpened;
- [SerializeField] private GameObject selectPatternPanelClosed;
- [SerializeField] private GameObject rulesTab;
- 
- [System.Serializable]
- public class PatternData
- {
-     public string displayName;
-     public Pattern pattern;
-     public Button button;
- }
- 
- [SerializeField] private List<PatternData> patterns = new List<PatternData>();
- 
- [SerializeField] private Button orionButton;
- [SerializeField] private Button tetrisButton;
- [SerializeField] private Button pentominoButton;
- [SerializeField] private Button pufferFishButton;
- [SerializeField] private Button snackerButton;
- [SerializeField] private Button wilmaButton;
- [SerializeField] private Button achimsP16Button;
- [SerializeField] private Button exitButton;
- [SerializeField] private Button resumeButton;
- [SerializeField] private Button pauseButton;
- [SerializeField] private Button rulesButton;
- [SerializeField] private Button patternMenuOpenButton;
- [SerializeField] private Button patternMenuCloseButton;
- [SerializeField] private Button rulesTabCloseButton;
- 
- [SerializeField] private TextFlicker textFlicker;
+    [SerializeField] private GameBoard gameBoard;
+    [SerializeField] private TextFlicker textFlicker;
 
- public GameBoard gameBoard;
+    [Header("UI Panels")]
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject pauseBackground;
+    [SerializeField] private GameObject selectPatternPanelOpened;
+    [SerializeField] private GameObject selectPatternPanelClosed;
+    [SerializeField] private GameObject rulesTab;
+    [SerializeField] private TextMeshProUGUI currentPatterntxt;
 
- public void Start()
- {
-    // clickeEffectResume.Stop();
-     //pauseText.enabled = false;
-     pausePanel.SetActive(false);
-     currentPatterntxt.text = "Pentomino-R";
-     restartButton.onClick.AddListener(RestartSimulation);
-     exitButton.onClick.AddListener(JumptoRulesScene);
-     resumeButton.onClick.AddListener(ResumeGame);
-     pauseButton.onClick.AddListener(PauseGame);
-     rulesButton.onClick.AddListener(OpenRulesTab);
-     patternMenuOpenButton.onClick.AddListener(OpenPatternMenu);
-     patternMenuCloseButton.onClick.AddListener(ClosePatternMenu);
-     rulesTabCloseButton.onClick.AddListener(CloseRulesTab);
-     
-     // Pattern Setup
-     foreach (var patternData in patterns)
-     {
-         patternData.button.onClick.AddListener(() => SelectPattern(patternData.pattern, patternData.displayName));
-     }
- }
+    [Header("Pattern Buttons")]
+    [SerializeField] private GameObject patternButtonPrefab;
+    [SerializeField] private Transform patternButtonContainer;
+
+    [System.Serializable]
+    public class PatternData
+    {
+        public string displayName;
+        public Pattern pattern;
+    }
+
+    [SerializeField] private List<PatternData> patterns = new List<PatternData>();
+
+    [Header("Control Buttons")]
+    [SerializeField] private Button exitButton;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button pauseButton;
+    [SerializeField] private Button rulesButton;
+    [SerializeField] private Button restartButton;
+    [SerializeField] private Button patternMenuOpenButton;
+    [SerializeField] private Button patternMenuCloseButton;
+    [SerializeField] private Button rulesTabCloseButton;
+
+    private List<Button> patternButtons = new List<Button>();
+
+    public void Start()
+    {
+        InitializeUI();
+        SetupButtons();
+        CreatePatternButtons();
+    }
+
+    private void InitializeUI()
+    {
+        pausePanel.SetActive(false);
+        rulesTab.SetActive(false);
+        selectPatternPanelClosed.SetActive(true);
+        selectPatternPanelOpened.SetActive(false);
+        
+        if (patterns.Count > 0)
+        {
+            currentPatterntxt.text = patterns[0].displayName;
+        }
+    }
+
+    private void SetupButtons()
+    {
+        restartButton.onClick.AddListener(RestartSimulation);
+        exitButton.onClick.AddListener(JumptoRulesScene);
+        resumeButton.onClick.AddListener(ResumeGame);
+        pauseButton.onClick.AddListener(PauseGame);
+        rulesButton.onClick.AddListener(OpenRulesTab);
+        patternMenuOpenButton.onClick.AddListener(OpenPatternMenu);
+        patternMenuCloseButton.onClick.AddListener(ClosePatternMenu);
+        rulesTabCloseButton.onClick.AddListener(CloseRulesTab);
+    }
+
+    private void CreatePatternButtons()
+    {
+        if (patternButtonPrefab == null || patternButtonContainer == null)
+        {
+            Debug.LogError("Missin pattern button prefab or target container");
+            return;
+        }
+
+        // Clear existing button if there are any
+        foreach (Transform child in patternButtonContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        patternButtons.Clear();
+
+        foreach (var patternData in patterns)
+        {
+            GameObject newButtonObj = Instantiate(patternButtonPrefab, patternButtonContainer);
+            
+            Button newButton = newButtonObj.GetComponent<Button>();
+            
+            TextMeshProUGUI buttonText = newButtonObj.GetComponentInChildren<TextMeshProUGUI>();
+            if (buttonText != null)
+            {
+                buttonText.text = patternData.displayName;
+            }
+            
+            newButtonObj.name = "pattern_button_" + patternData.displayName;
+            
+            Pattern capturedPattern = patternData.pattern;
+            string capturedName = patternData.displayName;
+            newButton.onClick.AddListener(() => SelectPattern(capturedPattern, capturedName));
+            
+            patternButtons.Add(newButton);
+        }
+        
+        Debug.Log($"{patternButtons.Count} pattern buttons created");
+    }
+
+    public void AddNewPattern(string displayName, Pattern pattern)
+    {
+        PatternData newPattern = new PatternData
+        {
+            displayName = displayName,
+            pattern = pattern
+        };
+        patterns.Add(newPattern);
+        
+        if (patternButtons.Count > 0)
+        {
+            CreatePatternButtons();
+        }
+    }
+    
+    public void RemovePattern(string displayName)
+    {
+        patterns.RemoveAll(p => p.displayName == displayName);
+        
+        if (patternButtons.Count > 0)
+        {
+            CreatePatternButtons();
+        }
+    }
 
  private void OpenRulesTab()
  {
