@@ -24,6 +24,7 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private GameObject pauseBackground;
  [SerializeField] private GameObject selectPatternPanelOpened;
  [SerializeField] private GameObject selectPatternPanelClosed;
+ [SerializeField] private GameObject rulesTab;
  
  [SerializeField] private Pattern orionPattern;
  [SerializeField] private Pattern tetrisPattern;
@@ -44,6 +45,7 @@ public class SimulationSettings : MonoBehaviour
  [SerializeField] private Button rulesButton;
  [SerializeField] private Button patternMenuOpenButton;
  [SerializeField] private Button patternMenuCloseButton;
+ [SerializeField] private Button rulesTabCloseButton;
  
  [SerializeField] private TextFlicker textFlicker;
 
@@ -62,14 +64,73 @@ public class SimulationSettings : MonoBehaviour
      pufferFishButton.onClick.AddListener(SelectPufferFishPattern);
      snackerButton.onClick.AddListener(SelectSnackerPattern);
      wilmaButton.onClick.AddListener(SelectWilmaPattern);
-     exitButton.onClick.AddListener(OnPressedExitButton);
+     exitButton.onClick.AddListener(JumptoRulesScene);
      resumeButton.onClick.AddListener(ResumeGame);
      pauseButton.onClick.AddListener(PauseGame);
-     rulesButton.onClick.AddListener(JumptoRulesScene);
+     rulesButton.onClick.AddListener(OpenRulesTab);
      patternMenuOpenButton.onClick.AddListener(OpenPatternMenu);
      patternMenuCloseButton.onClick.AddListener(ClosePatternMenu);
+     rulesTabCloseButton.onClick.AddListener(CloseRulesTab);
  }
 
+ private void OpenRulesTab()
+ {
+     if (isPaused == true)
+     {
+         // For changing button states timeScale would be 1 for a moment
+         Time.timeScale = 1f;
+     }
+     else
+     {
+         isPaused = !isPaused;
+     }
+     exitButton.interactable = false;
+     rulesButton.interactable = false;
+     restartButton.interactable = false;
+     pauseButton.interactable = false;
+     resumeButton.interactable = false;
+     patternMenuOpenButton.interactable = false;
+     cameraScript.speedSlider.interactable = false;
+     cameraScript.zoomSlider.interactable = false;
+     ClosePatternMenu();
+     
+     if (isPaused == true)
+     {
+         rulesTab.SetActive(true);
+         pauseBackground.SetActive(true);
+         Time.timeScale = 0f;
+     }
+ }
+ 
+ private void CloseRulesTab()
+ {
+     if (isPaused == false)
+     {
+         // don't change state if game is already paused 
+     }
+     else
+     {
+         isPaused = !isPaused;
+     }
+     exitButton.interactable = true;
+     rulesButton.interactable = true;
+     restartButton.interactable = true;
+     resumeButton.interactable = false;
+     pauseButton.interactable = true;
+     patternMenuOpenButton.interactable = true;
+     cameraScript.speedSlider.interactable = true;
+     cameraScript.zoomSlider.interactable = true;
+     ClosePatternMenu();
+     
+     if (isPaused == false)
+     {
+         rulesTab.SetActive(false);
+         pauseBackground.SetActive(false);
+         pausePanel.SetActive(false);
+         Time.timeScale = 1f;
+     }
+ }
+ 
  private void OpenPatternMenu()
  {
      selectPatternPanelClosed.SetActive(false);
@@ -94,6 +155,8 @@ public class SimulationSettings : MonoBehaviour
      resumeButton.interactable = true;
      cameraScript.speedSlider.interactable = false;
      cameraScript.zoomSlider.interactable = false;
+     ClosePatternMenu();
+     patternMenuOpenButton.interactable = false;
      isPaused = !isPaused;
      if (isPaused == true)
      {
@@ -111,6 +174,7 @@ public class SimulationSettings : MonoBehaviour
      pauseButton.interactable = true;
      cameraScript.speedSlider.interactable = true;
      cameraScript.zoomSlider.interactable = true;
+     patternMenuOpenButton.interactable = true;
      isPaused = !isPaused;
      if (isPaused == false)
      {
