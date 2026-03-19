@@ -53,6 +53,8 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private Button themeMenuCloseButton;
     [SerializeField] private Button rulesTabCloseButton;
 
+    [SerializeField] private AudioSource notifySound;
+
     private List<Button> patternButtons = new List<Button>();
 
     public void Start()
@@ -155,6 +157,7 @@ public class SimulationSettings : MonoBehaviour
 
  private void OpenRulesTab()
  {
+     notifySound.Play();
      if (isPaused == true)
      {
          // For changing button states timeScale would be 1 for a moment
