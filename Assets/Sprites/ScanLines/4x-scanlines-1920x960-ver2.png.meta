@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 0bb914fd2e94a064381d08d239db975d
+guid: 97ce6aa4b4caefc4eba93c38a571eaa4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7137182747506808578
-    second: msg_question-0_0
+      213: 6564297921962079098
+    second: 4x-scanlines-1920x960-ver2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -51,13 +51,13 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
+  alphaUsage: 2
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 10
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -74,8 +74,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: msg_question-0_0
+      name: 4x-scanlines-1920x960-ver2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 1920
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 207903af4ed5c0360800000000000000
-      internalID: 7137182747506808578
+      spriteID: a73726e4e22191b50800000000000000
+      internalID: 6564297921962079098
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      msg_question-0_0: 7137182747506808578
+      4x-scanlines-1920x960-ver2_0: 6564297921962079098
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

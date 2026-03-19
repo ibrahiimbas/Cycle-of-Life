@@ -954,7 +954,6 @@ GameObject:
   - component: {fileID: 348897102}
   - component: {fileID: 348897101}
   - component: {fileID: 348897100}
-  - component: {fileID: 348897103}
   - component: {fileID: 348897104}
   m_Layer: 0
   m_Name: Main Camera
@@ -1037,29 +1036,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &348897103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348897099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 442987e6a2f251e47bcadc4d17b93b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backButton: {fileID: 1455169555}
-  exitButton: {fileID: 1011041726}
-  closeNotepadTabButton: {fileID: 1802414614}
-  notepadBottomToggle: {fileID: 1116486803}
-  currentTimeText: {fileID: 332586096}
-  notepadTab: {fileID: 1336496459}
-  notepadImage: {fileID: 1336496461}
-  notepadOpenSprite: {fileID: -6763024814601447701, guid: 684889b94590ff847bff44744484223c, type: 3}
-  notepadClosedSprite: {fileID: -6443241793956281255, guid: abaa947db322a4b4d89b3c87ce1df301, type: 3}
-  notepadTabHeaderText: {fileID: 1993782926}
-  inactiveHeaderColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
 --- !u!114 &348897104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,6 +1993,77 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!1 &1229161526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229161527}
+  - component: {fileID: 1229161528}
+  - component: {fileID: 1229161529}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1229161527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229161526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 470.15457, y: 417.0838, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1229161528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229161526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442987e6a2f251e47bcadc4d17b93b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backButton: {fileID: 1455169555}
+  exitButton: {fileID: 1011041726}
+  closeNotepadTabButton: {fileID: 1802414614}
+  notepadBottomToggle: {fileID: 1116486803}
+  currentTimeText: {fileID: 332586096}
+  notepadTab: {fileID: 1336496459}
+  notepadImage: {fileID: 1336496461}
+  notepadOpenSprite: {fileID: -6763024814601447701, guid: 684889b94590ff847bff44744484223c, type: 3}
+  notepadClosedSprite: {fileID: -6443241793956281255, guid: abaa947db322a4b4d89b3c87ce1df301, type: 3}
+  notepadTabHeaderText: {fileID: 1993782926}
+  inactiveHeaderColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
+--- !u!114 &1229161529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229161526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e59c75771756da418d6794537feb2f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CursorManager
+  cursorMain: {fileID: 2800000, guid: d93b985f864a1f14ba8db25af48bf4d8, type: 3}
+  cursorClickable: {fileID: 2800000, guid: e404b09912d918844bb8dd0f21219d44, type: 3}
+  cursorLoading: {fileID: 2800000, guid: c80a135fadca7c546b5458be1fbd6030, type: 3}
 --- !u!1 &1279042739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,3 +3250,4 @@ SceneRoots:
   - {fileID: 1334888475}
   - {fileID: 33983362}
   - {fileID: 2143927529}
+  - {fileID: 1229161527}
