@@ -11,19 +11,23 @@ public class ClickSoundEffectScript : MonoBehaviour
    public AudioClip clickSound;
    private AudioSource audioSource;
 
-   private void Start()
+   void Start()
    {
+      // Get the AudioSource component attached to this GameObject
       audioSource = GetComponent<AudioSource>();
-      Button[] buttons = FindObjectsOfType<Button>();
-      foreach (Button button in buttons)
+      if (audioSource == null)
       {
-         button.onClick.AddListener(()=>PlayClickSound());
+         // Add an AudioSource if one doesn't exist
+         audioSource = gameObject.AddComponent<AudioSource>();
       }
    }
 
-   void PlayClickSound()
+   void Update()
    {
-      audioSource.PlayOneShot(clickSound);
-      UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null); //Do not focus the button after pressed
+      // Check if the left mouse button is clicked
+      if (Input.GetMouseButtonDown(0) && clickSound != null)
+      {
+         audioSource.PlayOneShot(clickSound);
+      }
    }
 }
