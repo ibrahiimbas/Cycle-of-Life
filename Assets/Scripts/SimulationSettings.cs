@@ -25,6 +25,8 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private GameObject selectPatternPanelClosed;
     [SerializeField] private GameObject rulesTab;
     [SerializeField] private TextMeshProUGUI currentPatterntxt;
+    [SerializeField] private GameObject themesPanelOpened;
+    [SerializeField] private GameObject themesPanelClosed;
 
     [Header("Pattern Buttons")]
     [SerializeField] private GameObject patternButtonPrefab;
@@ -47,6 +49,8 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private Button restartButton;
     [SerializeField] private Button patternMenuOpenButton;
     [SerializeField] private Button patternMenuCloseButton;
+    [SerializeField] private Button themeMenuOpenButton;
+    [SerializeField] private Button themeMenuCloseButton;
     [SerializeField] private Button rulesTabCloseButton;
 
     private List<Button> patternButtons = new List<Button>();
@@ -80,6 +84,8 @@ public class SimulationSettings : MonoBehaviour
         rulesButton.onClick.AddListener(OpenRulesTab);
         patternMenuOpenButton.onClick.AddListener(OpenPatternMenu);
         patternMenuCloseButton.onClick.AddListener(ClosePatternMenu);
+        themeMenuOpenButton.onClick.AddListener(OpenThemeMenu);
+        themeMenuCloseButton.onClick.AddListener(CloseThemeMenu);
         rulesTabCloseButton.onClick.AddListener(CloseRulesTab);
     }
 
@@ -163,10 +169,12 @@ public class SimulationSettings : MonoBehaviour
      restartButton.interactable = false;
      pauseButton.interactable = false;
      resumeButton.interactable = false;
-     patternMenuOpenButton.interactable = false;
      cameraScript.speedSlider.interactable = false;
      cameraScript.zoomSlider.interactable = false;
      ClosePatternMenu();
+     CloseThemeMenu();
+     patternMenuOpenButton.interactable = false;
+     themeMenuOpenButton.interactable = false;
      
      if (isPaused == true)
      {
@@ -191,10 +199,12 @@ public class SimulationSettings : MonoBehaviour
      restartButton.interactable = true;
      resumeButton.interactable = false;
      pauseButton.interactable = true;
-     patternMenuOpenButton.interactable = true;
      cameraScript.speedSlider.interactable = true;
      cameraScript.zoomSlider.interactable = true;
      ClosePatternMenu();
+     CloseThemeMenu();
+     patternMenuOpenButton.interactable = true;
+     themeMenuOpenButton.interactable = true;
      
      if (isPaused == false)
      {
@@ -216,6 +226,18 @@ public class SimulationSettings : MonoBehaviour
      selectPatternPanelOpened.SetActive(false);
      selectPatternPanelClosed.SetActive(true);
  }
+
+ private void OpenThemeMenu()
+ {
+     themesPanelOpened.SetActive(true);
+     themesPanelClosed.SetActive(false);
+ }
+
+ private void CloseThemeMenu()
+ {
+     themesPanelOpened.SetActive(false);
+     themesPanelClosed.SetActive(true);
+ }
  
  private void JumptoRulesScene()
  {
@@ -230,7 +252,9 @@ public class SimulationSettings : MonoBehaviour
      cameraScript.speedSlider.interactable = false;
      cameraScript.zoomSlider.interactable = false;
      ClosePatternMenu();
+     CloseThemeMenu();
      patternMenuOpenButton.interactable = false;
+     themeMenuOpenButton.interactable = false;
      isPaused = !isPaused;
      if (isPaused == true)
      {
@@ -249,6 +273,7 @@ public class SimulationSettings : MonoBehaviour
      cameraScript.speedSlider.interactable = true;
      cameraScript.zoomSlider.interactable = true;
      patternMenuOpenButton.interactable = true;
+     themeMenuOpenButton.interactable = true;
      isPaused = !isPaused;
      if (isPaused == false)
      {

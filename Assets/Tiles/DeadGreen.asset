@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: DeadGreen
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 5965444467245019713, guid: cd3da5ee782dba0419158a0e33d40d76, type: 3}
-  m_Color: {r: 0.019108761, g: 0.23584908, b: 0.0055624777, a: 1}
+  m_Sprite: {fileID: -4057744267899229340, guid: 304ca6771ad510c4b84fbdedbf9648e8, type: 3}
+  m_Color: {r: 0.20563914, g: 0.5754717, b: 0.1764418, a: 1}
   m_Transform:
     e00: 1
     e01: 0
