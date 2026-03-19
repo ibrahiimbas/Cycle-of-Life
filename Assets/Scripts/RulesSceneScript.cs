@@ -18,8 +18,12 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Button exitButton;
     [SerializeField] private Button closeNotepadTabButton;
     [SerializeField] private Toggle notepadBottomToggle;
+    [SerializeField] private Button controlPanelButton;
+    [SerializeField] private Button closeControlPanelButton;
+    
     [SerializeField] private TextMeshProUGUI currentTimeText;
     [SerializeField] private GameObject notepadTab;
+    [SerializeField] private GameObject controlPanelTab;
     [SerializeField] private Image notepadImage;
     [SerializeField] private Sprite notepadOpenSprite;
     [SerializeField] private Sprite notepadClosedSprite;
@@ -35,6 +39,8 @@ public class RulesSceneScript : MonoBehaviour
         exitButton.onClick.AddListener(ExitSimulation);
         closeNotepadTabButton.onClick.AddListener(CloseNotepadTab);
         notepadBottomToggle.onValueChanged.AddListener(OnNotepadToggleChanged);
+        controlPanelButton.onClick.AddListener(OpenControlPanelTab);
+        closeControlPanelButton.onClick.AddListener(CloseControlPanelTab);
         originalHeaderColor = notepadTabHeaderText.color;
     }
 
@@ -53,6 +59,22 @@ public class RulesSceneScript : MonoBehaviour
     private void ExitSimulation()
     {
         Application.Quit();
+    }
+
+    private void OpenControlPanelTab()
+    {
+        controlPanelTab.SetActive(true);
+        controlPanelButton.interactable = false;
+        notepadImage.sprite = notepadClosedSprite;
+        notepadTabHeaderText.color = inactiveHeaderColor;
+    }
+
+    private void CloseControlPanelTab()
+    {
+        controlPanelTab.SetActive(false);
+        controlPanelButton.interactable = true;
+        notepadImage.sprite = notepadOpenSprite;
+        notepadTabHeaderText.color = originalHeaderColor;
     }
 
     private void CloseNotepadTab()

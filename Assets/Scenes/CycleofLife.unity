@@ -5609,7 +5609,7 @@ MonoBehaviour:
   mainCursor: {fileID: 2800000, guid: d93b985f864a1f14ba8db25af48bf4d8, type: 3}
   hoverCursor: {fileID: 2800000, guid: e404b09912d918844bb8dd0f21219d44, type: 3}
   actionCursor: {fileID: 2800000, guid: c80a135fadca7c546b5458be1fbd6030, type: 3}
-  hotSpot: {x: 0, y: 0}
+  hotSpot: {x: 10, y: 10}
   actionDuration: 0.25
 --- !u!1 &1486450295
 GameObject:
