@@ -2061,9 +2061,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e59c75771756da418d6794537feb2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CursorManager
-  cursorMain: {fileID: 2800000, guid: d93b985f864a1f14ba8db25af48bf4d8, type: 3}
-  cursorClickable: {fileID: 2800000, guid: e404b09912d918844bb8dd0f21219d44, type: 3}
-  cursorLoading: {fileID: 2800000, guid: c80a135fadca7c546b5458be1fbd6030, type: 3}
+  mainCursor: {fileID: 2800000, guid: d93b985f864a1f14ba8db25af48bf4d8, type: 3}
+  hoverCursor: {fileID: 2800000, guid: e404b09912d918844bb8dd0f21219d44, type: 3}
+  actionCursor: {fileID: 2800000, guid: c80a135fadca7c546b5458be1fbd6030, type: 3}
+  hotSpot: {x: 0, y: 0}
+  actionDuration: 0.25
 --- !u!1 &1279042739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,10 +2736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2756,7 +2758,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 348897101}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 10
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2766,7 +2768,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1672564474
 RectTransform:
@@ -3249,5 +3251,5 @@ SceneRoots:
   - {fileID: 1672564474}
   - {fileID: 1334888475}
   - {fileID: 33983362}
-  - {fileID: 2143927529}
   - {fileID: 1229161527}
+  - {fileID: 2143927529}
