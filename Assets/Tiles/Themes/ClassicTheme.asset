@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ff83821576f4d4e9fbcd9b09d4331b, type: 3}
   m_Name: ClassicTheme
   m_EditorClassIdentifier: Assembly-CSharp::Theme
+  themeDisplayName: Classic
   aliveVisual: {fileID: 11400000, guid: 2ca1e3be2f2ff724f9d9d8129fd49063, type: 2}
   deadVisual: {fileID: 11400000, guid: e05a01dc9a4c65b4f85ba1715e721389, type: 2}
   backgroundColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}

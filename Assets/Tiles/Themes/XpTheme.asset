@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ff83821576f4d4e9fbcd9b09d4331b, type: 3}
   m_Name: XpTheme
   m_EditorClassIdentifier: Assembly-CSharp::Theme
+  themeDisplayName: Windows XP
   aliveVisual: {fileID: 11400000, guid: 2fafa05c421a2c64d812abec6431420c, type: 2}
   deadVisual: {fileID: 11400000, guid: 23d4a464dc685f84c8594bf99b03b96f, type: 2}
   backgroundColor: {r: 0.20558916, g: 0.31609738, b: 0.41509432, a: 255}

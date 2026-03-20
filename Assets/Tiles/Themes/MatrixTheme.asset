@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ff83821576f4d4e9fbcd9b09d4331b, type: 3}
   m_Name: MatrixTheme
   m_EditorClassIdentifier: Assembly-CSharp::Theme
+  themeDisplayName: Matrix
   aliveVisual: {fileID: 11400000, guid: 866fe3a389eac3e4882957ff31856004, type: 2}
   deadVisual: {fileID: 11400000, guid: 9af8534849dfe0d438faf0d8610c3062, type: 2}
   backgroundColor: {r: 0.059299167, g: 0.20754719, b: 0, a: 255}

@@ -17,6 +17,7 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private CameraScript cameraScript;
     [SerializeField] private GameBoard gameBoard;
     [SerializeField] private TextFlicker textFlicker;
+    [SerializeField] private ThemeManager themeManager;
 
     [Header("UI Panels")]
     [SerializeField] private GameObject pausePanel;
@@ -27,6 +28,10 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentPatterntxt;
     [SerializeField] private GameObject themesPanelOpened;
     [SerializeField] private GameObject themesPanelClosed;
+    
+    [Header("Theme Buttons")]
+    [SerializeField] private GameObject themeButtonPrefab;
+    [SerializeField] private Transform themeButtonContainer;
 
     [Header("Pattern Buttons")]
     [SerializeField] private GameObject patternButtonPrefab;
@@ -56,12 +61,14 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private AudioSource notifySound;
 
     private List<Button> patternButtons = new List<Button>();
+    private List<Button> themeButtons = new List<Button>();
 
     public void Start()
     {
         InitializeUI();
         SetupButtons();
         CreatePatternButtons();
+        CreateThemeButtons();
     }
 
     private void InitializeUI()
@@ -130,6 +137,63 @@ public class SimulationSettings : MonoBehaviour
         Debug.Log($"{patternButtons.Count} pattern buttons created");
     }
 
+    private void CreateThemeButtons()
+    {
+        if (themeButtonPrefab == null || themeButtonContainer == null)
+        {
+            Debug.LogError("Missing theme button prefab or target container");
+            return;
+        }
+
+        if (themeManager == null)
+        {
+            Debug.LogError("Theme Manager is not assigned!");
+            return;
+        }
+
+        foreach (Transform child in themeButtonContainer)
+        {
+            Destroy(child.gameObject);
+        }
+        themeButtons.Clear();
+
+        List<Theme> themes = themeManager.GetAllThemes();
+        
+        for (int i = 0; i < themes.Count; i++)
+        {
+            Theme theme = themes[i];
+            int themeIndex = i;
+
+            GameObject newButtonObj = Instantiate(themeButtonPrefab, themeButtonContainer);
+            
+            Button newButton = newButtonObj.GetComponent<Button>();
+
+            TextMeshProUGUI buttonText = newButtonObj.GetComponentInChildren<TextMeshProUGUI>();
+            if (buttonText != null)
+            {
+                buttonText.text = theme.themeDisplayName;
+            }
+            
+            newButtonObj.name = "theme_button_" + theme.themeDisplayName;
+            
+            newButton.onClick.AddListener(() => SelectTheme(theme, themeIndex));
+            
+            themeButtons.Add(newButton);
+        }
+        
+        Debug.Log($"{themeButtons.Count} theme buttons created");
+    }
+    
+    private void SelectTheme(Theme theme, int index)
+    {
+        if (themeManager != null)
+        {
+            themeManager.ApplyThemeByIndex(index);
+            
+            Debug.Log($"Theme selected: {theme.name} at index {index}");
+        }
+    }
+    
     public void AddNewPattern(string displayName, Pattern pattern)
     {
         PatternData newPattern = new PatternData

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ff83821576f4d4e9fbcd9b09d4331b, type: 3}
   m_Name: MedievalTheme
   m_EditorClassIdentifier: Assembly-CSharp::Theme
+  themeDisplayName: Medieval
   aliveVisual: {fileID: 11400000, guid: de94114b4b035b744820741c0629e020, type: 2}
   deadVisual: {fileID: 11400000, guid: 4da0c36409bbab24db0e877657f2dc0f, type: 2}
   backgroundColor: {r: 0.2830189, g: 0.14484785, b: 0, a: 255}

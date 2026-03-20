@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71ff83821576f4d4e9fbcd9b09d4331b, type: 3}
-  m_Name: BloodTheme
+  m_Name: HalfLifeTheme
   m_EditorClassIdentifier: Assembly-CSharp::Theme
-  themeDisplayName: Blood
-  aliveVisual: {fileID: 11400000, guid: 22d57e9f840bcd44eb942cb6d5f75889, type: 2}
-  deadVisual: {fileID: 11400000, guid: a8fa5f253cf29c84c9c54297dbf8e8de, type: 2}
-  backgroundColor: {r: 0.18867922, g: 0, b: 0, a: 255}
+  themeDisplayName: Half-Life
+  aliveVisual: {fileID: 11400000, guid: 2f0e932d1d7cefb48833a024c06d8f4d, type: 2}
+  deadVisual: {fileID: 11400000, guid: 2a460e811cbbbf341a7343eddb62625e, type: 2}
+  backgroundColor: {r: 0.08235294, g: 0.08235294, b: 0.08235294, a: 255}

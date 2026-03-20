@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71ff83821576f4d4e9fbcd9b09d4331b, type: 3}
-  m_Name: BloodTheme
+  m_Name: ContrastTheme
   m_EditorClassIdentifier: Assembly-CSharp::Theme
-  themeDisplayName: Blood
-  aliveVisual: {fileID: 11400000, guid: 22d57e9f840bcd44eb942cb6d5f75889, type: 2}
-  deadVisual: {fileID: 11400000, guid: a8fa5f253cf29c84c9c54297dbf8e8de, type: 2}
-  backgroundColor: {r: 0.18867922, g: 0, b: 0, a: 255}
+  themeDisplayName: Contrast
+  aliveVisual: {fileID: 11400000, guid: 879a548667262bb45a9a5ab7a6be6f6a, type: 2}
+  deadVisual: {fileID: 11400000, guid: d8b48630e465ce349a9ca267f697445b, type: 2}
+  backgroundColor: {r: 0.11320752, g: 0, b: 0.08529873, a: 255}
