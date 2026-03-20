@@ -15,15 +15,21 @@ using Toggle = UnityEngine.UI.Toggle;
 public class RulesSceneScript : MonoBehaviour
 {
     [SerializeField] private Button backButton;
-    [SerializeField] private Button exitButton;
     [SerializeField] private Button closeNotepadTabButton;
     [SerializeField] private Toggle notepadBottomToggle;
     [SerializeField] private Button controlPanelButton;
     [SerializeField] private Button closeControlPanelButton;
+    [SerializeField] private Button startButton;
+    [SerializeField] private Button shutDownTabButton;
+    [SerializeField] private Button closeShutDownButton;
+    [SerializeField] private Button okButton;
+    [SerializeField] private Button cancelShutButton;
     
     [SerializeField] private TextMeshProUGUI currentTimeText;
     [SerializeField] private GameObject notepadTab;
     [SerializeField] private GameObject controlPanelTab;
+    [SerializeField] private GameObject shutDownSidePanelTab;
+    [SerializeField] private GameObject shutDownPanelTab;
     [SerializeField] private Image notepadImage;
     [SerializeField] private Sprite notepadOpenSprite;
     [SerializeField] private Sprite notepadClosedSprite;
@@ -32,15 +38,22 @@ public class RulesSceneScript : MonoBehaviour
     private string formattedTime;
     private Color originalHeaderColor;
     [SerializeField] private Color inactiveHeaderColor;
+
+    private bool isStartTabOpen = false;
     
     public void Start()
     {
         backButton.onClick.AddListener(JumpToSimulation);
-        exitButton.onClick.AddListener(ExitSimulation);
         closeNotepadTabButton.onClick.AddListener(CloseNotepadTab);
         notepadBottomToggle.onValueChanged.AddListener(OnNotepadToggleChanged);
         controlPanelButton.onClick.AddListener(OpenControlPanelTab);
         closeControlPanelButton.onClick.AddListener(CloseControlPanelTab);
+        startButton.onClick.AddListener(OpenStartTab);
+        shutDownTabButton.onClick.AddListener(OpenShutDownTab);
+        closeShutDownButton.onClick.AddListener(CloseShutDownTab);
+        cancelShutButton.onClick.AddListener(CloseShutDownTab);
+        okButton.onClick.AddListener(ExitSimulation);
+        
         originalHeaderColor = notepadTabHeaderText.color;
     }
 
@@ -59,6 +72,32 @@ public class RulesSceneScript : MonoBehaviour
     private void ExitSimulation()
     {
         Application.Quit();
+    }
+
+    private void CloseShutDownTab()
+    {
+        shutDownPanelTab.SetActive(false);
+    }
+
+    private void OpenStartTab()
+    {
+        if (isStartTabOpen)
+        {
+            shutDownSidePanelTab.SetActive(false);
+            isStartTabOpen = !isStartTabOpen;
+        }
+        else
+        {
+            shutDownSidePanelTab.SetActive(true);
+            isStartTabOpen = !isStartTabOpen;
+        }
+    }
+
+    private void OpenShutDownTab()
+    {
+        shutDownSidePanelTab.SetActive(false);
+        shutDownPanelTab.SetActive(true);
+        isStartTabOpen = !isStartTabOpen;
     }
 
     private void OpenControlPanelTab()
