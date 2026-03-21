@@ -7740,7 +7740,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1768800655}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.56303895
+  m_Size: 0.5630389
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9220,6 +9220,9 @@ MonoBehaviour:
   populationTxt: {fileID: 1667835240}
   iterationTxt: {fileID: 1212928156}
   timeTxt: {fileID: 1393942051}
+  mainCamera: {fileID: 519420031}
+  enableMouseEditing: 1
+  editModifierKey: 306
 --- !u!156049354 &1948777688
 Grid:
   m_ObjectHideFlags: 0

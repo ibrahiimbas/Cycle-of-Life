@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Mime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -26,6 +27,15 @@ public class GameBoard : MonoBehaviour
     [SerializeField] private TextMeshProUGUI populationTxt;
     [SerializeField] private TextMeshProUGUI iterationTxt;
     [SerializeField] private TextMeshProUGUI timeTxt;
+    
+    // Beta feature
+    [Header("Mouse Interaction Settings")]
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private bool enableMouseEditing = true;
+    [SerializeField] private KeyCode editModifierKey = KeyCode.LeftControl;
+    
+    private bool isMouseDragging = false;
+    private Vector3Int lastEditedCell;
     
     private HashSet<Vector3Int> aliveCells;
     private HashSet<Vector3Int> cellsToCheck;
@@ -63,6 +73,14 @@ public class GameBoard : MonoBehaviour
         
         SetPattern(pattern);
     }
+    
+    // Click to add alive cell during game is a beta feature not working properly
+    private void Update()
+    {
+        if (!enableMouseEditing) return;
+        
+        HandleMouseInput();
+    }
 
     private void OnDestroy()
     {
@@ -93,7 +111,7 @@ public class GameBoard : MonoBehaviour
             }
             else
             {
-                currentState.SetTile(cell, aliveTile); // Yedek tile
+                currentState.SetTile(cell, aliveTile);
             }
             
             aliveCells.Add(cell);
@@ -117,6 +135,7 @@ public class GameBoard : MonoBehaviour
         population = 0;
         iterations = 0;
         time = 0f;
+        isMouseDragging = false;
     }
 
     private void OnEnable()
@@ -276,7 +295,9 @@ public class GameBoard : MonoBehaviour
 
     public void Restart()
     {
+        StopSimulation();
         SetPattern(pattern);
+        StartSimulation();
     }
     
     public void ApplyTheme(Theme newTheme)
@@ -319,4 +340,115 @@ public class GameBoard : MonoBehaviour
         }
         
     }
+    
+    private void HandleMouseInput()
+    {
+        //if (IsPointerOverUI()) return;
+        
+        bool editingEnabled = editModifierKey == KeyCode.None || Input.GetKey(editModifierKey);
+        
+        if (!editingEnabled) return;
+        
+        // Mouse position to grid position
+        Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3Int cellPosition = currentState.WorldToCell(mouseWorldPos);
+        
+        // If you add one cell during game it suddenly dies because there are no enough neighbours 
+        // Dragging is more efficient 
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            AddCell(cellPosition);
+            lastEditedCell = cellPosition;
+            isMouseDragging = true;
+        }
+        
+        // Hold left click and drag
+        if (Input.GetMouseButton(0) && isMouseDragging && cellPosition != lastEditedCell)
+        {
+            AddCell(cellPosition);
+            lastEditedCell = cellPosition;
+        }
+        
+        if (Input.GetMouseButtonUp(0))
+        {
+            isMouseDragging = false;
+        }
+        
+        // Right click removing the cells
+        if (Input.GetMouseButtonDown(1))
+        {
+            RemoveCell(cellPosition);
+            lastEditedCell = cellPosition;
+            isMouseDragging = true;
+        }
+        
+        if (Input.GetMouseButton(1) && isMouseDragging && cellPosition != lastEditedCell)
+        {
+            RemoveCell(cellPosition);
+            lastEditedCell = cellPosition;
+        }
+        
+        if (Input.GetMouseButtonUp(1))
+        {
+            isMouseDragging = false;
+        }
+    }
+    
+    private void AddCell(Vector3Int cellPosition)
+    {
+        // If this grid position has live cell don't do anything
+        if (aliveCells.Contains(cellPosition)) return;
+        
+        // Stop simulation while adding cell to prevent bugs
+        bool wasSimulating = simulationCoroutine != null;
+        if (wasSimulating)
+        {
+            //StopSimulation();
+        }
+        
+        // Add cell
+        Tile tileToUse = GetAliveTileForCurrentTheme();
+        currentState.SetTile(cellPosition, tileToUse);
+        aliveCells.Add(cellPosition);
+        
+        population = aliveCells.Count;
+        UpdateUI();
+        
+        if (wasSimulating)
+        {
+            //StartSimulation();
+        }
+    }
+    
+    private void RemoveCell(Vector3Int cellPosition)
+    {
+        if (!aliveCells.Contains(cellPosition)) return;
+        
+        bool wasSimulating = simulationCoroutine != null;
+        if (wasSimulating)
+        {
+            //StopSimulation();
+        }
+        
+        Tile tileToUse = GetDeadTileForCurrentTheme();
+        currentState.SetTile(cellPosition, tileToUse);
+        aliveCells.Remove(cellPosition);
+        
+        population = aliveCells.Count;
+        UpdateUI();
+        
+        if (wasSimulating)
+        {
+            //StartSimulation();
+        }
+    }
+
+    
+    // Buggy, not working 
+    private bool IsPointerOverUI()
+    {
+        return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+    }
+    
 }
