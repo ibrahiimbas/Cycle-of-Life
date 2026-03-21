@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
+using Cursor = UnityEngine.Cursor;
 using Image = UnityEngine.UI.Image;
 using Toggle = UnityEngine.UI.Toggle; 
 
@@ -38,6 +39,9 @@ public class RulesSceneScript : MonoBehaviour
     private string formattedTime;
     private Color originalHeaderColor;
     [SerializeField] private Color inactiveHeaderColor;
+    
+    [SerializeField] private AudioSource shutDownAudio;
+    [SerializeField] private ClickSoundEffectScript clickSoundEffectObject; 
 
     private bool isStartTabOpen = false;
     
@@ -52,7 +56,7 @@ public class RulesSceneScript : MonoBehaviour
         shutDownTabButton.onClick.AddListener(OpenShutDownTab);
         closeShutDownButton.onClick.AddListener(CloseShutDownTab);
         cancelShutButton.onClick.AddListener(CloseShutDownTab);
-        okButton.onClick.AddListener(ExitSimulation);
+        okButton.onClick.AddListener(OnOKButtonClicked);
         
         originalHeaderColor = notepadTabHeaderText.color;
     }
@@ -153,4 +157,26 @@ public class RulesSceneScript : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator ShutPCDownCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        shutDownAudio.Play();
+        yield return new WaitForSeconds(shutDownAudio.clip.length);
+        ExitSimulation();
+    }
+    
+
+    private void OnOKButtonClicked()
+    {
+        if (shutDownAudio != null && shutDownAudio.clip != null)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            clickSoundEffectObject.enabled = false;
+            shutDownPanelTab.SetActive(false);
+            StartCoroutine(ShutPCDownCoroutine());
+        }
+    }
+    
 }
