@@ -28,7 +28,6 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentPatterntxt;
     [SerializeField] private GameObject themesPanelOpened;
     [SerializeField] private GameObject themesPanelClosed;
-    
     [Header("Theme Buttons")]
     [SerializeField] private GameObject themeButtonPrefab;
     [SerializeField] private Transform themeButtonContainer;
@@ -36,6 +35,10 @@ public class SimulationSettings : MonoBehaviour
     [Header("Pattern Buttons")]
     [SerializeField] private GameObject patternButtonPrefab;
     [SerializeField] private Transform patternButtonContainer;
+    
+    [Header("Scroll Views")]
+    [SerializeField] private ScrollRect patternScrollRect;
+    [SerializeField] private ScrollRect themeScrollRect;
 
     [System.Serializable]
     public class PatternData
@@ -284,6 +287,7 @@ public class SimulationSettings : MonoBehaviour
  
  private void OpenPatternMenu()
  {
+     StartCoroutine(ResetScrollRectNextFrame(patternScrollRect));
      selectPatternPanelClosed.SetActive(false);
      selectPatternPanelOpened.SetActive(true);
  }
@@ -296,6 +300,7 @@ public class SimulationSettings : MonoBehaviour
 
  private void OpenThemeMenu()
  {
+     StartCoroutine(ResetScrollRectNextFrame(themeScrollRect));
      themesPanelOpened.SetActive(true);
      themesPanelClosed.SetActive(false);
  }
@@ -369,6 +374,24 @@ public class SimulationSettings : MonoBehaviour
  void OnPressedExitButton()
  {
      Application.Quit();
+ }
+ 
+ private IEnumerator ResetScrollRectNextFrame(ScrollRect scrollRect)
+ {
+     yield return null;
+    
+     yield return new WaitForEndOfFrame();
+
+     if (scrollRect.vertical)
+     {
+         scrollRect.verticalNormalizedPosition = 1f;
+     }
+
+     else
+     {
+         scrollRect.horizontalNormalizedPosition = 0f;
+     }
+    
  }
  
 }

@@ -2887,7 +2887,7 @@ GameObject:
   - component: {fileID: 486334446}
   - component: {fileID: 486334445}
   m_Layer: 5
-  m_Name: Scrollbar
+  m_Name: scrollbar_patterns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4513,21 +4513,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "    Cycle of Life is a different version of the game, originally called
-    The Game of Life, also known as Conway's Game of Life or simply Life, is a cellular
-    automaton devised by the British mathematician John Horton Conway in 1970. It
-    is a zero-player game, meaning that its evolution is determined by its initial
-    state, requiring no further input. One interacts with the Game of Life by creating
-    an initial configuration and observing how it evolves in discrete time steps
-    called generations. There is no limit to the number of generations (computational
-    resources permitting) or win condition.\n\nRules of the Game:\n-Birth Rule: An
-    empty, or \u201Cdead,\u201D cell with precisely three \u201Clive\u201D neighbors
-    (full cells) becomes live.\n-Death Rule: A live cell with zero or one neighbors
-    dies of isolation; a live cell with four or more neighbors dies of overcrowding.\n-Survival
-    Rule: A live cell with two or three neighbors remains alive.\n\nHow to play:\n-
-    Use arrow keys or (WASD) to move on the area.\n- Select patterns on the pattern
-    menu.\n- Change camera speed and zoom levels by using sliders.\n- Pause, resume
-    and reset simulation by using buttons.\n- Change the theme by using theme button."
+  m_text: "    Cycle of Life is a different version of the game originally called
+    The Game of Life, also known as Conway's Game of Life or simply Life. It is a
+    cellular automaton devised by the British mathematician John Horton Conway in
+    1970. It is a zero-player game, meaning that its evolution is determined by its
+    initial state, requiring no further input. One interacts with the Game of Life
+    by creating an initial configuration and observing how it evolves in discrete
+    time steps called generations. There is no limit to the number of generations
+    (computational resources permitting) or win condition.\n\nRules of the Game:\n-Birth
+    Rule: An empty, or \u201Cdead\u201D cell with precisely three \u201Clive\u201D
+    neighbors (full cells) becomes live.\n-Death Rule: A live cell with zero or one
+    neighbors dies of isolation; a live cell with four or more neighbors dies of
+    overcrowding.\n-Survival Rule: A live cell with two or three neighbors remains
+    alive.\n\nHow to play:\n- Use the arrow keys or WASD to move around the area.\n-
+    Select patterns from the pattern menu.\n- Adjust camera speed and zoom levels
+    using the sliders.\n- Pause, resume, and reset the simulation using the buttons.\n-
+    Change the theme by using theme button."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
   m_sharedMaterial: {fileID: -3253406893790090334, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
@@ -6692,6 +6693,8 @@ MonoBehaviour:
   themeButtonContainer: {fileID: 1874731168}
   patternButtonPrefab: {fileID: 4310330688974572144, guid: fd8879ac97697f346bc8560a7ae8f4c2, type: 3}
   patternButtonContainer: {fileID: 2042435337}
+  patternScrollRect: {fileID: 1914121854}
+  themeScrollRect: {fileID: 221409025}
   patterns:
   - displayName: Pentomino-R
     pattern: {fileID: 11400000, guid: 1fcdcdbc5af8e4f448af574206e8fe43, type: 2}
@@ -6776,6 +6779,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c9633da70a10f874885b6ca69d9e898b, type: 2}
   - {fileID: 11400000, guid: fa5ea6b51272e224187404e5e085b6ac, type: 2}
   - {fileID: 11400000, guid: c11ed07a29fd222449f2a3c99741b22f, type: 2}
+  - {fileID: 11400000, guid: 28fe6cbee077ecc429a4e762fc1b45e6, type: 2}
   defaultThemeIndex: 0
 --- !u!1 &1486450295
 GameObject:
