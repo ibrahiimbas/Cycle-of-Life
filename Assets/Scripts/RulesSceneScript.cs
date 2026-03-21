@@ -77,6 +77,11 @@ public class RulesSceneScript : MonoBehaviour
     private void CloseShutDownTab()
     {
         shutDownPanelTab.SetActive(false);
+        if (notepadImage != null && notepadOpenSprite != null)
+        {
+            notepadImage.sprite = notepadOpenSprite;
+            notepadTabHeaderText.color = originalHeaderColor;
+        }
     }
 
     private void OpenStartTab()
@@ -98,6 +103,11 @@ public class RulesSceneScript : MonoBehaviour
         shutDownSidePanelTab.SetActive(false);
         shutDownPanelTab.SetActive(true);
         isStartTabOpen = !isStartTabOpen;
+        if (notepadImage != null && notepadClosedSprite != null)
+        {
+            notepadImage.sprite = notepadClosedSprite;
+            notepadTabHeaderText.color = inactiveHeaderColor;
+        }
     }
 
     private void OpenControlPanelTab()
@@ -130,6 +140,7 @@ public class RulesSceneScript : MonoBehaviour
             {
                 notepadImage.sprite = notepadOpenSprite;
                 notepadTabHeaderText.color = originalHeaderColor;
+                notepadTab.SetActive(true);
             }
         }
         else
@@ -138,6 +149,7 @@ public class RulesSceneScript : MonoBehaviour
             {
                 notepadImage.sprite = notepadClosedSprite;
                 notepadTabHeaderText.color = inactiveHeaderColor;
+                notepadTab.SetActive(false);
             }
         }
     }

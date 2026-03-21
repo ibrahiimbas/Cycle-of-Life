@@ -908,7 +908,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 207cc24589fb0194c8b02764c9082076, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3030,7 +3030,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6a0cb165166aa9948a5626859ed29072, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7736,7 +7736,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1768800655}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5630389
+  m_Size: 0.56303895
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
