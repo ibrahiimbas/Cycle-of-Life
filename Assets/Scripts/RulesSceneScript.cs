@@ -25,12 +25,15 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Button closeShutDownButton;
     [SerializeField] private Button okButton;
     [SerializeField] private Button cancelShutButton;
+    [SerializeField] private Button firstInfoCloseButton;
+    [SerializeField] private Button firstInfoOkButton;
     
     [SerializeField] private TextMeshProUGUI currentTimeText;
     [SerializeField] private GameObject notepadTab;
     [SerializeField] private GameObject controlPanelTab;
     [SerializeField] private GameObject shutDownSidePanelTab;
     [SerializeField] private GameObject shutDownPanelTab;
+    [SerializeField] private GameObject firstInfoPanel;
     [SerializeField] private Image notepadImage;
     [SerializeField] private Sprite notepadOpenSprite;
     [SerializeField] private Sprite notepadClosedSprite;
@@ -41,7 +44,8 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Color inactiveHeaderColor;
     
     [SerializeField] private AudioSource shutDownAudio;
-    [SerializeField] private ClickSoundEffectScript clickSoundEffectObject; 
+    [SerializeField] private ClickSoundEffectScript clickSoundEffectObject;
+    [SerializeField] private AudioSource notificationAudio;
 
     private bool isStartTabOpen = false;
     
@@ -57,6 +61,8 @@ public class RulesSceneScript : MonoBehaviour
         closeShutDownButton.onClick.AddListener(CloseShutDownTab);
         cancelShutButton.onClick.AddListener(CloseShutDownTab);
         okButton.onClick.AddListener(OnOKButtonClicked);
+        firstInfoCloseButton.onClick.AddListener(FirstInfoPanelClose);
+        firstInfoOkButton.onClick.AddListener(FirstInfoPanelClose);
         
         originalHeaderColor = notepadTabHeaderText.color;
     }
@@ -78,6 +84,21 @@ public class RulesSceneScript : MonoBehaviour
         Application.Quit();
     }
 
+    private void FirstInfoPanelClose()
+    {
+        notepadImage.sprite = notepadOpenSprite;
+        notepadTabHeaderText.color = originalHeaderColor;
+        firstInfoPanel.SetActive(false);
+    }
+
+    public void FirstInfoPanelOpen()
+    {
+        notepadImage.sprite = notepadClosedSprite;
+        notepadTabHeaderText.color = inactiveHeaderColor;
+        notificationAudio.Play();
+        firstInfoPanel.SetActive(true);
+    }
+    
     private void CloseShutDownTab()
     {
         shutDownPanelTab.SetActive(false);
