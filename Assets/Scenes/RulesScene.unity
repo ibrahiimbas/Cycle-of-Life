@@ -3985,7 +3985,7 @@ MonoBehaviour:
     with precisely three \u201Clive\u201D neighbors (full cells) becomes live.\n\n-Death
     Rule: A live cell with zero or one neighbors dies of isolation; a live cell with
     four or more neighbors dies of overcrowding.\n\n-Survival Rule: A live cell with
-    two or three neighbors remains alive.\n\n\n\n\n\n\t\t\t\t\t\t\t\tsynthesizer
+    two or three neighbors remains alive.\n\n\n\n\n\n\t\t\t\t\t\t\t   synthesizer
     - ibrahim emre bas\n--------\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
@@ -4838,7 +4838,7 @@ MonoBehaviour:
     with precisely three \u201Clive\u201D neighbors (full cells) becomes live.\n\n-Death
     Rule: A live cell with zero or one neighbors dies of isolation; a live cell with
     four or more neighbors dies of overcrowding.\n\n-Survival Rule: A live cell with
-    two or three neighbors remains alive.\n\n\n\n\n\n\t\t\t\t\t\t\t\tsynthesizer
+    two or three neighbors remains alive.\n\n\n\n\n\n\t\t\t\t\t\t\t   synthesizer
     - ibrahim emre bas\n--------"
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2

@@ -8137,6 +8137,8 @@ MonoBehaviour:
   selectPatternPanelClosed: {fileID: 435784574}
   rulesTab: {fileID: 268024852}
   currentPatterntxt: {fileID: 253972598}
+  mainHeadertxt: {fileID: 71741232}
+  rulesHeaderTxt: {fileID: 1552169863}
   themesPanelOpened: {fileID: 727721541}
   themesPanelClosed: {fileID: 1522028247}
   systemPanel: {fileID: 387063449}
@@ -8149,6 +8151,11 @@ MonoBehaviour:
   rulesScrollBar: {fileID: 1615356711}
   editMouseToggle: {fileID: 1287253245}
   url: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+  inactiveHeaderColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
+  tabOpenSprite: {fileID: -6763024814601447701, guid: 684889b94590ff847bff44744484223c, type: 3}
+  tabClosedSprite: {fileID: -6443241793956281255, guid: abaa947db322a4b4d89b3c87ce1df301, type: 3}
+  mainTabSprite: {fileID: 1191474923}
+  infoTabSprite: {fileID: 268024854}
   patterns:
   - displayName: Pentomino-R
     pattern: {fileID: 11400000, guid: 1fcdcdbc5af8e4f448af574206e8fe43, type: 2}

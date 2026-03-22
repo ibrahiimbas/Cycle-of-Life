@@ -27,6 +27,8 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private GameObject selectPatternPanelClosed;
     [SerializeField] private GameObject rulesTab;
     [SerializeField] private TextMeshProUGUI currentPatterntxt;
+    [SerializeField] private TextMeshProUGUI mainHeadertxt;
+    [SerializeField] private TextMeshProUGUI rulesHeaderTxt;
     [SerializeField] private GameObject themesPanelOpened;
     [SerializeField] private GameObject themesPanelClosed;
     [SerializeField] private GameObject systemPanel;
@@ -50,6 +52,14 @@ public class SimulationSettings : MonoBehaviour
     
     [Header("More Info URL")]
     [Header("URL")] [SerializeField] private string url;
+    
+    [Header("Tab Settings")]
+    private Color originalHeaderColor;
+    [SerializeField] private Color inactiveHeaderColor;
+    [SerializeField] private Sprite tabOpenSprite;
+    [SerializeField] private Sprite tabClosedSprite;
+    [SerializeField] private Image mainTabSprite;
+    [SerializeField] private Image infoTabSprite;
     
     [System.Serializable]
     public class PatternData
@@ -89,6 +99,7 @@ public class SimulationSettings : MonoBehaviour
         SetupButtons();
         CreatePatternButtons();
         CreateThemeButtons();
+        originalHeaderColor = currentPatterntxt.color;
     }
 
     private void InitializeUI()
@@ -135,6 +146,7 @@ public class SimulationSettings : MonoBehaviour
         learnMoreButton.interactable = false;
         rulesTabCloseButton.interactable = false;
         rulesScrollBar.interactable = false;
+        ChangeTabInactive(infoTabSprite,rulesHeaderTxt);
     }
 
     private void CloseSystemPanel()
@@ -143,6 +155,33 @@ public class SimulationSettings : MonoBehaviour
         learnMoreButton.interactable = true;
         rulesTabCloseButton.interactable = true;
         rulesScrollBar.interactable = true;
+        ChangeTabActive(infoTabSprite,rulesHeaderTxt);
+    }
+
+    private void ChangeTabInactive(Image tabImage, TextMeshProUGUI headerText)
+    {
+        tabImage.sprite = tabClosedSprite;
+        headerText.color = inactiveHeaderColor;
+    }
+    
+    private void ChangeTabInactive(Image tabImage, TextMeshProUGUI headerText, TextMeshProUGUI headerText_1)
+    {
+        tabImage.sprite = tabClosedSprite;
+        headerText.color = inactiveHeaderColor;
+        headerText_1.color = inactiveHeaderColor;
+    }
+    
+    private void ChangeTabActive(Image tabImage, TextMeshProUGUI headerText)
+    {
+        tabImage.sprite = tabOpenSprite;
+        headerText.color = originalHeaderColor;
+    }
+    
+    private void ChangeTabActive(Image tabImage, TextMeshProUGUI headerText, TextMeshProUGUI headerText_1)
+    {
+        tabImage.sprite = tabOpenSprite;
+        headerText.color = originalHeaderColor;
+        headerText_1.color = originalHeaderColor;
     }
 
     private void OpenURL()
@@ -151,6 +190,7 @@ public class SimulationSettings : MonoBehaviour
         learnMoreButton.interactable = true;
         rulesTabCloseButton.interactable = true;
         rulesScrollBar.interactable = true;
+        ChangeTabActive(infoTabSprite,rulesHeaderTxt);
         OpenExternalLink(url);
     }
     
@@ -304,6 +344,7 @@ public class SimulationSettings : MonoBehaviour
      patternMenuOpenButton.interactable = false;
      themeMenuOpenButton.interactable = false;
      editMouseToggle.interactable = false;
+     ChangeTabInactive(mainTabSprite,currentPatterntxt, mainHeadertxt);
      
      if (isPaused == true)
      {
@@ -335,6 +376,7 @@ public class SimulationSettings : MonoBehaviour
      patternMenuOpenButton.interactable = true;
      themeMenuOpenButton.interactable = true;
      editMouseToggle.interactable = true;
+     ChangeTabActive(mainTabSprite,currentPatterntxt,mainHeadertxt);
      
      if (isPaused == false)
      {
