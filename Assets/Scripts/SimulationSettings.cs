@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -28,6 +29,8 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentPatterntxt;
     [SerializeField] private GameObject themesPanelOpened;
     [SerializeField] private GameObject themesPanelClosed;
+    [SerializeField] private GameObject systemPanel;
+    
     [Header("Theme Buttons")]
     [SerializeField] private GameObject themeButtonPrefab;
     [SerializeField] private Transform themeButtonContainer;
@@ -39,6 +42,14 @@ public class SimulationSettings : MonoBehaviour
     [Header("Scroll Views")]
     [SerializeField] private ScrollRect patternScrollRect;
     [SerializeField] private ScrollRect themeScrollRect;
+    [SerializeField] private Scrollbar rulesScrollBar;
+
+    [Header("Edit With Mouse Toggle")] [SerializeField]
+    public Toggle editMouseToggle;
+    public bool isToggleOn { get; private set; }
+    
+    [Header("More Info URL")]
+    [Header("URL")] [SerializeField] private string url;
     
     [System.Serializable]
     public class PatternData
@@ -60,8 +71,13 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private Button themeMenuOpenButton;
     [SerializeField] private Button themeMenuCloseButton;
     [SerializeField] private Button rulesTabCloseButton;
+    [SerializeField] private Button learnMoreButton;
+    [SerializeField] private Button systemCloseButton;
+    [SerializeField] private Button systemOkButton;
+    [SerializeField] private Button systemCancelButton;
 
     [SerializeField] private AudioSource notifySound;
+    [SerializeField] private AudioSource notifySound_1;
 
     private List<Button> patternButtons = new List<Button>();
     private List<Button> themeButtons = new List<Button>();
@@ -69,6 +85,7 @@ public class SimulationSettings : MonoBehaviour
     public void Start()
     {
         InitializeUI();
+        isToggleOn = editMouseToggle.isOn;
         SetupButtons();
         CreatePatternButtons();
         CreateThemeButtons();
@@ -99,8 +116,49 @@ public class SimulationSettings : MonoBehaviour
         themeMenuOpenButton.onClick.AddListener(OpenThemeMenu);
         themeMenuCloseButton.onClick.AddListener(CloseThemeMenu);
         rulesTabCloseButton.onClick.AddListener(CloseRulesTab);
+        learnMoreButton.onClick.AddListener(OpenSystemPanel);
+        systemCloseButton.onClick.AddListener(CloseSystemPanel);
+        systemCancelButton.onClick.AddListener(CloseSystemPanel);
+        systemOkButton.onClick.AddListener(OpenURL);
+        editMouseToggle.onValueChanged.AddListener(MouseToggleState);
+    }
+    
+    private void MouseToggleState(bool isOn)
+    {
+        isToggleOn = isOn;
     }
 
+    private void OpenSystemPanel()
+    {
+        notifySound_1.Play();
+        systemPanel.SetActive(true);
+        learnMoreButton.interactable = false;
+        rulesTabCloseButton.interactable = false;
+        rulesScrollBar.interactable = false;
+    }
+
+    private void CloseSystemPanel()
+    {
+        systemPanel.SetActive(false);
+        learnMoreButton.interactable = true;
+        rulesTabCloseButton.interactable = true;
+        rulesScrollBar.interactable = true;
+    }
+
+    private void OpenURL()
+    {
+        systemPanel.SetActive(false);
+        learnMoreButton.interactable = true;
+        rulesTabCloseButton.interactable = true;
+        rulesScrollBar.interactable = true;
+        OpenExternalLink(url);
+    }
+    
+    private void OpenExternalLink(string url)
+    {
+        Application.OpenURL(url);
+    }
+    
     private void CreatePatternButtons()
     {
         if (patternButtonPrefab == null || patternButtonContainer == null)
@@ -245,6 +303,7 @@ public class SimulationSettings : MonoBehaviour
      CloseThemeMenu();
      patternMenuOpenButton.interactable = false;
      themeMenuOpenButton.interactable = false;
+     editMouseToggle.interactable = false;
      
      if (isPaused == true)
      {
@@ -275,6 +334,7 @@ public class SimulationSettings : MonoBehaviour
      CloseThemeMenu();
      patternMenuOpenButton.interactable = true;
      themeMenuOpenButton.interactable = true;
+     editMouseToggle.interactable = true;
      
      if (isPaused == false)
      {
@@ -327,6 +387,7 @@ public class SimulationSettings : MonoBehaviour
      CloseThemeMenu();
      patternMenuOpenButton.interactable = false;
      themeMenuOpenButton.interactable = false;
+     editMouseToggle.interactable = false;
      isPaused = !isPaused;
      if (isPaused == true)
      {
@@ -346,6 +407,7 @@ public class SimulationSettings : MonoBehaviour
      cameraScript.zoomSlider.interactable = true;
      patternMenuOpenButton.interactable = true;
      themeMenuOpenButton.interactable = true;
+     editMouseToggle.interactable = true;
      isPaused = !isPaused;
      if (isPaused == false)
      {

@@ -31,8 +31,9 @@ public class GameBoard : MonoBehaviour
     // Beta feature
     [Header("Mouse Interaction Settings")]
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private bool enableMouseEditing = true;
+    [SerializeField] private bool enableMouseEditing = false;
     [SerializeField] private KeyCode editModifierKey = KeyCode.LeftControl;
+    [SerializeField] private SimulationSettings simulationSettings;
     
     private bool isMouseDragging = false;
     private Vector3Int lastEditedCell;
@@ -72,11 +73,14 @@ public class GameBoard : MonoBehaviour
         }
         
         SetPattern(pattern);
+
+        enableMouseEditing = simulationSettings.isToggleOn;
     }
     
     // Click to add alive cell during game is a beta feature not working properly
     private void Update()
     {
+        enableMouseEditing = simulationSettings.isToggleOn;
         if (!enableMouseEditing) return;
         
         HandleMouseInput();
@@ -88,6 +92,11 @@ public class GameBoard : MonoBehaviour
         {
             themeManager.OnThemeChanged -= ApplyTheme;
         }
+    }
+
+    public void ChangeMouseSettings(bool isOn)
+    {
+        enableMouseEditing = isOn;
     }
 
     private void SetPattern(Pattern pattern)
