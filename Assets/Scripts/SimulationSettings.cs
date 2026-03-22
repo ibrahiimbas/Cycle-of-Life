@@ -39,7 +39,7 @@ public class SimulationSettings : MonoBehaviour
     [Header("Scroll Views")]
     [SerializeField] private ScrollRect patternScrollRect;
     [SerializeField] private ScrollRect themeScrollRect;
-
+    
     [System.Serializable]
     public class PatternData
     {

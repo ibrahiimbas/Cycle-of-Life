@@ -27,6 +27,7 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Button cancelShutButton;
     [SerializeField] private Button firstInfoCloseButton;
     [SerializeField] private Button firstInfoOkButton;
+    [SerializeField] private Button updateNotepadButton;
     
     [SerializeField] private TextMeshProUGUI currentTimeText;
     [SerializeField] private GameObject notepadTab;
@@ -38,6 +39,7 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Sprite notepadOpenSprite;
     [SerializeField] private Sprite notepadClosedSprite;
     [SerializeField] private TextMeshProUGUI notepadTabHeaderText;
+    [SerializeField] private TMP_InputField updateNotepadInputText;
     
     private string formattedTime;
     private Color originalHeaderColor;
@@ -48,6 +50,8 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private AudioSource notificationAudio;
 
     private bool isStartTabOpen = false;
+    
+    private const string NOTEPAD_TEXT_KEY = "NotepadSavedText";
     
     public void Start()
     {
@@ -63,8 +67,12 @@ public class RulesSceneScript : MonoBehaviour
         okButton.onClick.AddListener(OnOKButtonClicked);
         firstInfoCloseButton.onClick.AddListener(FirstInfoPanelClose);
         firstInfoOkButton.onClick.AddListener(FirstInfoPanelClose);
+        updateNotepadButton.onClick.AddListener(NotepadOpen);
         
         originalHeaderColor = notepadTabHeaderText.color;
+        
+        LoadNotepadContent();
+        updateNotepadInputText.onValueChanged.AddListener(SaveNotepadContent);
     }
 
     private void Update()
@@ -72,6 +80,40 @@ public class RulesSceneScript : MonoBehaviour
         DateTime currentTime = DateTime.Now;
         formattedTime = currentTime.ToString("hh:mm tt",CultureInfo.InvariantCulture);
         currentTimeText.text = formattedTime;
+    }
+    
+    private void OnDestroy()
+    {
+        if (updateNotepadInputText != null)
+        {
+            updateNotepadInputText.onValueChanged.RemoveListener(SaveNotepadContent);
+        }
+    }
+    
+    private void SaveNotepadContent(string content)
+    {
+        PlayerPrefs.SetString(NOTEPAD_TEXT_KEY, content);
+        PlayerPrefs.Save();
+    }
+    
+    private void LoadNotepadContent()
+    {
+        if (PlayerPrefs.HasKey(NOTEPAD_TEXT_KEY))
+        {
+            string savedText = PlayerPrefs.GetString(NOTEPAD_TEXT_KEY);
+            updateNotepadInputText.text = savedText;
+        }
+        else
+        {
+            Debug.Log("Default text loaded");
+        }
+    }
+    
+    public void ClearNotepadContent()
+    {
+        PlayerPrefs.DeleteKey(NOTEPAD_TEXT_KEY);
+        PlayerPrefs.Save();
+        //updateNotepadInputText.text = "";
     }
 
     private void JumpToSimulation()
@@ -81,7 +123,13 @@ public class RulesSceneScript : MonoBehaviour
 
     private void ExitSimulation()
     {
+        ClearNotepadContent();
         Application.Quit();
+    }
+    
+    private void OnApplicationQuit()
+    {
+        ClearNotepadContent();
     }
 
     private void FirstInfoPanelClose()
@@ -151,10 +199,11 @@ public class RulesSceneScript : MonoBehaviour
         notepadTabHeaderText.color = originalHeaderColor;
     }
 
-    private void CloseNotepadTab()
+    public void CloseNotepadTab()
     {
         notepadTab.SetActive(false);
         notepadBottomToggle.gameObject.SetActive(false);
+        updateNotepadButton.interactable = true;
     }
     
     private void OnNotepadToggleChanged(bool isOn)
@@ -177,6 +226,13 @@ public class RulesSceneScript : MonoBehaviour
                 notepadTab.SetActive(false);
             }
         }
+    }
+
+    private void NotepadOpen()
+    {
+        notepadTab.SetActive(true);
+        notepadBottomToggle.gameObject.SetActive(true);
+        updateNotepadButton.interactable = false;
     }
 
     private IEnumerator ShutPCDownCoroutine()

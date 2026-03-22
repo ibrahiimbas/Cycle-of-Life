@@ -19,6 +19,12 @@ public class SceneFirstLoad : MonoBehaviour
             
             loadedScenes.Add(currentScene);
         }
+
+        else
+        {
+            sceneScript.CloseNotepadTab();
+        }
+        
     }
     
     private IEnumerator OnFirstTimeLoadCoroutine()
