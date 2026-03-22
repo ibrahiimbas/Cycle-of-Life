@@ -17,6 +17,7 @@ public class BootSequence : MonoBehaviour
     
     private void Start()
     {
+        Cursor.visible = false;
         StartCoroutine(BootSequenceCoroutine());
     }
 

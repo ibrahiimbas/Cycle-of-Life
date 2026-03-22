@@ -237,7 +237,7 @@ public class RulesSceneScript : MonoBehaviour
 
     private IEnumerator ShutPCDownCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         shutDownAudio.Play();
         yield return new WaitForSeconds(shutDownAudio.clip.length);
         ExitSimulation();

@@ -14,7 +14,7 @@ public class SceneFirstLoad : MonoBehaviour
         
         if (!loadedScenes.Contains(currentScene))
         {
-            Debug.Log($"{currentScene} scene loaded first time");
+            Cursor.visible = true;
             StartCoroutine(OnFirstTimeLoadCoroutine());
             
             loadedScenes.Add(currentScene);
