@@ -12,11 +12,11 @@ using UnityEngine.UI;
 
 public class Minesweeper : MonoBehaviour
 {
-    [Header("Game Settings")]
-    [SerializeField] private int width = 16;
-    [SerializeField] private int height = 16;
-    [SerializeField] private int mineCount = 32;
-    [SerializeField] private float cameraFov = 10;
+    private int width;
+    private int height;
+    private int mineCount;
+    private float cameraFov;
+    private float cameraOffset;
     
     [Header("Smiley Settings")]
     private Sprite smileyClassic;
@@ -47,6 +47,10 @@ public class Minesweeper : MonoBehaviour
     [SerializeField] private Toggle beginnerToggle;
     [SerializeField] private Toggle intermediateToggle;
     [SerializeField] private Toggle expertToggle;
+
+    [Header("Audio")] 
+    [SerializeField] private AudioSource lostAudio;
+    [SerializeField] private AudioSource winAudio;
     
     private MineBoard board;
     private MineCell[,] state;
@@ -55,6 +59,19 @@ public class Minesweeper : MonoBehaviour
     private bool isNewGameStarting;
     private bool isSettingUpToggles;
     private bool firstMoveMade;
+    private bool isHelpPanelOpen = false;
+    
+    [Header("Active Inactive Settings")]
+    private Color originalHeaderColor;
+    [SerializeField] private Color inactiveHeaderColor;
+    [SerializeField] private Sprite tabOpenSprite;
+    [SerializeField] private Sprite tabClosedSprite;
+    [SerializeField] private TextMeshProUGUI headerMainText;
+    [SerializeField] private Button helpButton;
+    [SerializeField] private Button closeHelpButton;
+    [SerializeField] private GameObject helpPanel;
+    [SerializeField] private Image mainTabImage;
+    
     
     private enum Difficulty
     {
@@ -93,6 +110,8 @@ public class Minesweeper : MonoBehaviour
     private void Update()
     {
         if (isNewGameStarting) return;
+        
+        if (isHelpPanelOpen) return;
         
         if (isTimerRunning && !gameOver)
         {
@@ -167,10 +186,11 @@ public class Minesweeper : MonoBehaviour
             case Difficulty.Beginner:
                 if (gameDifficulty.Count > 0 && gameDifficulty[0] != null)
                 {
-                    width = gameDifficulty[0].widthHeight;
-                    height = gameDifficulty[0].widthHeight;
+                    width = gameDifficulty[0].width;
+                    height = gameDifficulty[0].height;
                     mineCount = gameDifficulty[0].mineCount;
                     cameraFov = gameDifficulty[0].cameraFov;
+                    cameraOffset = gameDifficulty[0].cameraOffset;
                 }
                 else
                 {
@@ -184,10 +204,11 @@ public class Minesweeper : MonoBehaviour
             case Difficulty.Intermediate:
                 if (gameDifficulty.Count > 1 && gameDifficulty[1] != null)
                 {
-                    width = gameDifficulty[1].widthHeight;
-                    height = gameDifficulty[1].widthHeight;
+                    width = gameDifficulty[1].width;
+                    height = gameDifficulty[1].height;
                     mineCount = gameDifficulty[1].mineCount;
                     cameraFov = gameDifficulty[1].cameraFov;
+                    cameraOffset = gameDifficulty[1].cameraOffset;
                 }
                 else
                 {
@@ -201,10 +222,11 @@ public class Minesweeper : MonoBehaviour
             case Difficulty.Expert:
                 if (gameDifficulty.Count > 2 && gameDifficulty[2] != null)
                 {
-                    width = gameDifficulty[2].widthHeight;
-                    height = gameDifficulty[2].widthHeight;
+                    width = gameDifficulty[2].width;
+                    height = gameDifficulty[2].height;
                     mineCount = gameDifficulty[2].mineCount;
                     cameraFov = gameDifficulty[2].cameraFov;
+                    cameraOffset = gameDifficulty[2].cameraOffset;
                 }
                 else
                 {
@@ -237,6 +259,33 @@ public class Minesweeper : MonoBehaviour
         openSettingsToggle.onValueChanged.AddListener(SettingsPanelOnOff);
         smileyButton.onClick.AddListener(RestartWithCurrentDifficulty);
         exitMineButton.onClick.AddListener(GoMainMenu);
+        helpButton.onClick.AddListener(OpenHelpPanel);
+        closeHelpButton.onClick.AddListener(CloseHelpPanel);
+        originalHeaderColor = headerMainText.color;
+    }
+
+    private void OpenHelpPanel()
+    {
+        helpPanel.SetActive(true);
+        isHelpPanelOpen = true;
+        headerMainText.color = inactiveHeaderColor;
+        mainTabImage.sprite = tabClosedSprite;
+        helpButton.interactable = false;
+        exitMineButton.interactable = false;
+        smileyButton.interactable = false;
+        openSettingsToggle.interactable = false;
+    }
+
+    private void CloseHelpPanel()
+    {
+        helpPanel.SetActive(false);
+        isHelpPanelOpen = false;
+        headerMainText.color = originalHeaderColor;
+        mainTabImage.sprite = tabOpenSprite;
+        helpButton.interactable = true;
+        exitMineButton.interactable = true;
+        smileyButton.interactable = true;
+        openSettingsToggle.interactable = true;
     }
 
     private void GoMainMenu()
@@ -281,7 +330,7 @@ public class Minesweeper : MonoBehaviour
         GenerateMines();
         GenerateNumbers();
         
-        Camera.main.transform.position = new Vector3(width / 2f, height / 2f + 1f, -10f);
+        Camera.main.transform.position = new Vector3(width / 2f, height / 2f + cameraOffset, -10f);
         Camera.main.orthographicSize = cameraFov;
         
         flagCount = mineCount;
@@ -361,7 +410,6 @@ public class Minesweeper : MonoBehaviour
                     cell.type = MineCell.Type.Number;
                 }
                 
-                //cell.revealed = true;
                 state[x, y] = cell;
             }
         }
@@ -473,9 +521,9 @@ public class Minesweeper : MonoBehaviour
 
     private void Explode(MineCell cell)
     {
-        Debug.Log("Game Over");
         gameOver=true;
         isTimerRunning = false;
+        lostAudio.Play();
         
         cell.revealed = true;
         cell.exploded=true;
@@ -516,6 +564,7 @@ public class Minesweeper : MonoBehaviour
        
         gameOver=true;
         isTimerRunning = false;
+        winAudio.Play();
         
         for (int x = 0; x < width; x++)
         {

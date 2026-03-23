@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf90e13d3fb264468636dc5f19874d7, type: 3}
   m_Name: Easy
   m_EditorClassIdentifier: Assembly-CSharp::MinesweeperGameSettings
-  widthHeight: 9
+  width: 9
+  height: 9
   mineCount: 10
-  cameraFov: 6
+  cameraFov: 5.5
+  cameraOffset: 0.6
