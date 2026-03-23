@@ -11,7 +11,7 @@ public class SimulationSettings : MonoBehaviour
 {
     public Camera mainCamera;
     private string currentPattern;
-    private bool isPaused = false;
+    public bool isPaused = false;
     public TextMeshProUGUI pauseText;
 
     [Header("Script References")]

@@ -81,7 +81,7 @@ public class GameBoard : MonoBehaviour
     private void Update()
     {
         enableMouseEditing = simulationSettings.isToggleOn;
-        if (!enableMouseEditing) return;
+        if (!enableMouseEditing || simulationSettings.isPaused) return;
         
         HandleMouseInput();
     }
