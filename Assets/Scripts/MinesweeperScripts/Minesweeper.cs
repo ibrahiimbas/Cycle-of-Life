@@ -51,6 +51,7 @@ public class Minesweeper : MonoBehaviour
     [Header("Audio")] 
     [SerializeField] private AudioSource lostAudio;
     [SerializeField] private AudioSource winAudio;
+    [SerializeField] private AudioSource notifyAudio;
     
     private MineBoard board;
     private MineCell[,] state;
@@ -266,6 +267,7 @@ public class Minesweeper : MonoBehaviour
 
     private void OpenHelpPanel()
     {
+        notifyAudio.Play();
         helpPanel.SetActive(true);
         isHelpPanelOpen = true;
         headerMainText.color = inactiveHeaderColor;
