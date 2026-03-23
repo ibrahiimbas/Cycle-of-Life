@@ -23,19 +23,45 @@ public class Minesweeper : MonoBehaviour
     [SerializeField] private Sprite smileyDead;
     [SerializeField] private Sprite smileyCool;
     [SerializeField] private Image buttonSprite;
+    [SerializeField] private Button smileyButton;
     
     [Header("Info Texts")]
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI mineCountText;
+
+    [Header("UI Buttons")] 
+    [SerializeField] private Button exitMineButton;
+    
+    private float timer;
+    private bool isTimerRunning;
+    
     private int flagCount;
     
     [Header("Ingame Settings")]
     [SerializeField] private Toggle openSettingsToggle;
     [SerializeField] private GameObject gameSettingsPanel;
+
+    [Header("Game Difficulty Settings")] [SerializeField]
+    private List<MinesweeperGameSettings> gameDifficulty = new List<MinesweeperGameSettings>();
+
+    [SerializeField] private Toggle beginnerToggle;
+    [SerializeField] private Toggle intermediateToggle;
+    [SerializeField] private Toggle expertToggle;
     
     private MineBoard board;
     private MineCell[,] state;
     private bool gameOver;
+    private Difficulty currentDifficulty;
+    private bool isNewGameStarting;
+    private bool isSettingUpToggles;
+    private bool firstMoveMade;
+    
+    private enum Difficulty
+    {
+        Beginner,
+        Intermediate,
+        Expert
+    }
 
     private void OnValidate()
     {
@@ -51,11 +77,29 @@ public class Minesweeper : MonoBehaviour
     {
         smileyClassic= buttonSprite.sprite;
         ButtonSetups();
+        SetupDifficultyToggles();
+        
+        currentDifficulty = Difficulty.Intermediate;
+        isSettingUpToggles = true;
+        intermediateToggle.isOn = true;
+        beginnerToggle.isOn = false;
+        expertToggle.isOn = false;
+        isSettingUpToggles = false;
+        
+        LoadDifficultySettings(Difficulty.Intermediate);
         NewGame();
     }
 
     private void Update()
     {
+        if (isNewGameStarting) return;
+        
+        if (isTimerRunning && !gameOver)
+        {
+            timer += Time.deltaTime;
+            UpdateTimerDisplay();
+        }
+        
         if (!gameOver)
         {
             if (Input.GetMouseButtonDown(1))
@@ -68,19 +112,138 @@ public class Minesweeper : MonoBehaviour
             }
         }
     }
+    
+    private void SetupDifficultyToggles()
+    {
+        beginnerToggle.onValueChanged.AddListener((isOn) => {
+            if (isOn && !isNewGameStarting)
+            {
+                intermediateToggle.isOn = false;
+                expertToggle.isOn = false;
+                ChangeDifficulty(Difficulty.Beginner);
+            }
+        });
+        
+        intermediateToggle.onValueChanged.AddListener((isOn) => {
+            if (isOn && !isNewGameStarting)
+            {
+                beginnerToggle.isOn = false;
+                expertToggle.isOn = false;
+                ChangeDifficulty(Difficulty.Intermediate);
+            }
+        });
+        
+        expertToggle.onValueChanged.AddListener((isOn) => {
+            if (isOn && !isNewGameStarting)
+            {
+                beginnerToggle.isOn = false;
+                intermediateToggle.isOn = false;
+                ChangeDifficulty(Difficulty.Expert);
+            }
+        });
+    }
+    
+    private void ChangeDifficulty(Difficulty newDifficulty)
+    {
+        if (currentDifficulty != newDifficulty)
+        {
+            currentDifficulty = newDifficulty;
+            LoadDifficultySettings(newDifficulty);
+        }
+        
+        NewGame();
+    }
+
+    private void RestartWithCurrentDifficulty()
+    {
+        LoadDifficultySettings(currentDifficulty);
+        NewGame();
+    }
+    
+     private void LoadDifficultySettings(Difficulty difficulty)
+    {
+        switch (difficulty)
+        {
+            case Difficulty.Beginner:
+                if (gameDifficulty.Count > 0 && gameDifficulty[0] != null)
+                {
+                    width = gameDifficulty[0].widthHeight;
+                    height = gameDifficulty[0].widthHeight;
+                    mineCount = gameDifficulty[0].mineCount;
+                    cameraFov = gameDifficulty[0].cameraFov;
+                }
+                else
+                {
+                    width = 9;
+                    height = 9;
+                    mineCount = 10;
+                    cameraFov = 10;
+                }
+                break;
+                
+            case Difficulty.Intermediate:
+                if (gameDifficulty.Count > 1 && gameDifficulty[1] != null)
+                {
+                    width = gameDifficulty[1].widthHeight;
+                    height = gameDifficulty[1].widthHeight;
+                    mineCount = gameDifficulty[1].mineCount;
+                    cameraFov = gameDifficulty[1].cameraFov;
+                }
+                else
+                {
+                    width = 16;
+                    height = 16;
+                    mineCount = 40;
+                    cameraFov = 10;
+                }
+                break;
+                
+            case Difficulty.Expert:
+                if (gameDifficulty.Count > 2 && gameDifficulty[2] != null)
+                {
+                    width = gameDifficulty[2].widthHeight;
+                    height = gameDifficulty[2].widthHeight;
+                    mineCount = gameDifficulty[2].mineCount;
+                    cameraFov = gameDifficulty[2].cameraFov;
+                }
+                else
+                {
+                    width = 30;
+                    height = 16;
+                    mineCount = 99;
+                    cameraFov = 10;
+                }
+                break;
+        }
+        
+        OnValidate();
+    }
 
     private void StartingSteps()
     {
         buttonSprite.sprite = smileyClassic;
-        openSettingsToggle.isOn = false;
-        gameSettingsPanel.SetActive(false);
+        gameOver = false;
+        ResetTimer();
+        
+        if (openSettingsToggle != null)
+        {
+            openSettingsToggle.isOn = false;
+            gameSettingsPanel.SetActive(false);
+        }
     }
 
     private void ButtonSetups()
     {
         openSettingsToggle.onValueChanged.AddListener(SettingsPanelOnOff);
+        smileyButton.onClick.AddListener(RestartWithCurrentDifficulty);
+        exitMineButton.onClick.AddListener(GoMainMenu);
     }
 
+    private void GoMainMenu()
+    {
+        SceneManager.LoadScene("RulesScene", LoadSceneMode.Single);
+    }
+    
     private void SettingsPanelOnOff(bool isOn)
     {
         if (isOn)
@@ -96,6 +259,20 @@ public class Minesweeper : MonoBehaviour
 
     private void NewGame()
     {
+        StartCoroutine(NewGameCoroutine());
+    }
+    
+    private IEnumerator NewGameCoroutine()
+    {
+        isNewGameStarting = true;
+        
+        ResetTimer();
+        
+        if (board != null && board.tilemap != null)
+        {
+            board.tilemap.ClearAllTiles();
+        }
+        
         StartingSteps();
         state = new MineCell[width, height];
         gameOver = false;
@@ -104,11 +281,22 @@ public class Minesweeper : MonoBehaviour
         GenerateMines();
         GenerateNumbers();
         
-        Camera.main.transform.position = new Vector3(width / 2, height / 2+1, -10f);
-        flagCount = mineCount;
-        mineCountText.text=flagCount.ToString();
-        board.Draw(state);
+        Camera.main.transform.position = new Vector3(width / 2f, height / 2f + 1f, -10f);
+        Camera.main.orthographicSize = cameraFov;
         
+        flagCount = mineCount;
+        if (mineCountText != null)
+        {
+            mineCountText.text = flagCount.ToString();
+        }
+        
+        if (board != null)
+        {
+            board.Draw(state);
+        }
+        
+        yield return null;
+        isNewGameStarting = false;
     }
 
     private void GenerateCells()
@@ -244,6 +432,8 @@ public class Minesweeper : MonoBehaviour
             return;
         }
 
+        StartTimerOnFirstMove();
+        
         switch (cell.type)
         {
             case MineCell.Type.Mine:
@@ -285,6 +475,7 @@ public class Minesweeper : MonoBehaviour
     {
         Debug.Log("Game Over");
         gameOver=true;
+        isTimerRunning = false;
         
         cell.revealed = true;
         cell.exploded=true;
@@ -322,8 +513,9 @@ public class Minesweeper : MonoBehaviour
             }   
         }
         
-        Debug.unityLogger.Log("You Won");
+       
         gameOver=true;
+        isTimerRunning = false;
         
         for (int x = 0; x < width; x++)
         {
@@ -357,6 +549,32 @@ public class Minesweeper : MonoBehaviour
     private bool isValid(int x, int y)
     {
         return x >= 0 && x < width && y >= 0 && y < height;
+    }
+    
+    private void ResetTimer()
+    {
+        timer = 0f;
+        isTimerRunning = false;
+        firstMoveMade = false;
+        UpdateTimerDisplay();
+    }
+    
+    private void UpdateTimerDisplay()
+    {
+        if (timeText != null)
+        {
+            int seconds = Mathf.FloorToInt(timer);
+            timeText.text = seconds.ToString("000");
+        }
+    }
+    
+    private void StartTimerOnFirstMove()
+    {
+        if (!firstMoveMade && !gameOver)
+        {
+            firstMoveMade = true;
+            isTimerRunning = true;
+        }
     }
     
 }
