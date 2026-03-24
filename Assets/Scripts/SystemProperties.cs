@@ -1,13 +1,29 @@
+using System;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using Button = UnityEngine.UI.Button;
 
 public class SystemProperties : MonoBehaviour
 {
     [Header("Text")] 
     [SerializeField] private TextMeshProUGUI registerInfoText;
     [SerializeField] private TextMeshProUGUI computerInfoText;
+    
+    [Header("Button")]
+    [SerializeField] private Button panelButton;
+    [SerializeField] private Button closeButton;
+    [SerializeField] private Button okButton;
 
+    [SerializeField] private GameObject panel;
+
+
+    private void Start()
+    {
+        panelButton.onClick.AddListener(OpenPanel);
+        closeButton.onClick.AddListener(ClosePanel);
+        okButton.onClick.AddListener(ClosePanel);
+    }
 
     public void GetSystemProperties()
     {
@@ -36,6 +52,18 @@ public class SystemProperties : MonoBehaviour
         {
             Debug.LogWarning("computerInfoText is missing");
         }
+    }
+
+    private void OpenPanel()
+    {
+        panel.SetActive(true);
+        panelButton.interactable = false;
+    }
+
+    private void ClosePanel()
+    {
+        panel.SetActive(false);
+        panelButton.interactable = true;
     }
 
     public void RefreshSystemProperties()
