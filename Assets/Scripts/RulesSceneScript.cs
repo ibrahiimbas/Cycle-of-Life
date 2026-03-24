@@ -15,6 +15,7 @@ using Toggle = UnityEngine.UI.Toggle;
 
 public class RulesSceneScript : MonoBehaviour
 {
+    [SerializeField] private SystemProperties systemProperties;
     [SerializeField] private Button backButton;
     [SerializeField] private Button closeNotepadTabButton;
     [SerializeField] private Toggle notepadBottomToggle;
@@ -73,6 +74,8 @@ public class RulesSceneScript : MonoBehaviour
         
         LoadNotepadContent();
         updateNotepadInputText.onValueChanged.AddListener(SaveNotepadContent);
+        
+        systemProperties.GetSystemProperties();
     }
 
     private void Update()

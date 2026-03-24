@@ -1,0 +1,1863 @@
+fileFormatVersion: 2
+guid: feecb1fd90f2464478d30cb73f281985
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1537246062618658413
+    second: solitaire_deck_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: solitaire_deck_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66c0c63625655510800000000000000
+      internalID: 1537246062618658413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57bf337e0ed6e594b80ac5e606724520
+      internalID: -1190731458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6307c5266adb91742a9c1fefa227884f
+      internalID: 1196980984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_3
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f7183adc77f8c4da6a8e99cfd14f8d
+      internalID: 699216942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_4
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4abac98ed78068e4da4a45bbd51fd8ed
+      internalID: 429030277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_5
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c52ab91017511946b7c1dd1dd3d0af6
+      internalID: 868067245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_6
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3accd41fd8b72554394c726aff3666a2
+      internalID: 1807562082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_7
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1c14cd5a890c942bb04eccf18b206e
+      internalID: 2083590038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_8
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a812af81f4725e7438aa02513b24f917
+      internalID: 2085492049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_9
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c214c31a1803d23498d0e8905853dcbf
+      internalID: 384239573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_10
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cdc538b57d7fc447bfce00831dcf2a9
+      internalID: 951661604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_11
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbdb7cfaace71dd4488423d47dd30a0b
+      internalID: -839913606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_12
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 480
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73c24e7441f37584cb3cf1aff56da0fe
+      internalID: -1217019140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3317064fcdb3d8b4e8f7268ba941446a
+      internalID: 1690993239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_14
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e226717a1b10f4418eb079b063af7bc
+      internalID: -877111454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_15
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb298b4cf7073e34cb0c9f2ffcb82c57
+      internalID: -1192130272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_16
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f9f915d04015cf46bc28cee30900b7b
+      internalID: 1249714855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_17
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96778af2cb25e7a4792912dc08c1d3a3
+      internalID: 489512410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_18
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0fd6a4e32f5c1f458fe097eb166f0ed
+      internalID: -1219528545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_19
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b390966af0af7d743aaa90a7b5572d23
+      internalID: -1114223828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_20
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00010c756731e04aae90ca75832608d
+      internalID: -2117692090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_21
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3962079525268fd429a4ed8a6113ef56
+      internalID: -2098008255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_22
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c054df187e21d48bec45af573ed0cc
+      internalID: -2055107419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_23
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b167f064fc417249baf2e4eeb3305b0
+      internalID: -1213457178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_24
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b860ae218311f4aaac4b17b6513f4e
+      internalID: -576101382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_25
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 384
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a79ab224b2fb7745a7bf65a004b8c23
+      internalID: 1776272232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ead6d982fbb4424e96c1a5ffad5fd9d
+      internalID: 422022414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_27
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b60b34ed3504849b38b02f2980cc8a
+      internalID: -19396248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_28
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a3502737b1caf4aa6389b401c300a5
+      internalID: 1728345401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_29
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c98f4015ae8062f4e86282d43d297043
+      internalID: 1148259091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_30
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc35a16ec5b48014fa01a64afd0dd0f4
+      internalID: -1239177197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_31
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be6f3101c4789a4f8c47009cc291b58
+      internalID: 480039653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_32
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a62facb4745e6c049bce6b4897f73fa7
+      internalID: -2114265727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_33
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4dbc8311c27d9e42a87464c3d01c7bf
+      internalID: 2042868754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_34
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf974876e5ed244888d2b751b4f34d6
+      internalID: -317733302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_35
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de18b850d7d05da408abdca656d40667
+      internalID: -1946564623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_36
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257ca7be5f0987f42849f8cecb893bd5
+      internalID: -162457567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_37
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f926258c710e8f47b6ec6cf33e2a552
+      internalID: 795826416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_38
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 288
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed2cf5d062c030848b61f2e48e49326c
+      internalID: 1769984144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99babd31d383fe245a353441ce83e995
+      internalID: -1727600907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_40
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa05174e8d2a32840b086b09cfcfae97
+      internalID: 198386534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_41
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51978c176731d1145bd8b2a64b000a91
+      internalID: 13668738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_42
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f57a473a6317841ab6c643e0227602
+      internalID: -550694538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_43
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c717c5e5e2c9141a538ab4fc5c3e85
+      internalID: 650776960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_44
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629761f8d311ab142b0dda3215a3e15e
+      internalID: 1796599056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_45
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2f6eb523c1e27f45b6dec734e3cf1f8
+      internalID: 1109974448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_46
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5c2e7a6443113418c1c5519bca0f50
+      internalID: -1306259626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_47
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844803350929a824c903179fddf9d9c8
+      internalID: 1635905449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_48
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c7584944970a14fb5d0d5043c37dc7
+      internalID: -901698528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_49
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a56a7b8305861c44980c7c28cec967b
+      internalID: -958493100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_50
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f5ed98d3309564faa37db74acf0c88
+      internalID: -1787566629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_51
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 192
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ca2a8d18fa3ee448221855333ce5da
+      internalID: 963043192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e06317699344e4d92d79771d6f0695
+      internalID: -351367340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_53
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de82ac011acc2e240b01b3265dd8f3f7
+      internalID: 244280205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_54
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804a01a0a5f472642bc96b42de7d968d
+      internalID: 1434109237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_55
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca70d1b0184d4e478623a76f661a8dc
+      internalID: 1686860154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_56
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82df43eb0469b624d81e1dec8fef130c
+      internalID: 1411894425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_57
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31246373ae6bc7144aec2da18997c561
+      internalID: 512226593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_58
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977bd4102d622a4408cb5e19342a7f0f
+      internalID: -1194424500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_59
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e702ef3ec7ea64284f3236ac95ab3d
+      internalID: 949914728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_60
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53366efcce55cb04695a96c93a4a70d0
+      internalID: -1778772160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_61
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d420ff82314777468dc438a84017df6
+      internalID: -1087684923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_62
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5b65a26aa86554288167c187bad87c
+      internalID: -307941217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_63
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c779da1ac8829549b4f4c64ad73a4ac
+      internalID: 1906379699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_64
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 96
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e3fa46a37c87f4eb8d7c35c5f97d61
+      internalID: -1773735208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ffb8f968754d0409e9d2329b596ca5
+      internalID: 312926717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_66
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23bd18d52b6b9a84ca9dc6491c038e14
+      internalID: -1688174555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_67
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc35d9b40bbaf1247b15dbceec8a18c0
+      internalID: -125369746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_68
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8dd214a06b856f4cbfcc66c6061015b
+      internalID: -57728970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_69
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ad457515991b841b5cb9acee3752fc
+      internalID: -1124467354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_70
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df4f97856593cb40b61501edddd88af
+      internalID: -866304241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_71
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5b0afa46c1ed641bf9bcb254453ee0
+      internalID: 990369106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_72
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43efdf66dd88a5c4ea76ba8a67cd82d2
+      internalID: 590119801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_73
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91260797757d304f9701afb2990db90
+      internalID: 1433085172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: solitaire_deck_74
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 0
+        width: 71
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d280de8f177490c42a995e6c030a09f1
+      internalID: -684125822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: cfe0de79b7eece34fb3d3cefc54c13ef
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":71.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      solitaire_deck_0: 1537246062618658413
+      solitaire_deck_1: -1190731458
+      solitaire_deck_10: 951661604
+      solitaire_deck_11: -839913606
+      solitaire_deck_12: -1217019140
+      solitaire_deck_13: 1690993239
+      solitaire_deck_14: -877111454
+      solitaire_deck_15: -1192130272
+      solitaire_deck_16: 1249714855
+      solitaire_deck_17: 489512410
+      solitaire_deck_18: -1219528545
+      solitaire_deck_19: -1114223828
+      solitaire_deck_2: 1196980984
+      solitaire_deck_20: -2117692090
+      solitaire_deck_21: -2098008255
+      solitaire_deck_22: -2055107419
+      solitaire_deck_23: -1213457178
+      solitaire_deck_24: -576101382
+      solitaire_deck_25: 1776272232
+      solitaire_deck_26: 422022414
+      solitaire_deck_27: -19396248
+      solitaire_deck_28: 1728345401
+      solitaire_deck_29: 1148259091
+      solitaire_deck_3: 699216942
+      solitaire_deck_30: -1239177197
+      solitaire_deck_31: 480039653
+      solitaire_deck_32: -2114265727
+      solitaire_deck_33: 2042868754
+      solitaire_deck_34: -317733302
+      solitaire_deck_35: -1946564623
+      solitaire_deck_36: -162457567
+      solitaire_deck_37: 795826416
+      solitaire_deck_38: 1769984144
+      solitaire_deck_39: -1727600907
+      solitaire_deck_4: 429030277
+      solitaire_deck_40: 198386534
+      solitaire_deck_41: 13668738
+      solitaire_deck_42: -550694538
+      solitaire_deck_43: 650776960
+      solitaire_deck_44: 1796599056
+      solitaire_deck_45: 1109974448
+      solitaire_deck_46: -1306259626
+      solitaire_deck_47: 1635905449
+      solitaire_deck_48: -901698528
+      solitaire_deck_49: -958493100
+      solitaire_deck_5: 868067245
+      solitaire_deck_50: -1787566629
+      solitaire_deck_51: 963043192
+      solitaire_deck_52: -351367340
+      solitaire_deck_53: 244280205
+      solitaire_deck_54: 1434109237
+      solitaire_deck_55: 1686860154
+      solitaire_deck_56: 1411894425
+      solitaire_deck_57: 512226593
+      solitaire_deck_58: -1194424500
+      solitaire_deck_59: 949914728
+      solitaire_deck_6: 1807562082
+      solitaire_deck_60: -1778772160
+      solitaire_deck_61: -1087684923
+      solitaire_deck_62: -307941217
+      solitaire_deck_63: 1906379699
+      solitaire_deck_64: -1773735208
+      solitaire_deck_65: 312926717
+      solitaire_deck_66: -1688174555
+      solitaire_deck_67: -125369746
+      solitaire_deck_68: -57728970
+      solitaire_deck_69: -1124467354
+      solitaire_deck_7: 2083590038
+      solitaire_deck_70: -866304241
+      solitaire_deck_71: 990369106
+      solitaire_deck_72: 590119801
+      solitaire_deck_73: 1433085172
+      solitaire_deck_74: -684125822
+      solitaire_deck_75: -1024784539
+      solitaire_deck_76: -1649379595
+      solitaire_deck_77: -1920643426
+      solitaire_deck_8: 2085492049
+      solitaire_deck_9: 384239573
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
