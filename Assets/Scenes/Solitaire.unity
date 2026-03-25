@@ -1132,7 +1132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &262048595
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1611,7 +1611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &494558184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4344,7 +4344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1169864097
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4474,22 +4474,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The object of Minesweeper\r\n\r\n\tThe object of Minesweeper is to find
-    all the mines as quickly as possible without uncovering any of them.\n\n------------------------------------------------------------------------------------------\n\nTo
-    play Minesweeper\r\n\r\n- On the Game menu, select difficulty you want.\r\n-
-    To start the timer, click any square on the playing field.\n\n------------------------------------------------------------------------------------------\n\r\nNotes\r\n-
-    The game area consists of the playing field, a mine counter, and a timer.\r\n-
-    You can uncover a square by clicking it. If you uncover a mine, you lose the
-    game.\r\n- If a number appears on a square, it indicates how many mines are in
-    the eight squares that surround the numbered one.\r\n- To mark a square you suspect
-    contains a mine, right-click it.\n\n------------------------------------------------------------------------------------------\n\nStrategies
-    and tips\n\n- When you have marked all mines around a numbered square, you can
-    quickly uncover all empty squares around it by clicking that square with both
-    mouse buttons. If not all mines touching the square are marked, the uncovered
-    touching squares will flash.\r\n- Look for common patterns in numbers, which
-    often indicate a corresponding pattern of mines. For example, the pattern 2-3-2
-    at the edge of a group of uncovered squares indicates a row of three mines next
-    to the three numbers."
+  m_text: "Core Rules and Setup\n\r\n- The objective is to build four stacks (one
+    for each suit) in ascending order from Ace to King.\r\n- Tableau Building: In
+    the main play area, cards must be placed in descending order and alternating
+    colors (e.g., a red 7 can only be placed on a black 8).\r\n- Empty Spaces: Only
+    a King (K)\u2014or a sequence starting with a King\u2014can be moved into an
+    empty column on the tableau.\r\n- Stock Pile: When you run out of moves, you
+    draw cards from the remaining deck.\n\n------------------------------------------------------------------------------------------\n\nQuick
+    Winning Strategies\n\r\n- Expose Hidden Cards: Prioritize moves that flip over
+    face-down cards on the tableau.\r\n- Move Aces Immediately: Always move Aces
+    and 2s to the foundation piles as soon as they appear.\r\n- Manage Empty Slots:
+    Don't empty a column unless you have a King ready to fill it; an empty spot is
+    useless without a King."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
   m_sharedMaterial: {fileID: -3253406893790090334, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
@@ -6091,6 +6087,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SolitaireUI
   exitButton: {fileID: 258112610}
+  infoOpenButton: {fileID: 1293324213}
+  infoCloseButton: {fileID: 212407589}
+  infoPanel: {fileID: 548785043}
+  restartButton: {fileID: 653811270}
+  inactiveHeaderColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+  tabOpenSprite: {fileID: -6763024814601447701, guid: 684889b94590ff847bff44744484223c, type: 3}
+  tabClosedSprite: {fileID: -6443241793956281255, guid: abaa947db322a4b4d89b3c87ce1df301, type: 3}
+  headerMainText: {fileID: 71741232}
+  mainTabImage: {fileID: 1191474923}
+  notifyAudio: {fileID: 737870006}
 --- !u!114 &1477381982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6104,6 +6110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SolitaireScoreKeeper
   topStacks: []
+  winAudio: {fileID: 1367081391}
 --- !u!1 &1527930323
 GameObject:
   m_ObjectHideFlags: 0

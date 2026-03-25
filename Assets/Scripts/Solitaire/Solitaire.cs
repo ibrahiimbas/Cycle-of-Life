@@ -232,7 +232,7 @@ public class Solitaire : MonoBehaviour
             cardSelectable.inDeckPile = true;
          }
          deckLocation++;
-         
+      
          UpdateDeckButtonSprite();
       }
       else
@@ -243,12 +243,33 @@ public class Solitaire : MonoBehaviour
 
    void RestackTopDeck()
    {
-      deck.Clear();
-      foreach (string card in discardPile)
+      List<GameObject> cardsToDestroy = new List<GameObject>();
+      foreach (Transform child in deckButton.transform)
       {
-         deck.Add(card);
+         if (child.CompareTag("Card"))
+         {
+            cardsToDestroy.Add(child.gameObject);
+         }
       }
+    
+      foreach (GameObject card in cardsToDestroy)
+      {
+         Destroy(card);
+      }
+   
+      tripsOnDisplay.Clear();
+   
+      deck.Clear();
+   
+      for (int i = discardPile.Count - 1; i >= 0; i--)
+      {
+         deck.Add(discardPile[i]);
+      }
+   
       discardPile.Clear();
+   
+      deckLocation = 0;
+   
       SortDeckIntoTrips();
    }
    

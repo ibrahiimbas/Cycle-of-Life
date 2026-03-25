@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MineSweeper.unity
     guid: 8f3b4fadafe89ae4eb2d0744773c73f7
+  - enabled: 1
+    path: Assets/Scenes/Solitaire.unity
+    guid: 7e2d3d441bfb57b4e9714dbd1c9d1068
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

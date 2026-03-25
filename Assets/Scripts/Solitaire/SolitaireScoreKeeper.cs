@@ -4,6 +4,8 @@ using UnityEngine;
 public class SolitaireScoreKeeper : MonoBehaviour
 {
     public CardSelectable[] topStacks;
+    
+    [SerializeField] private AudioSource winAudio;
 
     private void Update()
     {
@@ -26,6 +28,7 @@ public class SolitaireScoreKeeper : MonoBehaviour
 
     void Win()
     {
+        winAudio.Play();
         Debug.Log("You won");
         Time.timeScale = 0;
     }
