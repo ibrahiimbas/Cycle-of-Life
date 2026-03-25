@@ -15,24 +15,18 @@ public class SolitaireScoreKeeper : MonoBehaviour
 
     public bool HasWon()
     {
-        int i = 0;
+        int total = 0;
         foreach (CardSelectable topstack in topStacks)
         {
-            i += topstack.value;
+            total += topstack.value;
         }
 
-        if (i >= 52)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return total >= 52;
     }
 
     void Win()
     {
-        Debug.Log("Win");
+        Debug.Log("You won");
+        Time.timeScale = 0;
     }
 }

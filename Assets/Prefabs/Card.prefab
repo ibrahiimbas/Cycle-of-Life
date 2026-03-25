@@ -121,7 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796c22f36b5e49c4b8c2dc4d60b45cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardSelectable
+  top: 0
+  suit: 
+  value: 0
+  row: 0
   faceUp: 0
+  inDeckPile: 0
 --- !u!50 &3115276237192432846
 Rigidbody2D:
   serializedVersion: 5

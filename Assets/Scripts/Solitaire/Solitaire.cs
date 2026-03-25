@@ -94,6 +94,8 @@ public class Solitaire : MonoBehaviour
 
    IEnumerator SolitaireDeal()
    {
+      discardPile.Clear();
+    
       for (int i = 0; i < 7; i++)
       {
          float yOffset = 0;
@@ -102,31 +104,24 @@ public class Solitaire : MonoBehaviour
          {
             yield return new WaitForSeconds(.01f);
             GameObject newCard = Instantiate(cardPrefab,
-               new Vector3(bottomPos[i].transform.position.x, bottomPos[i].transform.position.y - yOffset, bottomPos[i].transform.position.z - zOffset),
+               new Vector3(bottomPos[i].transform.position.x, 
+                  bottomPos[i].transform.position.y - yOffset, 
+                  bottomPos[i].transform.position.z - zOffset),
                Quaternion.identity, bottomPos[i].transform);
             newCard.name = card;
             newCard.GetComponent<CardSelectable>().row = i;
 
-            if (card==bottoms[i][bottoms[i].Count-1])
+            if (card == bottoms[i][bottoms[i].Count - 1])
             {
                newCard.GetComponent<CardSelectable>().faceUp = true;
             }
 
-            yOffset = yOffset + .6f;
-            zOffset = zOffset + .03f;
-            discardPile.Add(card);
+            yOffset += .7f;
+            zOffset += .03f;
+            
          }
       }
 
-      foreach (string card in discardPile)
-      {
-         if (deck.Contains(card))
-         {
-            deck.Remove(card);
-         }
-      }
-      
-      discardPile.Clear();
    }
 
    void SolitaireSort()
@@ -143,6 +138,8 @@ public class Solitaire : MonoBehaviour
 
    public void SortDeckIntoTrips()
    {
+      if (deck.Count == 0) return;
+    
       trips = deck.Count / 3;
       tripsRemainder = deck.Count % 3;
       deckTrips.Clear();
@@ -154,7 +151,10 @@ public class Solitaire : MonoBehaviour
          List<string> myTrips = new List<string>();
          for (int j = 0; j < 3; j++)
          {
-            myTrips.Add(deck[j+modifier]);
+            if (j + modifier < deck.Count)
+            {
+               myTrips.Add(deck[j + modifier]);
+            }
          }
          deckTrips.Add(myTrips);
          modifier = modifier + 3;
@@ -163,12 +163,12 @@ public class Solitaire : MonoBehaviour
       if (tripsRemainder != 0)
       {
          List<string> myRemainders = new List<string>();
-         modifier = 0;
-
          for (int k = 0; k < tripsRemainder; k++)
          {
-            myRemainders.Add(deck[deck.Count - tripsRemainder+modifier]);
-            modifier++;
+            if (deck.Count - tripsRemainder + k < deck.Count)
+            {
+               myRemainders.Add(deck[deck.Count - tripsRemainder + k]);
+            }
          }
          deckTrips.Add(myRemainders);
          trips++;
@@ -179,41 +179,54 @@ public class Solitaire : MonoBehaviour
 
    public void DealFromDeck()
    {
-      // Add remaining cards to discard pile
-
+      List<GameObject> cardsToDestroy = new List<GameObject>();
       foreach (Transform child in deckButton.transform)
       {
          if (child.CompareTag("Card"))
          {
-            deck.Remove(child.name);
-            discardPile.Add(child.name);
-            Destroy(child.gameObject);
+            cardsToDestroy.Add(child.gameObject);
          }
       }
-      
+    
+      foreach (GameObject card in cardsToDestroy)
+      {
+         if (deck.Contains(card.name))
+         {
+            deck.Remove(card.name);
+         }
+         discardPile.Add(card.name);
+         Destroy(card);
+      }
+    
       if (deckLocation < trips)
       {
-         // Draw 3 cards
          tripsOnDisplay.Clear();
          float xOffset = 4.5f;
          float zOffset = -.2f;
+         float yOffset = 0f;
 
-         foreach (string card in deckTrips[deckLocation])
+         for (int i = 0; i < deckTrips[deckLocation].Count; i++)
          {
+            string card = deckTrips[deckLocation][i];
             GameObject newTopCard = Instantiate(cardPrefab,
-               new Vector3(deckButton.transform.position.x + xOffset, deckButton.transform.position.y,
-                  deckButton.transform.position.z + zOffset), Quaternion.identity, deckButton.transform);
+               new Vector3(deckButton.transform.position.x + xOffset, 
+                  deckButton.transform.position.y + yOffset,
+                  deckButton.transform.position.z + zOffset), 
+               Quaternion.identity, deckButton.transform);
             
             xOffset = xOffset + .5f;
             zOffset = zOffset - .2f;
+            yOffset = yOffset - .1f;
+            
             newTopCard.name = card;
             tripsOnDisplay.Add(card);
-            newTopCard.GetComponent<CardSelectable>().faceUp = true;
-            newTopCard.GetComponent<CardSelectable>().inDeckPile = true;
+            
+            CardSelectable cardSelectable = newTopCard.GetComponent<CardSelectable>();
+            cardSelectable.faceUp = true;
+            cardSelectable.inDeckPile = true;
          }
          deckLocation++;
       }
-
       else
       {
          RestackTopDeck();
