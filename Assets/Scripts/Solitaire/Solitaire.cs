@@ -11,6 +11,10 @@ public class Solitaire : MonoBehaviour
    [SerializeField] public Sprite[] cardSprites;
    [SerializeField] private GameObject cardPrefab;
    
+   [Header("Deck Button Sprites")]
+   [SerializeField] private Sprite deckButtonNormal;
+   [SerializeField] private Sprite deckButtonLow;
+   
    public GameObject[] bottomPos;
    public GameObject[] topPos;
    public GameObject deckButton;
@@ -54,10 +58,10 @@ public class Solitaire : MonoBehaviour
       Shuffle(deck);
       
       // For test
-      foreach (string card in deck)
-      {
-         Debug.Log(card);
-      }
+      //foreach (string card in deck)
+      //{
+      //   Debug.Log(card);
+      //}
       
       SolitaireSort();
       StartCoroutine(SolitaireDeal());
@@ -116,7 +120,7 @@ public class Solitaire : MonoBehaviour
                newCard.GetComponent<CardSelectable>().faceUp = true;
             }
 
-            yOffset += .7f;
+            yOffset += .3f;
             zOffset += .03f;
             
          }
@@ -139,6 +143,8 @@ public class Solitaire : MonoBehaviour
    public void SortDeckIntoTrips()
    {
       if (deck.Count == 0) return;
+      
+      UpdateDeckButtonSprite();
     
       trips = deck.Count / 3;
       tripsRemainder = deck.Count % 3;
@@ -226,6 +232,8 @@ public class Solitaire : MonoBehaviour
             cardSelectable.inDeckPile = true;
          }
          deckLocation++;
+         
+         UpdateDeckButtonSprite();
       }
       else
       {
@@ -242,5 +250,22 @@ public class Solitaire : MonoBehaviour
       }
       discardPile.Clear();
       SortDeckIntoTrips();
+   }
+   
+   public void UpdateDeckButtonSprite()
+   {
+      if (deckButton == null) return;
+    
+      SpriteRenderer spriteRenderer = deckButton.GetComponent<SpriteRenderer>();
+      if (spriteRenderer == null) return;
+    
+      if (deck.Count > 0 && deck.Count <= 3)
+      {
+         spriteRenderer.sprite = deckButtonLow;
+      }
+      else
+      {
+         spriteRenderer.sprite = deckButtonNormal;
+      }
    }
 }

@@ -250,7 +250,7 @@ public class SolitaireUserInput : MonoBehaviour
             return;
         }
         
-        float yOffset = .3f;
+        float yOffset = .65f;
 
         if (s2.top || (!s1.top && s1.value == 13))
         {
