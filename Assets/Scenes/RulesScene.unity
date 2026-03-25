@@ -4648,6 +4648,7 @@ MonoBehaviour:
   selectedColor: {r: 0.32373622, g: 0.40787002, b: 0.7075472, a: 1}
   hoverColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
   doubleClickThreshold: 0.3
+  sceneLoadDelay: 0.25
   deselectOnDoubleClick: 1
   targetScene: MineSweeper
   onSingleClick:
@@ -12743,9 +12744,9 @@ RectTransform:
   - {fileID: 590957385}
   - {fileID: 660979880}
   - {fileID: 1797455095}
-  - {fileID: 421894609}
   - {fileID: 1336496460}
   - {fileID: 1733488105}
+  - {fileID: 421894609}
   - {fileID: 890978069}
   - {fileID: 10394265}
   - {fileID: 777550763}
@@ -13321,6 +13322,7 @@ MonoBehaviour:
   selectedColor: {r: 0.32373622, g: 0.40787002, b: 0.7075472, a: 1}
   hoverColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
   doubleClickThreshold: 0.3
+  sceneLoadDelay: 0.25
   deselectOnDoubleClick: 1
   targetScene: CycleofLife
   onSingleClick:

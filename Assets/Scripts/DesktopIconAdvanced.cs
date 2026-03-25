@@ -16,6 +16,7 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
     
     [Header("Click Settings")]
     [SerializeField] private float doubleClickThreshold = 0.3f;
+    [SerializeField] private float sceneLoadDelay = 0.25f;
     [SerializeField] private bool deselectOnDoubleClick = true;
     
     [Header("Action Settings")]
@@ -26,6 +27,7 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
     private float lastClickTime;
     private bool isSelected;
     private Coroutine singleClickCoroutine;
+    private Coroutine doubleClickCoroutine;
     
     private static DesktopIconAdvanced currentlySelected;
     
@@ -84,25 +86,36 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
             iconImage.color = selectedColor;
         
         onSingleClick?.Invoke();
-        
-        Debug.Log($"Single click: {gameObject.name}");
     }
     
-    private void HandleDoubleClick()
+    private IEnumerator DoubleClickHandler()
     {
-        Debug.Log($"Double click: {gameObject.name}");
-        
+        yield return new WaitForSeconds(sceneLoadDelay);
+    
         if (!string.IsNullOrEmpty(targetScene))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
         }
-        
+    
         onDoubleClick?.Invoke();
-        
+    
         if (deselectOnDoubleClick)
         {
             Deselect();
         }
+    
+        doubleClickCoroutine = null;
+    }
+    
+    private void HandleDoubleClick()
+    {
+        if (doubleClickCoroutine != null)
+        {
+            StopCoroutine(doubleClickCoroutine);
+            doubleClickCoroutine = null;
+        }
+        
+        doubleClickCoroutine = StartCoroutine(DoubleClickHandler());
     }
     
     private void Deselect()
