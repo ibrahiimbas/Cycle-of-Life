@@ -12,6 +12,11 @@ public class SolitaireUI : MonoBehaviour
    [SerializeField] private Button infoCloseButton;
    [SerializeField] private GameObject infoPanel;
    [SerializeField] private Button restartButton;
+   [SerializeField] private Toggle settingsToggle;
+   [SerializeField] private Button openSettingsButton;
+   [SerializeField] private GameObject settingsMiniPanel;
+   [SerializeField] private GameObject settingsMainPanel;
+   [SerializeField] private Button settingsCloseButton;
    
    [Header("Active Inactive Settings")]
    private Color originalHeaderColor;
@@ -30,8 +35,50 @@ public class SolitaireUI : MonoBehaviour
       infoOpenButton.onClick.AddListener(OpenInfoPanel);
       infoCloseButton.onClick.AddListener(CloseInfoPanel);
       originalHeaderColor =  headerMainText.color;
+      settingsToggle.onValueChanged.AddListener(SettingsPanelToggle);
+      openSettingsButton.onClick.AddListener(OpenSettingsMainPanel);
+      settingsCloseButton.onClick.AddListener(CloseSettingsMainPanel);
    }
 
+   private void CloseSettingsMainPanel()
+   {
+      settingsMainPanel.SetActive(false);
+      headerMainText.color = originalHeaderColor;
+      mainTabImage.sprite = tabOpenSprite;
+      infoOpenButton.interactable = true;
+      settingsToggle.interactable = true;
+      settingsToggle.isOn = false;
+      exitButton.interactable = true;
+      restartButton.interactable = true;
+      //openSettingsToggle.interactable = false;
+   }
+   
+   private void OpenSettingsMainPanel()
+   {
+      settingsMainPanel.SetActive(true);
+      settingsMiniPanel.SetActive(false);
+      headerMainText.color = inactiveHeaderColor;
+      mainTabImage.sprite = tabClosedSprite;
+      infoOpenButton.interactable = false;
+      settingsToggle.interactable = false;
+      settingsToggle.isOn = false;
+      exitButton.interactable = false;
+      restartButton.interactable = false;
+      //openSettingsToggle.interactable = false;
+   }
+
+   private void SettingsPanelToggle(bool isOn)
+   {
+      if (isOn)
+      {
+         settingsMiniPanel.SetActive(true);
+      }
+      else
+      {
+         settingsMiniPanel.SetActive(false);
+      }
+   }
+   
    public void ResetScene()
    {
       UpdateCardSprite[] cards = FindObjectsOfType<UpdateCardSprite>();
@@ -40,6 +87,8 @@ public class SolitaireUI : MonoBehaviour
          Destroy(card.gameObject);
       }
       ClearTopValues();
+      settingsToggle.isOn = false;
+      settingsMiniPanel.SetActive(false);
       FindObjectOfType<Solitaire>().PlayCards();
    }
 
@@ -65,9 +114,12 @@ public class SolitaireUI : MonoBehaviour
    {
       notifyAudio.Play();
       infoPanel.SetActive(true);
+      settingsMiniPanel.SetActive(false);
       headerMainText.color = inactiveHeaderColor;
       mainTabImage.sprite = tabClosedSprite;
       infoOpenButton.interactable = false;
+      settingsToggle.interactable = false;
+      settingsToggle.isOn = false;
       exitButton.interactable = false;
       restartButton.interactable = false;
       //openSettingsToggle.interactable = false;
@@ -79,6 +131,8 @@ public class SolitaireUI : MonoBehaviour
       headerMainText.color = originalHeaderColor;
       mainTabImage.sprite = tabOpenSprite;
       infoOpenButton.interactable = true;
+      settingsToggle.interactable = true;
+      settingsToggle.isOn = false;
       exitButton.interactable = true;
       restartButton.interactable = true;
       //openSettingsToggle.interactable = true;
