@@ -108,7 +108,7 @@ public class RulesSceneScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Default text loaded");
+            
         }
     }
     

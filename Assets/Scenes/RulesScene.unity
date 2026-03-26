@@ -5333,17 +5333,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Cycle of Life (Conway's Game of Life)\n\nVersion: 0.7 Beta\n\nNew Features:\n-
-    Solitaire game added. (Buggy version, it will be fixed)\n- More functional desktop.\n-
-    Double click to open games.\n- Minesweeper game added.\n- 3 difficulty selection
-    in Minesweeper\n- You can create or kill cells while simulation is playing.\n-
-    You need to enable it in the game screen.\n- Drag your mouse while holding Ctrl
-    and left mouse button to create new cells. \n- Drag your mouse while holding
-    Ctrl and right mouse button to kill alive cells. \n- Now you can edit this update
-    notes. (It deletes when you exit the game)\n\nRules:\n-Birth Rule: An empty,
-    or \u201Cdead,\u201D cell with precisely three \u201Clive\u201D neighbors (full
-    cells) becomes live.\n\n-Death Rule: A live cell with zero or one neighbors dies
-    of isolation; a live cell with four or more neighbors dies of overcrowding.\n\n-Survival
-    Rule: A live cell with two or three neighbors remains alive.\n\n\t\t\t\t\t\t\t  
+    Solitaire game added. (Buggy version, it will be fixed.)\n- Solitaire Themes
+    added. You can change back of the card in the game settings.\n- More functional
+    desktop.\n- Double click to open games.\n- Minesweeper game added.\n- 3 difficulty
+    selection in Minesweeper\n- You can create or kill cells while simulation is
+    playing.\n- You need to enable it in the game screen.\n- Drag your mouse while
+    holding Ctrl and left mouse button to create new cells. \n- Drag your mouse while
+    holding Ctrl and right mouse button to kill alive cells. \n- Now you can edit
+    this update notes. (It deletes when you exit the game)\n\nRules:\n-Birth Rule:
+    An empty, or \u201Cdead,\u201D cell with precisely three \u201Clive\u201D neighbors
+    (full cells) becomes live.\n\n-Death Rule: A live cell with zero or one neighbors
+    dies of isolation; a live cell with four or more neighbors dies of overcrowding.\n\n-Survival
+    Rule: A live cell with two or three neighbors remains alive.\n\t\t\t\t\t\t\t  
     synthesizer - ibrahim emre bas\n--------\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
@@ -6188,17 +6189,18 @@ MonoBehaviour:
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.04281996, g: 0.03631186, b: 0.4528302, a: 1}
   m_Text: "Cycle of Life (Conway's Game of Life)\n\nVersion: 0.7 Beta\n\nNew Features:\n-
-    Solitaire game added. (Buggy version, it will be fixed)\n- More functional desktop.\n-
-    Double click to open games.\n- Minesweeper game added.\n- 3 difficulty selection
-    in Minesweeper\n- You can create or kill cells while simulation is playing.\n-
-    You need to enable it in the game screen.\n- Drag your mouse while holding Ctrl
-    and left mouse button to create new cells. \n- Drag your mouse while holding
-    Ctrl and right mouse button to kill alive cells. \n- Now you can edit this update
-    notes. (It deletes when you exit the game)\n\nRules:\n-Birth Rule: An empty,
-    or \u201Cdead,\u201D cell with precisely three \u201Clive\u201D neighbors (full
-    cells) becomes live.\n\n-Death Rule: A live cell with zero or one neighbors dies
-    of isolation; a live cell with four or more neighbors dies of overcrowding.\n\n-Survival
-    Rule: A live cell with two or three neighbors remains alive.\n\n\t\t\t\t\t\t\t  
+    Solitaire game added. (Buggy version, it will be fixed.)\n- Solitaire Themes
+    added. You can change back of the card in the game settings.\n- More functional
+    desktop.\n- Double click to open games.\n- Minesweeper game added.\n- 3 difficulty
+    selection in Minesweeper\n- You can create or kill cells while simulation is
+    playing.\n- You need to enable it in the game screen.\n- Drag your mouse while
+    holding Ctrl and left mouse button to create new cells. \n- Drag your mouse while
+    holding Ctrl and right mouse button to kill alive cells. \n- Now you can edit
+    this update notes. (It deletes when you exit the game)\n\nRules:\n-Birth Rule:
+    An empty, or \u201Cdead,\u201D cell with precisely three \u201Clive\u201D neighbors
+    (full cells) becomes live.\n\n-Death Rule: A live cell with zero or one neighbors
+    dies of isolation; a live cell with four or more neighbors dies of overcrowding.\n\n-Survival
+    Rule: A live cell with two or three neighbors remains alive.\n\t\t\t\t\t\t\t  
     synthesizer - ibrahim emre bas\n--------"
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
@@ -10539,7 +10541,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 616078634}
   m_Direction: 3
   m_Value: 0
-  m_Size: 0.99295515
+  m_Size: 0.95742667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

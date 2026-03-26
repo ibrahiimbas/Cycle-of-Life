@@ -40,32 +40,88 @@ public class Solitaire : MonoBehaviour
    private int deckLocation;
    private int trips;
    private int tripsRemainder;
+   
+   private void Awake()
+   {
+      FindReferences();
+   }
 
    private void Start()
    {
       bottoms = new List<string>[]{bottom0,bottom1,bottom2,bottom3,bottom4,bottom5,bottom6};
+      
+      if (deckButton != null && CardBackManager.Instance != null)
+      {
+         SpriteRenderer deckSprite = deckButton.GetComponent<SpriteRenderer>();
+         if (deckSprite != null)
+         {
+            deckSprite.sprite = CardBackManager.Instance.GetCurrentCardBack();
+         }
+      }
+      
       PlayCards();
+   }
+   
+   private void OnEnable()
+   {
+      FindReferences();
+   }
+   
+   private void OnDestroy()
+   {
+      StopAllCoroutines();
+   }
+   
+   private void FindReferences()
+   {
+      if (bottomPos == null || bottomPos.Length == 0 || bottomPos.Any(pos => pos == null))
+      {
+         GameObject[] foundBottoms = GameObject.FindGameObjectsWithTag("Bottom");
+         if (foundBottoms.Length == 7)
+         {
+            bottomPos = foundBottoms.OrderBy(go => go.transform.position.x).ToArray();
+         }
+      }
+       
+      if (topPos == null || topPos.Length == 0 || topPos.Any(pos => pos == null))
+      {
+         GameObject[] foundTops = GameObject.FindGameObjectsWithTag("Top");
+         if (foundTops.Length == 4)
+         {
+            topPos = foundTops.OrderBy(go => go.transform.position.x).ToArray();
+         }
+      }
+       
+      if (deckButton == null)
+      {
+         deckButton = GameObject.FindGameObjectWithTag("Deck");
+      }
    }
 
    public void PlayCards()
    {
+      FindReferences();
       foreach (List<string> list in bottoms)
       {
          list.Clear();
       }
-      
+    
       deck = GenerateDeck();
       Shuffle(deck);
-      
-      // For test
-      //foreach (string card in deck)
-      //{
-      //   Debug.Log(card);
-      //}
-      
+    
       SolitaireSort();
       StartCoroutine(SolitaireDeal());
       SortDeckIntoTrips();
+   }
+   
+   IEnumerator ApplyCardBackAfterDeal()
+   {
+      yield return new WaitForSeconds(0.2f);
+    
+      if (CardBackManager.Instance != null)
+      {
+         CardBackManager.Instance.ApplyCardBackToAllCards();
+      }
    }
    
    public static List<string> GenerateDeck()
@@ -104,28 +160,43 @@ public class Solitaire : MonoBehaviour
       {
          float yOffset = 0;
          float zOffset = .03f;
-         foreach (string card in bottoms[i])
+        
+         List<string> bottomCards = new List<string>(bottoms[i]);
+        
+         foreach (string card in bottomCards)
          {
             yield return new WaitForSeconds(.01f);
+            
+            if (bottomPos[i] == null) continue;
+            
             GameObject newCard = Instantiate(cardPrefab,
                new Vector3(bottomPos[i].transform.position.x, 
                   bottomPos[i].transform.position.y - yOffset, 
                   bottomPos[i].transform.position.z - zOffset),
                Quaternion.identity, bottomPos[i].transform);
             newCard.name = card;
-            newCard.GetComponent<CardSelectable>().row = i;
-
-            if (card == bottoms[i][bottoms[i].Count - 1])
+            
+            CardSelectable cardSelectable = newCard.GetComponent<CardSelectable>();
+            if (cardSelectable != null)
             {
-               newCard.GetComponent<CardSelectable>().faceUp = true;
+               cardSelectable.row = i;
+                
+               if (card == bottoms[i][bottoms[i].Count - 1])
+               {
+                  cardSelectable.faceUp = true;
+               }
             }
 
             yOffset += .3f;
             zOffset += .03f;
-            
          }
       }
-
+    
+      yield return new WaitForSeconds(0.1f);
+      if (CardBackManager.Instance != null)
+      {
+         CardBackManager.Instance.ApplyCardBackToAllCards();
+      }
    }
 
    void SolitaireSort()
@@ -230,6 +301,12 @@ public class Solitaire : MonoBehaviour
             CardSelectable cardSelectable = newTopCard.GetComponent<CardSelectable>();
             cardSelectable.faceUp = true;
             cardSelectable.inDeckPile = true;
+            
+            UpdateCardSprite cardSprite = newTopCard.GetComponent<UpdateCardSprite>();
+            if (cardSprite != null && CardBackManager.Instance != null)
+            {
+               cardSprite.UpdateCardBackSprite(CardBackManager.Instance.GetCurrentCardBack());
+            }
          }
          deckLocation++;
       
@@ -279,7 +356,17 @@ public class Solitaire : MonoBehaviour
     
       SpriteRenderer spriteRenderer = deckButton.GetComponent<SpriteRenderer>();
       if (spriteRenderer == null) return;
-    
+      
+      if (CardBackManager.Instance != null)
+      {
+         Sprite currentBack = CardBackManager.Instance.GetCurrentCardBack();
+         if (currentBack != null)
+         {
+            spriteRenderer.sprite = currentBack;
+            return;
+         }
+      }
+      
       if (deck.Count > 0 && deck.Count <= 3)
       {
          spriteRenderer.sprite = deckButtonLow;

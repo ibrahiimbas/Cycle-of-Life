@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,19 +30,65 @@ public class SolitaireUI : MonoBehaviour
    
    [Header("Audio")] 
    [SerializeField] private AudioSource notifyAudio;
-
+   
+   [Header("References")]
+   [SerializeField] private SettingsPanel settingsPanel;
+   
+   [Header("Scroll Views")]
+   [SerializeField] private ScrollRect themeScrollRect;
+   
    private void Start()
    {
+      BindButtonEvents();
       exitButton.onClick.AddListener(JumpMainScene);
       infoOpenButton.onClick.AddListener(OpenInfoPanel);
       infoCloseButton.onClick.AddListener(CloseInfoPanel);
       originalHeaderColor =  headerMainText.color;
       settingsToggle.onValueChanged.AddListener(SettingsPanelToggle);
       openSettingsButton.onClick.AddListener(OpenSettingsMainPanel);
-      settingsCloseButton.onClick.AddListener(CloseSettingsMainPanel);
+      settingsCloseButton.onClick.AddListener(settingsPanel.CancelAndClose);
+   }
+   
+   private void OnEnable()
+   {
+      BindButtonEvents();
+   }
+   
+   private void BindButtonEvents()
+   {
+      if (exitButton != null)
+         exitButton.onClick.RemoveAllListeners();
+      if (infoOpenButton != null)
+         infoOpenButton.onClick.RemoveAllListeners();
+      if (infoCloseButton != null)
+         infoCloseButton.onClick.RemoveAllListeners();
+      if (restartButton != null)
+         restartButton.onClick.RemoveAllListeners();
+      if (settingsToggle != null)
+         settingsToggle.onValueChanged.RemoveAllListeners();
+      if (openSettingsButton != null)
+         openSettingsButton.onClick.RemoveAllListeners();
+      if (settingsCloseButton != null)
+         settingsCloseButton.onClick.RemoveAllListeners();
+       
+      if (exitButton != null)
+         exitButton.onClick.AddListener(JumpMainScene);
+      if (infoOpenButton != null)
+         infoOpenButton.onClick.AddListener(OpenInfoPanel);
+      if (infoCloseButton != null)
+         infoCloseButton.onClick.AddListener(CloseInfoPanel);
+      if (restartButton != null)
+         restartButton.onClick.AddListener(ResetScene);
+      if (settingsToggle != null)
+         settingsToggle.onValueChanged.AddListener(SettingsPanelToggle);
+      if (openSettingsButton != null)
+         openSettingsButton.onClick.AddListener(OpenSettingsMainPanel);
+      if (settingsCloseButton != null && settingsPanel != null)
+         settingsCloseButton.onClick.AddListener(settingsPanel.CancelAndClose);
    }
 
-   private void CloseSettingsMainPanel()
+
+   public void CloseSettingsMainPanel()
    {
       settingsMainPanel.SetActive(false);
       headerMainText.color = originalHeaderColor;
@@ -64,7 +112,21 @@ public class SolitaireUI : MonoBehaviour
       settingsToggle.isOn = false;
       exitButton.interactable = false;
       restartButton.interactable = false;
+      StartCoroutine(ResetScrollRectNextFrame(themeScrollRect));
       //openSettingsToggle.interactable = false;
+   }
+   
+   private IEnumerator ResetScrollRectNextFrame(ScrollRect scrollRect)
+   {
+      yield return null;
+    
+      yield return new WaitForEndOfFrame();
+      
+      if (scrollRect.horizontal)
+      {
+         scrollRect.horizontalNormalizedPosition = 0f;
+      }
+    
    }
 
    private void SettingsPanelToggle(bool isOn)
@@ -81,6 +143,8 @@ public class SolitaireUI : MonoBehaviour
    
    public void ResetScene()
    {
+      StopAllCoroutines();
+      
       UpdateCardSprite[] cards = FindObjectsOfType<UpdateCardSprite>();
       foreach (UpdateCardSprite card in cards)
       {
@@ -89,7 +153,12 @@ public class SolitaireUI : MonoBehaviour
       ClearTopValues();
       settingsToggle.isOn = false;
       settingsMiniPanel.SetActive(false);
-      FindObjectOfType<Solitaire>().PlayCards();
+     
+      Solitaire solitaire = FindObjectOfType<Solitaire>();
+      if (solitaire != null)
+      {
+         solitaire.PlayCards();
+      }
    }
 
    void ClearTopValues()
