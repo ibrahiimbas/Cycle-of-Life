@@ -16,7 +16,6 @@ using Toggle = UnityEngine.UI.Toggle;
 public class RulesSceneScript : MonoBehaviour
 {
     [SerializeField] private SystemProperties systemProperties;
-    [SerializeField] private Button backButton;
     [SerializeField] private Button closeNotepadTabButton;
     [SerializeField] private Toggle notepadBottomToggle;
     [SerializeField] private Button controlPanelButton;
@@ -56,7 +55,6 @@ public class RulesSceneScript : MonoBehaviour
     
     public void Start()
     {
-        backButton.onClick.AddListener(JumpToSimulation);
         closeNotepadTabButton.onClick.AddListener(CloseNotepadTab);
         notepadBottomToggle.onValueChanged.AddListener(OnNotepadToggleChanged);
         controlPanelButton.onClick.AddListener(OpenControlPanelTab);
