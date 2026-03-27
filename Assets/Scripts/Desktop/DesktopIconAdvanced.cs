@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 
 public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -27,12 +28,13 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
     [Header("App Type")]
     [SerializeField] private bool isWindowedApp = false;
     [SerializeField] private GameObject appPanel;
+    [SerializeField] private Toggle appTaskbarToggle;
+    [SerializeField] private bool isWindowOpened = false;
     
     private float lastClickTime;
     private bool isSelected;
     private Coroutine singleClickCoroutine;
     private Coroutine doubleClickCoroutine;
-    private bool isWindowOpened = false;
     
     private static DesktopIconAdvanced currentlySelected;
     
@@ -105,7 +107,8 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
         if (isWindowedApp && appPanel != null && isWindowedApp)
         {
            appPanel.SetActive(true);
-           isWindowedApp = !isWindowedApp;
+           appTaskbarToggle.gameObject.SetActive(true);
+           isWindowOpened = !isWindowOpened;
         }
     
         onDoubleClick?.Invoke();

@@ -28,6 +28,8 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Button firstInfoCloseButton;
     [SerializeField] private Button firstInfoOkButton;
     [SerializeField] private Button updateNotepadButton;
+    [SerializeField] private Button closeTestPanelButton;
+    [SerializeField] private Toggle testBottomToggle;
     
     [SerializeField] private TextMeshProUGUI currentTimeText;
     [SerializeField] private GameObject notepadTab;
@@ -35,6 +37,7 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private GameObject shutDownSidePanelTab;
     [SerializeField] private GameObject shutDownPanelTab;
     [SerializeField] private GameObject firstInfoPanel;
+    [SerializeField] private GameObject testPanel;
     [SerializeField] private Image notepadImage;
     [SerializeField] private Sprite notepadOpenSprite;
     [SerializeField] private Sprite notepadClosedSprite;
@@ -67,6 +70,9 @@ public class RulesSceneScript : MonoBehaviour
         firstInfoCloseButton.onClick.AddListener(FirstInfoPanelClose);
         firstInfoOkButton.onClick.AddListener(FirstInfoPanelClose);
         updateNotepadButton.onClick.AddListener(NotepadOpen);
+        closeTestPanelButton.onClick.AddListener(CloseTestPanel);
+        testBottomToggle.onValueChanged.AddListener(OnTestPanelToggleChanged);
+        
         
         originalHeaderColor = notepadTabHeaderText.color;
         
@@ -115,11 +121,6 @@ public class RulesSceneScript : MonoBehaviour
         PlayerPrefs.DeleteKey(NOTEPAD_TEXT_KEY);
         PlayerPrefs.Save();
         //updateNotepadInputText.text = "";
-    }
-
-    private void JumpToSimulation()
-    {
-        SceneManager.LoadScene("CycleofLife", LoadSceneMode.Single);
     }
 
     private void ExitSimulation()
@@ -205,6 +206,25 @@ public class RulesSceneScript : MonoBehaviour
         notepadTab.SetActive(false);
         notepadBottomToggle.gameObject.SetActive(false);
         updateNotepadButton.interactable = true;
+    }
+
+    private void CloseTestPanel()
+    {
+        testPanel.SetActive(false);
+        testBottomToggle.gameObject.SetActive(false);
+        
+    }
+
+    private void OnTestPanelToggleChanged(bool isOn)
+    {
+        if (isOn)
+        {
+                testPanel.SetActive(true);
+        }
+        else
+        {
+                testPanel.SetActive(false);
+        }
     }
     
     private void OnNotepadToggleChanged(bool isOn)
