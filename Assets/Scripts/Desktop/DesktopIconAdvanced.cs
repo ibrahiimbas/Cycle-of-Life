@@ -24,10 +24,15 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
     [SerializeField] private UnityEngine.Events.UnityEvent onSingleClick;
     [SerializeField] private UnityEngine.Events.UnityEvent onDoubleClick;
     
+    [Header("App Type")]
+    [SerializeField] private bool isWindowedApp = false;
+    [SerializeField] private GameObject appPanel;
+    
     private float lastClickTime;
     private bool isSelected;
     private Coroutine singleClickCoroutine;
     private Coroutine doubleClickCoroutine;
+    private bool isWindowOpened = false;
     
     private static DesktopIconAdvanced currentlySelected;
     
@@ -92,9 +97,15 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
     {
         yield return new WaitForSeconds(sceneLoadDelay);
     
-        if (!string.IsNullOrEmpty(targetScene))
+        if (!string.IsNullOrEmpty(targetScene) && !isWindowedApp)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
+        }
+        
+        if (isWindowedApp && appPanel != null && isWindowedApp)
+        {
+           appPanel.SetActive(true);
+           isWindowedApp = !isWindowedApp;
         }
     
         onDoubleClick?.Invoke();
