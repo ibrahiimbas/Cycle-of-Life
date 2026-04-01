@@ -2312,6 +2312,104 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203110794}
   m_CullTransparentMesh: 1
+--- !u!1 &257579871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257579872}
+  - component: {fileID: 257579875}
+  - component: {fileID: 257579874}
+  - component: {fileID: 257579873}
+  m_Layer: 5
+  m_Name: guest_book
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &257579872
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257579871}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745524010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -32, y: 64}
+  m_SizeDelta: {x: 171, y: 71}
+  m_Pivot: {x: 1, y: 0}
+--- !u!95 &257579873
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257579871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b4a52876ba5b0cf4a8b79a5cb7002721, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &257579874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257579871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -3657522565782835500, guid: b37f979b86a768a4ca8453f03b6b6f07, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &257579875
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257579871}
+  m_CullTransparentMesh: 1
 --- !u!1 &260811695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5656,12 +5754,16 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1945885892}
+  - {fileID: 1408810900}
+  - {fileID: 1839357705}
+  - {fileID: 1985355719}
+  - {fileID: 257579872}
   m_Father: {fileID: 1587571673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 6}
-  m_SizeDelta: {x: -48, y: 1840}
+  m_SizeDelta: {x: -256, y: 1840}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745524011
 MonoBehaviour:
@@ -5683,61 +5785,61 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "    \nSynthesizer\n\n\n\n\n\nCycle of Life is a different version of the
-    game originally called The Game of Life, also known as Conway's Game of Life
-    or simply Life. It is a cellular automaton devised by the British mathematician
-    John Horton Conway in 1970. It is a zero-player game, meaning that its evolution
-    is determined by its initial state, requiring no further input. One interacts
-    with the Game of Life by creating an initial configuration and observing how
-    it evolves in discrete time steps called generations. There is no limit to the
-    number of generations (computational resources permitting) or win condition.\n\nRules
-    of the Game:\n-Birth Rule: An empty, or \u201Cdead\u201D cell with precisely
-    three \u201Clive\u201D neighbors (full cells) becomes live.\n-Death Rule: A live
-    cell with zero or one neighbors dies of isolation; a live cell with four or more
-    neighbors dies of overcrowding.\n-Survival Rule: A live cell with two or three
-    neighbors remains alive.\n\nHow to play:\n- Use the arrow keys or WASD to move
-    around the area.\n- Use Mouse Editing Toggle to enable or disable mouse edit.\n-
-    Drag mouse while holding CTRL and left mouse button to create alive cells.\n-
-    Drag mouse while holding CTRL and right mouse button to kill alive cells.  \n-
-    Select patterns from the pattern menu.\n- Adjust camera speed and zoom levels
-    using the sliders.\n- Pause, resume, and reset the simulation using the buttons.\n-
-    Change the theme by using theme button.\n\n    Cycle of Life is a different version
-    of the game originally called The Game of Life, also known as Conway's Game of
-    Life or simply Life. It is a cellular automaton devised by the British mathematician
-    John Horton Conway in 1970. It is a zero-player game, meaning that its evolution
-    is determined by its initial state, requiring no further input. One interacts
-    with the Game of Life by creating an initial configuration and observing how
-    it evolves in discrete time steps called generations. There is no limit to the
-    number of generations (computational resources permitting) or win condition.\n\nRules
-    of the Game:\n-Birth Rule: An empty, or \u201Cdead\u201D cell with precisely
-    three \u201Clive\u201D neighbors (full cells) becomes live.\n-Death Rule: A live
-    cell with zero or one neighbors dies of isolation; a live cell with four or more
-    neighbors dies of overcrowding.\n-Survival Rule: A live cell with two or three
-    neighbors remains alive.\n\nHow to play:\n- Use the arrow keys or WASD to move
-    around the area.\n- Use Mouse Editing Toggle to enable or disable mouse edit.\n-
-    Drag mouse while holding CTRL and left mouse button to create alive cells.\n-
-    Drag mouse while holding CTRL and right mouse button to kill alive cells.  \n-
-    Select patterns from the pattern menu.\n- Adjust camera speed and zoom levels
-    using the sliders.\n- Pause, resume, and reset the simulation using the buttons.\n-
-    Change the theme by using theme button.\n\n    Cycle of Life is a different version
-    of the game originally called The Game of Life, also known as Conway's Game of
-    Life or simply Life. It is a cellular automaton devised by the British mathematician
-    John Horton Conway in 1970. It is a zero-player game, meaning that its evolution
-    is determined by its initial state, requiring no further input. One interacts
-    with the Game of Life by creating an initial configuration and observing how
-    it evolves in discrete time steps called generations. There is no limit to the
-    number of generations (computational resources permitting) or win condition.\n\nRules
-    of the Game:\n-Birth Rule: An empty, or \u201Cdead\u201D cell with precisely
-    three \u201Clive\u201D neighbors (full cells) becomes live.\n-Death Rule: A live
-    cell with zero or one neighbors dies of isolation; a live cell with four or more
-    neighbors dies of overcrowding.\n-Survival Rule: A live cell with two or three
-    neighbors remains alive.\n\nHow to play:\n- Use the arrow keys or WASD to move
-    around the area.\n- Use Mouse Editing Toggle to enable or disable mouse edit.\n-
-    Drag mouse while holding CTRL and left mouse button to create alive cells.\n-
-    Drag mouse while holding CTRL and right mouse button to kill alive cells.  \n-
-    Select patterns from the pattern menu.\n- Adjust camera speed and zoom levels
-    using the sliders.\n- Pause, resume, and reset the simulation using the buttons.\n-
-    Change the theme by using theme button."
+  m_text: "    \n\n\n\n\n\n\n\nCycle of Life is a different version of the game originally
+    called The Game of Life, also known as Conway's Game of Life or simply Life.
+    It is a cellular automaton devised by the British mathematician John Horton Conway
+    in 1970. It is a zero-player game, meaning that its evolution is determined by
+    its initial state, requiring no further input. One interacts with the Game of
+    Life by creating an initial configuration and observing how it evolves in discrete
+    time steps called generations. There is no limit to the number of generations
+    (computational resources permitting) or win condition.\n\nRules of the Game:\n-Birth
+    Rule: An empty, or \u201Cdead\u201D cell with precisely three \u201Clive\u201D
+    neighbors (full cells) becomes live.\n-Death Rule: A live cell with zero or one
+    neighbors dies of isolation; a live cell with four or more neighbors dies of
+    overcrowding.\n-Survival Rule: A live cell with two or three neighbors remains
+    alive.\n\nHow to play:\n- Use the arrow keys or WASD to move around the area.\n-
+    Use Mouse Editing Toggle to enable or disable mouse edit.\n- Drag mouse while
+    holding CTRL and left mouse button to create alive cells.\n- Drag mouse while
+    holding CTRL and right mouse button to kill alive cells.  \n- Select patterns
+    from the pattern menu.\n- Adjust camera speed and zoom levels using the sliders.\n-
+    Pause, resume, and reset the simulation using the buttons.\n- Change the theme
+    by using theme button.\n\n    Cycle of Life is a different version of the game
+    originally called The Game of Life, also known as Conway's Game of Life or simply
+    Life. It is a cellular automaton devised by the British mathematician John Horton
+    Conway in 1970. It is a zero-player game, meaning that its evolution is determined
+    by its initial state, requiring no further input. One interacts with the Game
+    of Life by creating an initial configuration and observing how it evolves in
+    discrete time steps called generations. There is no limit to the number of generations
+    (computational resources permitting) or win condition.\n\nRules of the Game:\n-Birth
+    Rule: An empty, or \u201Cdead\u201D cell with precisely three \u201Clive\u201D
+    neighbors (full cells) becomes live.\n-Death Rule: A live cell with zero or one
+    neighbors dies of isolation; a live cell with four or more neighbors dies of
+    overcrowding.\n-Survival Rule: A live cell with two or three neighbors remains
+    alive.\n\nHow to play:\n- Use the arrow keys or WASD to move around the area.\n-
+    Use Mouse Editing Toggle to enable or disable mouse edit.\n- Drag mouse while
+    holding CTRL and left mouse button to create alive cells.\n- Drag mouse while
+    holding CTRL and right mouse button to kill alive cells.  \n- Select patterns
+    from the pattern menu.\n- Adjust camera speed and zoom levels using the sliders.\n-
+    Pause, resume, and reset the simulation using the buttons.\n- Change the theme
+    by using theme button.\n\n    Cycle of Life is a different version of the game
+    originally called The Game of Life, also known as Conway's Game of Life or simply
+    Life. It is a cellular automaton devised by the British mathematician John Horton
+    Conway in 1970. It is a zero-player game, meaning that its evolution is determined
+    by its initial state, requiring no further input. One interacts with the Game
+    of Life by creating an initial configuration and observing how it evolves in
+    discrete time steps called generations. There is no limit to the number of generations
+    (computational resources permitting) or win condition.\n\nRules of the Game:\n-Birth
+    Rule: An empty, or \u201Cdead\u201D cell with precisely three \u201Clive\u201D
+    neighbors (full cells) becomes live.\n-Death Rule: A live cell with zero or one
+    neighbors dies of isolation; a live cell with four or more neighbors dies of
+    overcrowding.\n-Survival Rule: A live cell with two or three neighbors remains
+    alive.\n\nHow to play:\n- Use the arrow keys or WASD to move around the area.\n-
+    Use Mouse Editing Toggle to enable or disable mouse edit.\n- Drag mouse while
+    holding CTRL and left mouse button to create alive cells.\n- Drag mouse while
+    holding CTRL and right mouse button to kill alive cells.  \n- Select patterns
+    from the pattern menu.\n- Adjust camera speed and zoom levels using the sliders.\n-
+    Pause, resume, and reset the simulation using the buttons.\n- Change the theme
+    by using theme button."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
   m_sharedMaterial: {fileID: -3253406893790090334, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
@@ -5746,8 +5848,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278250239
-  m_fontColor: {r: 1, g: 0.9194028, b: 0, a: 1}
+    rgba: 4287102720
+  m_fontColor: {r: 0, g: 1, b: 0.529711, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10110,7 +10212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.627008, g: 0.20741367, b: 0.745283, a: 1}
+  m_Color: {r: 0.14420643, g: 0.0744927, b: 0.509434, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12265,6 +12367,104 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395629185}
   m_CullTransparentMesh: 1
+--- !u!1 &1408810899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1408810900}
+  - component: {fileID: 1408810903}
+  - component: {fileID: 1408810902}
+  - component: {fileID: 1408810904}
+  m_Layer: 5
+  m_Name: i_hate_popups_gif
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1408810900
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408810899}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745524010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -64}
+  m_SizeDelta: {x: 300, y: 40}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1408810902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408810899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 2346797364539287424, guid: d0feeb783c09a4144b4e391c3aaadb41, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1408810903
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408810899}
+  m_CullTransparentMesh: 1
+--- !u!95 &1408810904
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408810899}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47658de1b7c0e9044b7e2b0fb5afcdc2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1416200161
 GameObject:
   m_ObjectHideFlags: 0
@@ -12282,7 +12482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1416200162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12805,8 +13005,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 694902594}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.53264576}
-  m_AnchorMax: {x: 1, y: 0.99999976}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16622,6 +16822,104 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821815464}
   m_CullTransparentMesh: 1
+--- !u!1 &1839357704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1839357705}
+  - component: {fileID: 1839357708}
+  - component: {fileID: 1839357707}
+  - component: {fileID: 1839357706}
+  m_Layer: 5
+  m_Name: line_horizontal_up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1839357705
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839357704}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745524010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -156}
+  m_SizeDelta: {x: 1804, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1839357706
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839357704}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 210534fa1df02494fa3ffd48ce3d6edb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1839357707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839357704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 2464222745332883059, guid: 4cdf0d1e26d1d264eb5830bdf550ddba, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1839357708
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839357704}
+  m_CullTransparentMesh: 1
 --- !u!1 &1879168710
 GameObject:
   m_ObjectHideFlags: 0
@@ -17419,6 +17717,104 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957493271}
+  m_CullTransparentMesh: 1
+--- !u!1 &1985355718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1985355719}
+  - component: {fileID: 1985355722}
+  - component: {fileID: 1985355721}
+  - component: {fileID: 1985355720}
+  m_Layer: 5
+  m_Name: line_horizontal_bottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1985355719
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985355718}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745524010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 32}
+  m_SizeDelta: {x: 1804, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1985355720
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985355718}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 210534fa1df02494fa3ffd48ce3d6edb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1985355721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985355718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 2464222745332883059, guid: 4cdf0d1e26d1d264eb5830bdf550ddba, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1985355722
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985355718}
   m_CullTransparentMesh: 1
 --- !u!1 &1993782924
 GameObject:
