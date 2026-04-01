@@ -1,0 +1,1014 @@
+fileFormatVersion: 2
+guid: dbd1ac6d9b5374c47ac4a089c010a4c6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8620785114588832312
+    second: gif_welcome_sprite_0
+  - first:
+      213: -3195048093731556161
+    second: gif_welcome_sprite_1
+  - first:
+      213: 3155792060507876380
+    second: gif_welcome_sprite_2
+  - first:
+      213: -8340631743446211981
+    second: gif_welcome_sprite_3
+  - first:
+      213: -2584113142232032993
+    second: gif_welcome_sprite_4
+  - first:
+      213: 8081539474013618342
+    second: gif_welcome_sprite_5
+  - first:
+      213: -749568749022227220
+    second: gif_welcome_sprite_6
+  - first:
+      213: 893906490186209855
+    second: gif_welcome_sprite_7
+  - first:
+      213: -4061532264298918536
+    second: gif_welcome_sprite_8
+  - first:
+      213: -7877077214315655176
+    second: gif_welcome_sprite_9
+  - first:
+      213: 5858330434820720553
+    second: gif_welcome_sprite_10
+  - first:
+      213: -7963797287653626647
+    second: gif_welcome_sprite_11
+  - first:
+      213: 7855796191246539823
+    second: gif_welcome_sprite_12
+  - first:
+      213: -2598909598017465578
+    second: gif_welcome_sprite_13
+  - first:
+      213: 2229972654788835176
+    second: gif_welcome_sprite_14
+  - first:
+      213: 4491991828106296341
+    second: gif_welcome_sprite_15
+  - first:
+      213: 6300213174027060561
+    second: gif_welcome_sprite_16
+  - first:
+      213: -6804699211308620846
+    second: gif_welcome_sprite_17
+  - first:
+      213: 4618962490948942833
+    second: gif_welcome_sprite_18
+  - first:
+      213: 2295674835212663519
+    second: gif_welcome_sprite_19
+  - first:
+      213: -6760467558167217000
+    second: gif_welcome_sprite_20
+  - first:
+      213: 967131483751975155
+    second: gif_welcome_sprite_21
+  - first:
+      213: 4888489190889081118
+    second: gif_welcome_sprite_22
+  - first:
+      213: 695347258427248970
+    second: gif_welcome_sprite_23
+  - first:
+      213: 1396874105452823274
+    second: gif_welcome_sprite_24
+  - first:
+      213: -6241409621866819654
+    second: gif_welcome_sprite_25
+  - first:
+      213: 6579529970228795023
+    second: gif_welcome_sprite_26
+  - first:
+      213: 7368505676683099696
+    second: gif_welcome_sprite_27
+  - first:
+      213: -4974492649801324503
+    second: gif_welcome_sprite_28
+  - first:
+      213: -2899401032744341950
+    second: gif_welcome_sprite_29
+  - first:
+      213: -8969145565997392093
+    second: gif_welcome_sprite_30
+  - first:
+      213: 3409573355817387217
+    second: gif_welcome_sprite_31
+  - first:
+      213: -3935150143802261339
+    second: gif_welcome_sprite_32
+  - first:
+      213: 9154563699164808879
+    second: gif_welcome_sprite_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gif_welcome_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 331
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832ea08036e23a770800000000000000
+      internalID: 8620785114588832312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 331
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb477d4dfa8e8a3d0800000000000000
+      internalID: -3195048093731556161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 331
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ce19fa820abcb20800000000000000
+      internalID: 3155792060507876380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 331
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372aa81be9f104c80800000000000000
+      internalID: -8340631743446211981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 331
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1957d1d9c2632cd0800000000000000
+      internalID: -2584113142232032993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 2251
+        y: 331
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a001e27555672070800000000000000
+      internalID: 8081539474013618342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 265
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce4dbc3b13ff895f0800000000000000
+      internalID: -749568749022227220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 265
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a17f9773bc76c00800000000000000
+      internalID: 893906490186209855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 265
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87dccaeace982a7c0800000000000000
+      internalID: -4061532264298918536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 265
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff446412000fa290800000000000000
+      internalID: -7877077214315655176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 265
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a74950ed78fc4150800000000000000
+      internalID: 5858330434820720553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 2251
+        y: 265
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ecaf269f88ea7190800000000000000
+      internalID: -7963797287653626647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 199
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2cdd1f9305650d60800000000000000
+      internalID: 7855796191246539823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 199
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 613d0de7d71deebd0800000000000000
+      internalID: -2598909598017465578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 199
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867f58b805472fe10800000000000000
+      internalID: 2229972654788835176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 199
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51cbb30a4c2c65e30800000000000000
+      internalID: 4491991828106296341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 199
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1558e17708ade6750800000000000000
+      internalID: 6300213174027060561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 2251
+        y: 199
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d3a192ce1ad091a0800000000000000
+      internalID: -6804699211308620846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 133
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb7dd7c9e9d91040800000000000000
+      internalID: 4618962490948942833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_19
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 133
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda77a08910ebdf10800000000000000
+      internalID: 2295674835212663519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 133
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89cf3e7039efd22a0800000000000000
+      internalID: -6760467558167217000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 133
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f8022cd5f0fb6d00800000000000000
+      internalID: 967131483751975155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_22
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 133
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e19c74fc40767d340800000000000000
+      internalID: 4888489190889081118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_23
+      rect:
+        serializedVersion: 2
+        x: 2251
+        y: 133
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41191eb5ae56a900800000000000000
+      internalID: 695347258427248970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 67
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae205731991b26310800000000000000
+      internalID: 1396874105452823274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_25
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 67
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf4cee640f0269a0800000000000000
+      internalID: -6241409621866819654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_26
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 67
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f861688e5af2f4b50800000000000000
+      internalID: 6579529970228795023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_27
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 67
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03e35287fd0324660800000000000000
+      internalID: 7368505676683099696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_28
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 67
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 928ecce7a4d07fab0800000000000000
+      internalID: -4974492649801324503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_29
+      rect:
+        serializedVersion: 2
+        x: 2251
+        y: 67
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24e6fd55f1243c7d0800000000000000
+      internalID: -2899401032744341950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f94f7d0a1378380800000000000000
+      internalID: -8969145565997392093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_31
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 1
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d4c12507ec315f20800000000000000
+      internalID: 3409573355817387217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_32
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 1
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a0c6d42bc98369c0800000000000000
+      internalID: -3935150143802261339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gif_welcome_sprite_33
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 1
+        width: 448
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa687627e2b8b0f70800000000000000
+      internalID: 9154563699164808879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      gif_welcome_sprite_0: 8620785114588832312
+      gif_welcome_sprite_1: -3195048093731556161
+      gif_welcome_sprite_10: 5858330434820720553
+      gif_welcome_sprite_11: -7963797287653626647
+      gif_welcome_sprite_12: 7855796191246539823
+      gif_welcome_sprite_13: -2598909598017465578
+      gif_welcome_sprite_14: 2229972654788835176
+      gif_welcome_sprite_15: 4491991828106296341
+      gif_welcome_sprite_16: 6300213174027060561
+      gif_welcome_sprite_17: -6804699211308620846
+      gif_welcome_sprite_18: 4618962490948942833
+      gif_welcome_sprite_19: 2295674835212663519
+      gif_welcome_sprite_2: 3155792060507876380
+      gif_welcome_sprite_20: -6760467558167217000
+      gif_welcome_sprite_21: 967131483751975155
+      gif_welcome_sprite_22: 4888489190889081118
+      gif_welcome_sprite_23: 695347258427248970
+      gif_welcome_sprite_24: 1396874105452823274
+      gif_welcome_sprite_25: -6241409621866819654
+      gif_welcome_sprite_26: 6579529970228795023
+      gif_welcome_sprite_27: 7368505676683099696
+      gif_welcome_sprite_28: -4974492649801324503
+      gif_welcome_sprite_29: -2899401032744341950
+      gif_welcome_sprite_3: -8340631743446211981
+      gif_welcome_sprite_30: -8969145565997392093
+      gif_welcome_sprite_31: 3409573355817387217
+      gif_welcome_sprite_32: -3935150143802261339
+      gif_welcome_sprite_33: 9154563699164808879
+      gif_welcome_sprite_4: -2584113142232032993
+      gif_welcome_sprite_5: 8081539474013618342
+      gif_welcome_sprite_6: -749568749022227220
+      gif_welcome_sprite_7: 893906490186209855
+      gif_welcome_sprite_8: -4061532264298918536
+      gif_welcome_sprite_9: -7877077214315655176
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
