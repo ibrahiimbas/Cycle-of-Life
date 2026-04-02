@@ -51,6 +51,9 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private AudioSource shutDownAudio;
     [SerializeField] private ClickSoundEffectScript clickSoundEffectObject;
     [SerializeField] private AudioSource notificationAudio;
+    
+    [Header("Explorer")]
+    [SerializeField] private InternetExplorer explorer;
 
     private bool isStartTabOpen = false;
     
@@ -212,7 +215,7 @@ public class RulesSceneScript : MonoBehaviour
     {
         testPanel.SetActive(false);
         testBottomToggle.gameObject.SetActive(false);
-        
+        explorer.ResetMainScrollRect();
     }
 
     private void OnTestPanelToggleChanged(bool isOn)
