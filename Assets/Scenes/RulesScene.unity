@@ -6909,13 +6909,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello!\n\n\tMy name is Ibrahim Emre Bas and I just graduated as a computer
-    engineer (yeah, finally!). I'm super into game development \u2013 it's what I
-    do, what I breathe, and what I stay up until 3 AM for xD\r\n\r\n\tOn this site,
-    I'll be sharing the games and small projects I've been working on. You'll also
-    find news, updates, and random stuff I'm messing around with. Some of my projects
-    are down below \u2013 check 'em out!\r\n\r\nThanks for stopping by. It really
-    means a lot.\r\nAnd hey\u2026 don't forget to sign my Guestbook! "
+  m_text: "Hello visitor. Welcome to my website!\n\n\tMy name is Ibrahim Emre Bas
+    and I just graduated as a computer engineer (yeah, finally!). I'm super into
+    game development \u2013 it's what I do, what I breathe, and what I stay up until
+    3 AM for xD\r\n\r\n\tOn this site, I'll be sharing the games and small projects
+    I've been working on. You'll also find news, updates, and random stuff I'm messing
+    around with. Some of my projects are down below \u2013 check 'em out!\r\n\r\nThanks
+    for stopping by. It really means a lot.\r\nAnd hey\u2026 don't forget to sign
+    my Guestbook! "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
   m_sharedMaterial: {fileID: -3253406893790090334, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
@@ -15752,8 +15753,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 694902594}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.55061907}
-  m_AnchorMax: {x: 1, y: 0.99999976}
+  m_AnchorMin: {x: 0, y: 0.5506191}
+  m_AnchorMax: {x: 1, y: 0.9999998}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
