@@ -216,6 +216,7 @@ public class RulesSceneScript : MonoBehaviour
         testPanel.SetActive(false);
         testBottomToggle.gameObject.SetActive(false);
         explorer.ResetMainScrollRect();
+        explorer.ResetToHomePage();
     }
 
     private void OnTestPanelToggleChanged(bool isOn)
