@@ -3323,8 +3323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 14, y: -6}
-  m_SizeDelta: {x: 46, y: 46}
+  m_AnchoredPosition: {x: 16, y: -8}
+  m_SizeDelta: {x: 42, y: 42}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &463039176
 MonoBehaviour:
@@ -3346,7 +3346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7129701354909197684, guid: f00ff393615c7e64d9a71dcf0e5bf6df, type: 3}
+  m_Sprite: {fileID: 8005569305238410597, guid: a1ac4144a201a8f4f83ec04fccfa19b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8126,6 +8126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
+  isPaused: 0
   pauseText: {fileID: 849412611}
   cameraScript: {fileID: 519420033}
   gameBoard: {fileID: 1948777687}
@@ -9358,7 +9359,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1768800655}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.5630389
+  m_Size: 0.56303895
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
