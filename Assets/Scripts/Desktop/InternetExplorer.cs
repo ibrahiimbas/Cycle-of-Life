@@ -136,7 +136,7 @@ public class InternetExplorer : MonoBehaviour
       StartCoroutine(ResetScrollRectNextFrame(mainPageScrollRect));
       StartCoroutine(ResetScrollRectNextFrame(guestPageScrollRect));
       StartCoroutine(ResetScrollRectNextFrame(aboutPageScrollRect));
-      StartCoroutine(ResetScrollRectNextFrame(mainPageScrollRect));
+      StartCoroutine(ResetScrollRectNextFrame(mapPageScrollRect));
       
       if (resetUrl)
       {
