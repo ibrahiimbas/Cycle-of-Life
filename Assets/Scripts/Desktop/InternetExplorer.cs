@@ -8,23 +8,33 @@ using UnityEngine.UI;
 
 public class InternetExplorer : MonoBehaviour
 {
+   [Header("Time")] 
    [SerializeField] private TextMeshProUGUI time_text_1;
    [SerializeField] private TextMeshProUGUI time_text_2;
    [SerializeField] private TextMeshProUGUI time_text_3;
+   [SerializeField] private TextMeshProUGUI time_text_4;
+   
+   [Header("Buttons")] 
    [SerializeField] private Button guestBookButton;
    [SerializeField] private Button homePageButton_1;
    [SerializeField] private Button homePageButton_2;
+   [SerializeField] private Button homePageButton_3;
    [SerializeField] private Button aboutPageButton;
+   [SerializeField] private Button mapPageButton;
    [SerializeField] private Button mailLinkButton;
    [SerializeField] private Button githubLinkButton;
    [SerializeField] private Button linkedinLinkButton;
    [SerializeField] private Button itchIOLinkButton;
+   
+   [Header("Pages and Scroll Rects")] 
    [SerializeField] private GameObject mainPage;
    [SerializeField] private GameObject guestPage;
    [SerializeField] private GameObject aboutPage;
+   [SerializeField] private GameObject mapPage;
    [SerializeField] private ScrollRect mainPageScrollRect;
    [SerializeField] private ScrollRect guestPageScrollRect;
    [SerializeField] private ScrollRect aboutPageScrollRect;
+   [SerializeField] private ScrollRect mapPageScrollRect;
    
    [Header("URL")] 
    [SerializeField] private string mailUrl = "mailto:ibrahimbas1414@gmail.com";
@@ -37,6 +47,7 @@ public class InternetExplorer : MonoBehaviour
    [SerializeField] private string mainPageUrl = "http://www.synthesizertr.com";
    [SerializeField] private string aboutMePageUrl = "http://www.synthesizertr.com/aboutme";
    [SerializeField] private string guestbookPagePageUrl = "http://www.synthesizertr.com/guestbook";
+   [SerializeField] private string mapPagePageUrl = "http://www.synthesizertr.com/map";
    
    private string formattedTime;
 
@@ -46,10 +57,13 @@ public class InternetExplorer : MonoBehaviour
       mainPage.SetActive(true);
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
+      mapPage.SetActive(false);
       guestBookButton.onClick.AddListener(OnGuestBookClick);
       homePageButton_1.onClick.AddListener(OnHomePageButtonClick);
       homePageButton_2.onClick.AddListener(OnHomePageButtonClick);
+      homePageButton_3.onClick.AddListener(OnHomePageButtonClick);
       aboutPageButton.onClick.AddListener(OnAboutPageButtonClick);
+      mapPageButton.onClick.AddListener(OnMapPageButtonClick);
       mailLinkButton.onClick.AddListener(OpenMailLink);
       githubLinkButton.onClick.AddListener(OpenGithubLink);
       linkedinLinkButton.onClick.AddListener(OpenLinkedinLink);
@@ -63,6 +77,7 @@ public class InternetExplorer : MonoBehaviour
       time_text_1.text = formattedTime;
       time_text_2.text = formattedTime;
       time_text_3.text = formattedTime;
+      time_text_4.text = formattedTime;
    }
 
    private void OnGuestBookClick()
@@ -71,6 +86,7 @@ public class InternetExplorer : MonoBehaviour
       mainPage.SetActive(false);
       guestPage.SetActive(true);
       aboutPage.SetActive(false);
+      mapPage.SetActive(false);
       StartCoroutine(ResetScrollRectNextFrame(mainPageScrollRect));
    }
 
@@ -80,6 +96,7 @@ public class InternetExplorer : MonoBehaviour
       mainPage.SetActive(true);
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
+      mapPage.SetActive(false);
       ResetMainScrollRect(false);
    }
 
@@ -89,6 +106,17 @@ public class InternetExplorer : MonoBehaviour
       mainPage.SetActive(false);
       guestPage.SetActive(false);
       aboutPage.SetActive(true);
+      mapPage.SetActive(false);
+      ResetMainScrollRect(false);
+   }
+
+   private void OnMapPageButtonClick()
+   {
+      SetURL(mapPagePageUrl);
+      mainPage.SetActive(false);
+      guestPage.SetActive(false);
+      aboutPage.SetActive(false);
+      mapPage.SetActive(true);
       ResetMainScrollRect(false);
    }
    
@@ -108,6 +136,7 @@ public class InternetExplorer : MonoBehaviour
       StartCoroutine(ResetScrollRectNextFrame(mainPageScrollRect));
       StartCoroutine(ResetScrollRectNextFrame(guestPageScrollRect));
       StartCoroutine(ResetScrollRectNextFrame(aboutPageScrollRect));
+      StartCoroutine(ResetScrollRectNextFrame(mainPageScrollRect));
       
       if (resetUrl)
       {
@@ -120,6 +149,7 @@ public class InternetExplorer : MonoBehaviour
       mainPage.SetActive(true);
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
+      mapPage.SetActive(false);
    }
 
    private void SetURL(string url)
