@@ -31,11 +31,18 @@ public class InternetExplorer : MonoBehaviour
    [SerializeField] private string githubUrl = "https://github.com/ibrahiimbas";
    [SerializeField] private string linkedinUrl = "https://www.linkedin.com/in/ibrahimbas15/";
    [SerializeField] private string itchIoUrl = "https://synthseizer.itch.io/";
+
+   [Header("Up Panel URL")]
+   [SerializeField] private TextMeshProUGUI urlText;
+   [SerializeField] private string mainPageUrl = "http://www.synthesizertr.com";
+   [SerializeField] private string aboutMePageUrl = "http://www.synthesizertr.com/aboutme";
+   [SerializeField] private string guestbookPagePageUrl = "http://www.synthesizertr.com/guestbook";
    
    private string formattedTime;
 
    private void Start()
    {
+      SetURL(mainPageUrl);
       mainPage.SetActive(true);
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
@@ -60,6 +67,7 @@ public class InternetExplorer : MonoBehaviour
 
    private void OnGuestBookClick()
    {
+      SetURL(guestbookPagePageUrl);
       mainPage.SetActive(false);
       guestPage.SetActive(true);
       aboutPage.SetActive(false);
@@ -68,18 +76,20 @@ public class InternetExplorer : MonoBehaviour
 
    private void OnHomePageButtonClick()
    {
+      SetURL(mainPageUrl);
       mainPage.SetActive(true);
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
-      ResetMainScrollRect();
+      ResetMainScrollRect(false);
    }
 
    private void OnAboutPageButtonClick()
    {
+      SetURL(aboutMePageUrl);
       mainPage.SetActive(false);
       guestPage.SetActive(false);
       aboutPage.SetActive(true);
-      ResetMainScrollRect();
+      ResetMainScrollRect(false);
    }
    
    private IEnumerator ResetScrollRectNextFrame(ScrollRect scrollRect)
@@ -93,11 +103,16 @@ public class InternetExplorer : MonoBehaviour
       }
    }
    
-   public void ResetMainScrollRect()
+   public void ResetMainScrollRect(bool resetUrl)
    {
       StartCoroutine(ResetScrollRectNextFrame(mainPageScrollRect));
       StartCoroutine(ResetScrollRectNextFrame(guestPageScrollRect));
       StartCoroutine(ResetScrollRectNextFrame(aboutPageScrollRect));
+      
+      if (resetUrl)
+      {
+         SetURL(mainPageUrl);
+      }
    }
 
    public void ResetToHomePage()
@@ -105,6 +120,11 @@ public class InternetExplorer : MonoBehaviour
       mainPage.SetActive(true);
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
+   }
+
+   private void SetURL(string url)
+   {
+      urlText.text = url;
    }
    
    private void OpenExternalLink(string url)
