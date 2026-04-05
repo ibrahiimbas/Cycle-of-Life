@@ -54,6 +54,7 @@ public class RulesSceneScript : MonoBehaviour
     
     [Header("Explorer")]
     [SerializeField] private InternetExplorer explorer;
+    [SerializeField] private VirusPopUp virus;
 
     private bool isStartTabOpen = false;
     
@@ -218,6 +219,7 @@ public class RulesSceneScript : MonoBehaviour
         bool resetUrl = true;
         explorer.ResetMainScrollRect(resetUrl);
         explorer.ResetToHomePage();
+        virus.ClosePopUp();
     }
 
     private void OnTestPanelToggleChanged(bool isOn)

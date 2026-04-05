@@ -30,6 +30,10 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
     [SerializeField] private GameObject appPanel;
     [SerializeField] private Toggle appTaskbarToggle;
     [SerializeField] private bool isWindowOpened = false;
+
+    [Header("Tick for Explorer only!!")] 
+    [SerializeField] private bool isExplorer = false;
+    [SerializeField] private VirusPopUp virus;
     
     private float lastClickTime;
     private bool isSelected;
@@ -104,8 +108,15 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
             UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
         }
         
-        if (isWindowedApp && appPanel != null && isWindowedApp)
+        if (isWindowedApp && appPanel != null)
         {
+            if (isExplorer && virus != null)
+            {
+                if (Random.value <= 0.1f)
+                {
+                    virus.InitializePopUp();
+                }
+            }
            appPanel.SetActive(true);
            appTaskbarToggle.gameObject.SetActive(true);
            isWindowOpened = !isWindowOpened;
