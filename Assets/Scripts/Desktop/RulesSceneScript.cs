@@ -84,6 +84,7 @@ public class RulesSceneScript : MonoBehaviour
         updateNotepadInputText.onValueChanged.AddListener(SaveNotepadContent);
         
         systemProperties.GetSystemProperties();
+        CursorReset();
     }
 
     private void Update()
@@ -282,6 +283,12 @@ public class RulesSceneScript : MonoBehaviour
             shutDownPanelTab.SetActive(false);
             StartCoroutine(ShutPCDownCoroutine());
         }
+    }
+
+    private void CursorReset()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     
 }

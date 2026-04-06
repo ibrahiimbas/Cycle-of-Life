@@ -12,6 +12,7 @@ public class VirusPopUp : MonoBehaviour
     [SerializeField] private Button closePopUpButton;
     [SerializeField] private Button mistakeButton;
     [SerializeField] private AudioSource congratulationsSound;
+    [SerializeField] private BlueScreen blueScreen;
 
     private bool isActive = false;
 
@@ -43,10 +44,10 @@ public class VirusPopUp : MonoBehaviour
 
     private void OnMistakeButtonClicked()
     {
-        Debug.Log("Mistake button clicked.");
         popUp.SetActive(false);
         isActive = false;
         CheckSound();
+        blueScreen.BlueScreenError();
     }
 
     private void CheckSound()
