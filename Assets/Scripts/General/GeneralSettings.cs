@@ -111,7 +111,7 @@ public class GeneralSettings : MonoBehaviour
     public void SetResolution(int width, int height)
     {
         Screen.SetResolution(width, height, true);
-        SaveSettings();
+        SaveSettings(width, height);
     }
 
     void ApplyResolutionSettings()
@@ -125,12 +125,12 @@ public class GeneralSettings : MonoBehaviour
     public int GetSavedResolutionHeight() => PlayerPrefs.GetInt(resolutionHeightKey, Screen.currentResolution.height);
 
     // Save and Load System
-    void SaveSettings()
+    void SaveSettings(int resWidth = -1, int resHeight = -1)
     {
         PlayerPrefs.SetInt(audioPrefKey, isAudioEnabled ? 1 : 0);
         PlayerPrefs.SetInt(postProcessingPrefKey, isPostProcessingEnabled ? 1 : 0);
-        PlayerPrefs.SetInt(resolutionWidthKey, Screen.width);
-        PlayerPrefs.SetInt(resolutionHeightKey, Screen.height);
+        PlayerPrefs.SetInt(resolutionWidthKey, resWidth == -1 ? Screen.currentResolution.width : resWidth);
+        PlayerPrefs.SetInt(resolutionHeightKey, resHeight == -1 ? Screen.currentResolution.height : resHeight);
         PlayerPrefs.Save();
     }
 
@@ -138,6 +138,7 @@ public class GeneralSettings : MonoBehaviour
     {
         isAudioEnabled = PlayerPrefs.GetInt(audioPrefKey, 1) == 1;
         isPostProcessingEnabled = PlayerPrefs.GetInt(postProcessingPrefKey, 1) == 1;
+        ApplyResolutionSettings();
     }
 
     // Scene System
