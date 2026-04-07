@@ -13,6 +13,8 @@ public class GeneralSettings : MonoBehaviour
     [Header("Player Preferens Keys")]
     [SerializeField] private string audioPrefKey = "AudioEnabled";
     [SerializeField] private string postProcessingPrefKey = "PostProcessingEnabled";
+    [SerializeField] private string resolutionWidthKey = "ResolutionWidth";
+    [SerializeField] private string resolutionHeightKey = "ResolutionHeight";
 
     private bool isAudioEnabled = true;
     private bool isPostProcessingEnabled = true;
@@ -46,6 +48,7 @@ public class GeneralSettings : MonoBehaviour
 
         ApplyAudioSettings();
         ApplyPostProcessingSettings();
+        ApplyResolutionSettings();
     }
 
     void FindReferences()
@@ -104,11 +107,30 @@ public class GeneralSettings : MonoBehaviour
 
     public bool IsPostProcessingEnabled() => isPostProcessingEnabled;
 
+    // Resolution
+    public void SetResolution(int width, int height)
+    {
+        Screen.SetResolution(width, height, true);
+        SaveSettings();
+    }
+
+    void ApplyResolutionSettings()
+    {
+        int width = PlayerPrefs.GetInt(resolutionWidthKey, Screen.currentResolution.width);
+        int height = PlayerPrefs.GetInt(resolutionHeightKey, Screen.currentResolution.height);
+        Screen.SetResolution(width, height, true);
+    }
+
+    public int GetSavedResolutionWidth() => PlayerPrefs.GetInt(resolutionWidthKey, Screen.currentResolution.width);
+    public int GetSavedResolutionHeight() => PlayerPrefs.GetInt(resolutionHeightKey, Screen.currentResolution.height);
+
     // Save and Load System
     void SaveSettings()
     {
         PlayerPrefs.SetInt(audioPrefKey, isAudioEnabled ? 1 : 0);
         PlayerPrefs.SetInt(postProcessingPrefKey, isPostProcessingEnabled ? 1 : 0);
+        PlayerPrefs.SetInt(resolutionWidthKey, Screen.width);
+        PlayerPrefs.SetInt(resolutionHeightKey, Screen.height);
         PlayerPrefs.Save();
     }
 
@@ -143,5 +165,6 @@ public class GeneralSettings : MonoBehaviour
 
         ApplyAudioSettings();
         ApplyPostProcessingSettings();
+        ApplyResolutionSettings();
     }
 }

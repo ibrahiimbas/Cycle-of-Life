@@ -83,8 +83,8 @@ public class SettingsUI : MonoBehaviour
         string newRes;
         int currentResolutionIndex = 0;
 
-        int savedWidth = PlayerPrefs.GetInt("ResolutionWidth", Screen.currentResolution.width);
-        int savedHeight = PlayerPrefs.GetInt("ResolutionHeight", Screen.currentResolution.height);
+        int savedWidth = GeneralSettings.Instance.GetSavedResolutionWidth();
+        int savedHeight = GeneralSettings.Instance.GetSavedResolutionHeight();
 
         for (int i = 0; i < allResolutions.Length; i++)
         {
@@ -109,10 +109,7 @@ public class SettingsUI : MonoBehaviour
     {
         selectedResolution = resolutionDropDown.value;
         var res = selectedResolutionList[selectedResolution];
-        Screen.SetResolution(res.width, res.height, true);
-        PlayerPrefs.SetInt("ResolutionWidth", res.width);
-        PlayerPrefs.SetInt("ResolutionHeight", res.height);
-        PlayerPrefs.Save();
+        GeneralSettings.Instance.SetResolution(res.width, res.height);
     }
         
 }
