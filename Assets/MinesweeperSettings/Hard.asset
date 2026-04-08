@@ -15,5 +15,5 @@ MonoBehaviour:
   width: 30
   height: 16
   mineCount: 99
-  cameraFov: 9.5
+  cameraFov: 10.5
   cameraOffset: 1
