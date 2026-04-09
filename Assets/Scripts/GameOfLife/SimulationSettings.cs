@@ -32,6 +32,7 @@ public class SimulationSettings : MonoBehaviour
     [SerializeField] private GameObject themesPanelOpened;
     [SerializeField] private GameObject themesPanelClosed;
     [SerializeField] private GameObject systemPanel;
+    [SerializeField] private GameObject musicPlayerPanel;
     
     [Header("Theme Buttons")]
     [SerializeField] private GameObject themeButtonPrefab;
@@ -341,6 +342,7 @@ public class SimulationSettings : MonoBehaviour
      cameraScript.zoomSlider.interactable = false;
      ClosePatternMenu();
      CloseThemeMenu();
+     musicPlayerPanel.SetActive(false);
      patternMenuOpenButton.interactable = false;
      themeMenuOpenButton.interactable = false;
      editMouseToggle.interactable = false;
@@ -373,6 +375,7 @@ public class SimulationSettings : MonoBehaviour
      cameraScript.zoomSlider.interactable = true;
      ClosePatternMenu();
      CloseThemeMenu();
+     musicPlayerPanel.SetActive(true);
      patternMenuOpenButton.interactable = true;
      themeMenuOpenButton.interactable = true;
      editMouseToggle.interactable = true;
@@ -427,6 +430,7 @@ public class SimulationSettings : MonoBehaviour
      cameraScript.zoomSlider.interactable = false;
      ClosePatternMenu();
      CloseThemeMenu();
+     musicPlayerPanel.SetActive(false);
      patternMenuOpenButton.interactable = false;
      themeMenuOpenButton.interactable = false;
      editMouseToggle.interactable = false;
@@ -450,6 +454,7 @@ public class SimulationSettings : MonoBehaviour
      patternMenuOpenButton.interactable = true;
      themeMenuOpenButton.interactable = true;
      editMouseToggle.interactable = true;
+     musicPlayerPanel.SetActive(true);
      isPaused = !isPaused;
      if (isPaused == false)
      {
