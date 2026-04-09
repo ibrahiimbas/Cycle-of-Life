@@ -4701,7 +4701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1.833}
+  m_AnchoredPosition: {x: 32, y: -1.833}
   m_SizeDelta: {x: 652.891, y: 36}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &609571577
@@ -7699,7 +7699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  m_Color: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9157,10 +9157,12 @@ MonoBehaviour:
   playStopToggle: {fileID: 1879778042}
   trackName: {fileID: 609571577}
   tracks:
-  - trackName: Track_1 Name of the track, and Composer_1
-    audioClip: {fileID: 8300000, guid: f5ee21cf8fb714d6492f4bd36526832c, type: 3}
-  - trackName: Track_2 Name of the track, and Composer_2
-    audioClip: {fileID: 8300000, guid: 6cb9ff74a536944baab35afe99fc17ba, type: 3}
+  - trackName: Motion - Liborio Conti
+    audioClip: {fileID: 8300000, guid: bc66426499816f04cabd4704316bddb3, type: 3}
+  - trackName: Transient - Liborio Conti
+    audioClip: {fileID: 8300000, guid: 0fbf350a615654b43ab21b1ae37f1a0e, type: 3}
+  - trackName: Light and Balanced - Liborio Conti
+    audioClip: {fileID: 8300000, guid: c26dd1b8835b93a4fabdbcb5903cf32d, type: 3}
   marqueeSpeed: 60
   marqueeDelayStart: 1.5
   marqueeDelayLoop: 1

@@ -112,13 +112,18 @@ public class ColMusicPlayer : MonoBehaviour
  
         if (isOn)
         {
-            audioSource.UnPause();
-            Debug.Log("▶ Track çalıyor");
+            if (audioSource.time > 0f || audioSource.isPlaying)
+            {
+                audioSource.UnPause();
+            }
+            else
+            {
+                audioSource.Play();
+            }
         }
         else
         {
             audioSource.Pause();
-            Debug.Log("⏸ Track durduruldu");
         }
     }
     
@@ -145,9 +150,12 @@ public class ColMusicPlayer : MonoBehaviour
  
         trackName.ForceMeshUpdate();
         float textWidth = trackName.preferredWidth;
+        
+        textRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, textWidth);
  
         if (textWidth <= maskWidth)
         {
+            textRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, maskWidth);
             textRect.anchoredPosition = new Vector2(0, textRect.anchoredPosition.y);
             yield break;
         }
@@ -157,7 +165,7 @@ public class ColMusicPlayer : MonoBehaviour
  
     private IEnumerator MarqueeLoop(float textWidth, float maskWidth)
     {
-        float startX = 0f;
+        float startX = 32f;
         float endX = -(textWidth + marqueeGap);
  
         textRect.anchoredPosition = new Vector2(startX, textRect.anchoredPosition.y);
