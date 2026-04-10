@@ -13,6 +13,7 @@ public class SettingsUI : MonoBehaviour
     public Toggle ppOffToggle;
 
     [SerializeField] private TMP_Dropdown resolutionDropDown;
+    [SerializeField] private TMP_Text resolutionText;
 
     private Resolution[] allResolutions;
     private int selectedResolution;
@@ -21,8 +22,14 @@ public class SettingsUI : MonoBehaviour
     void Start()
     {
         StartCoroutine(InitializeDelayed());
+        
+#if UNITY_WEBGL
+        if (resolutionDropDown != null) resolutionDropDown.gameObject.SetActive(false);
+        if (resolutionText != null)    resolutionText.gameObject.SetActive(false);
+#else
         GetAllResolutions();
         resolutionDropDown.onValueChanged.AddListener((v) => ChangeResolution());
+#endif
     }
 
     IEnumerator InitializeDelayed()
@@ -75,6 +82,7 @@ public class SettingsUI : MonoBehaviour
         });
     }
 
+#if !UNITY_WEBGL
     private void GetAllResolutions()
     {
         allResolutions = Screen.resolutions;
@@ -111,5 +119,6 @@ public class SettingsUI : MonoBehaviour
         var res = selectedResolutionList[selectedResolution];
         GeneralSettings.Instance.SetResolution(res.width, res.height);
     }
+#endif
         
 }

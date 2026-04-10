@@ -14199,25 +14199,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cycle of Life\r\nVersion: 0.7.4 Beta\r\nLast updated: 7 April 2000\n\nNew
-    Features:\n- You can now drag windows around the screen.\r\n- Added a popup virus.
-    (It's not a real virus\u2026 but you probably shouldn't trust them anyway.)\r\n-
-    You can now open Internet Explorer. There's a blog website you can visit inside.\r\n-
-    Desktop is more functional \u2014 you can open some apps in windows using shortcuts.\r\n-
-    Taskbar is now dynamic.\r\n- Solitaire added. (It's a bit buggy. Will be fixed
-    in the next update.)\r\n- Solitaire Themes added. You can change the card back
-    design in the game settings.\r\n- More functional desktop overall.\r\n- Minesweeper
-    added.\r\n- Minesweeper now has 3 difficulty levels.\n- You can now edit these
-    update notes. (Changes are deleted when you exit the game.)\n\n(New Features
-    for Cycle of Life)\r\n- You can now create or kill cells while the simulation
-    is running.\r\n- You need to enable this feature in the game screen first.\r\n-
-    Hold Ctrl + Left Mouse Button and drag to create new cells.\r\n- Hold Ctrl +
-    Right Mouse Button and drag to kill alive cells.\n\nRules of Cycle of Life:\n-
-    Birth Rule: An empty, or \u201Cdead,\u201D cell with precisely three \u201Clive\u201D
-    neighbors (full cells) becomes live.\n- Death Rule: A live cell with zero or
-    one neighbors dies of isolation; a live cell with four or more neighbors dies
-    of overcrowding.\n- Survival Rule: A live cell with two or three neighbors remains
-    alive.\n\n\n\n\t\t\t\t\t\t\t   synthesizer - ibrahim emre bas\n--------\u200B"
+  m_text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 10 April 2000\n\nNew
+    Features:\n- Soundtrack has been added to Cycle of Life. You can now listen to
+    it while the simulation is running.\n- You can now drag windows around the screen.\r\n-
+    Added a popup virus. (It's not a real virus\u2026 but you probably shouldn't
+    trust them anyway.)\r\n- You can now open Internet Explorer. There's a blog website
+    you can visit inside.\r\n- Desktop is more functional \u2014 you can open some
+    apps in windows using shortcuts.\r\n- Taskbar is now dynamic.\r\n- Solitaire
+    added. (It's a bit buggy. Will be fixed in the next update.)\r\n- Solitaire Themes
+    added. You can change the card back design in the game settings.\r\n- More functional
+    desktop overall.\r\n- Minesweeper added.\r\n- Minesweeper now has 3 difficulty
+    levels.\n- You can now edit these update notes. (Changes are deleted when you
+    exit the game.)\n\n(New Features for Cycle of Life)\r\n- You can now create or
+    kill cells while the simulation is running.\r\n- You need to enable this feature
+    in the game screen first.\r\n- Hold Ctrl + Left Mouse Button and drag to create
+    new cells.\r\n- Hold Ctrl + Right Mouse Button and drag to kill alive cells.\n\nRules
+    of Cycle of Life:\n- Birth Rule: An empty, or \u201Cdead,\u201D cell with precisely
+    three \u201Clive\u201D neighbors (full cells) becomes live.\n- Death Rule: A
+    live cell with zero or one neighbors dies of isolation; a live cell with four
+    or more neighbors dies of overcrowding.\n- Survival Rule: A live cell with two
+    or three neighbors remains alive.\n\n\n\n\t\t\t\t\t\t\t   synthesizer - ibrahim
+    emre bas\n--------\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
   m_sharedMaterial: {fileID: -3253406893790090334, guid: a026544f366ba7e4d87cdea1457d5ee9, type: 2}
@@ -15950,25 +15952,27 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.04281996, g: 0.03631186, b: 0.4528302, a: 1}
-  m_Text: "Cycle of Life\r\nVersion: 0.7.4 Beta\r\nLast updated: 7 April 2000\n\nNew
-    Features:\n- You can now drag windows around the screen.\r\n- Added a popup virus.
-    (It's not a real virus\u2026 but you probably shouldn't trust them anyway.)\r\n-
-    You can now open Internet Explorer. There's a blog website you can visit inside.\r\n-
-    Desktop is more functional \u2014 you can open some apps in windows using shortcuts.\r\n-
-    Taskbar is now dynamic.\r\n- Solitaire added. (It's a bit buggy. Will be fixed
-    in the next update.)\r\n- Solitaire Themes added. You can change the card back
-    design in the game settings.\r\n- More functional desktop overall.\r\n- Minesweeper
-    added.\r\n- Minesweeper now has 3 difficulty levels.\n- You can now edit these
-    update notes. (Changes are deleted when you exit the game.)\n\n(New Features
-    for Cycle of Life)\r\n- You can now create or kill cells while the simulation
-    is running.\r\n- You need to enable this feature in the game screen first.\r\n-
-    Hold Ctrl + Left Mouse Button and drag to create new cells.\r\n- Hold Ctrl +
-    Right Mouse Button and drag to kill alive cells.\n\nRules of Cycle of Life:\n-
-    Birth Rule: An empty, or \u201Cdead,\u201D cell with precisely three \u201Clive\u201D
-    neighbors (full cells) becomes live.\n- Death Rule: A live cell with zero or
-    one neighbors dies of isolation; a live cell with four or more neighbors dies
-    of overcrowding.\n- Survival Rule: A live cell with two or three neighbors remains
-    alive.\n\n\n\n\t\t\t\t\t\t\t   synthesizer - ibrahim emre bas\n--------"
+  m_Text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 10 April 2000\n\nNew
+    Features:\n- Soundtrack has been added to Cycle of Life. You can now listen to
+    it while the simulation is running.\n- You can now drag windows around the screen.\r\n-
+    Added a popup virus. (It's not a real virus\u2026 but you probably shouldn't
+    trust them anyway.)\r\n- You can now open Internet Explorer. There's a blog website
+    you can visit inside.\r\n- Desktop is more functional \u2014 you can open some
+    apps in windows using shortcuts.\r\n- Taskbar is now dynamic.\r\n- Solitaire
+    added. (It's a bit buggy. Will be fixed in the next update.)\r\n- Solitaire Themes
+    added. You can change the card back design in the game settings.\r\n- More functional
+    desktop overall.\r\n- Minesweeper added.\r\n- Minesweeper now has 3 difficulty
+    levels.\n- You can now edit these update notes. (Changes are deleted when you
+    exit the game.)\n\n(New Features for Cycle of Life)\r\n- You can now create or
+    kill cells while the simulation is running.\r\n- You need to enable this feature
+    in the game screen first.\r\n- Hold Ctrl + Left Mouse Button and drag to create
+    new cells.\r\n- Hold Ctrl + Right Mouse Button and drag to kill alive cells.\n\nRules
+    of Cycle of Life:\n- Birth Rule: An empty, or \u201Cdead,\u201D cell with precisely
+    three \u201Clive\u201D neighbors (full cells) becomes live.\n- Death Rule: A
+    live cell with zero or one neighbors dies of isolation; a live cell with four
+    or more neighbors dies of overcrowding.\n- Survival Rule: A live cell with two
+    or three neighbors remains alive.\n\n\n\n\t\t\t\t\t\t\t   synthesizer - ibrahim
+    emre bas\n--------"
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
   m_ReadOnly: 0
@@ -23920,6 +23924,7 @@ MonoBehaviour:
   ppOnToggle: {fileID: 1363941236}
   ppOffToggle: {fileID: 111540330}
   resolutionDropDown: {fileID: 697603971}
+  resolutionText: {fileID: 383907219}
 --- !u!114 &1229161531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27429,7 +27434,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 616078634}
   m_Direction: 3
   m_Value: 0
-  m_Size: 0.6852562
+  m_Size: 0.65186864
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -41728,6 +41733,8 @@ MonoBehaviour:
   globalVolume: {fileID: 2143927528}
   audioPrefKey: AudioEnabled
   postProcessingPrefKey: PostProcessingEnabled
+  resolutionWidthKey: ResolutionWidth
+  resolutionHeightKey: ResolutionHeight
 --- !u!4 &2121328000
 Transform:
   m_ObjectHideFlags: 0

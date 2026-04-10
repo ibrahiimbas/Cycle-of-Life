@@ -27,6 +27,14 @@ public class SystemProperties : MonoBehaviour
 
     public void GetSystemProperties()
     {
+    #if UNITY_WEBGL
+        if (registerInfoText != null)
+            registerInfoText.text = "WindowsUser";
+
+        if (computerInfoText != null)
+            computerInfoText.text = "Null...";
+
+    #else
         if (registerInfoText != null)
         {
             registerInfoText.text = SystemInfo.deviceName;
@@ -52,6 +60,7 @@ public class SystemProperties : MonoBehaviour
         {
             Debug.LogWarning("computerInfoText is missing");
         }
+    #endif
     }
 
     private void OpenPanel()
