@@ -24,9 +24,11 @@ public class ColMusicPlayer : MonoBehaviour
     [Header("Track Text")] 
     [SerializeField] private TextMeshProUGUI trackName;
     
+    [Header("Volume")]
+    [SerializeField] private Slider volumeSlider;
+    
     [Header("Tracks")]
     [SerializeField] private List<Track> tracks = new List<Track>();
-    
     
     [Header("Marquee Settings")]
     [SerializeField] private float marqueeSpeed = 60f;
@@ -40,6 +42,8 @@ public class ColMusicPlayer : MonoBehaviour
     
     private RectTransform maskRect;
     private RectTransform textRect;
+    
+    private bool isTrackFinished = false;
     
     private void Awake()
     {
@@ -66,6 +70,32 @@ public class ColMusicPlayer : MonoBehaviour
         {
             Debug.LogWarning("Track list is empty!!");
         }
+        
+        if (volumeSlider != null)
+        {
+            volumeSlider.minValue = 0f;
+            volumeSlider.maxValue = 1f;
+            volumeSlider.value = audioSource.volume;
+            volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
+        }
+    }
+
+    private void Update()
+    {
+        if (audioSource == null || !playStopToggle.isOn) return;
+        
+        
+        if (!audioSource.isPlaying && !isTrackFinished)
+        {
+            isTrackFinished = true;
+            NextTrack();
+        }
+    }
+
+    private void OnVolumeChanged(float value)
+    {
+        if (audioSource != null)
+            audioSource.volume = value;
     }
     
     private void LoadTrack(int index)
@@ -84,6 +114,7 @@ public class ColMusicPlayer : MonoBehaviour
     private void PlayCurrentTrack()
     {
         if (audioSource == null || audioSource.clip == null) return;
+        isTrackFinished = false;
         audioSource.Play();
     }
 
@@ -165,7 +196,7 @@ public class ColMusicPlayer : MonoBehaviour
  
     private IEnumerator MarqueeLoop(float textWidth, float maskWidth)
     {
-        float startX = 32f;
+        float startX = 24f;
         float endX = -(textWidth + marqueeGap);
  
         textRect.anchoredPosition = new Vector2(startX, textRect.anchoredPosition.y);
