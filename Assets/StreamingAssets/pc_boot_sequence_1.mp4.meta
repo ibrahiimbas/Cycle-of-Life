@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f337613274330a747861c422c7d5f8f5
+guid: d45d9c3200465cd4783a2b7af2f0b715
 VideoClipImporter:
   externalObjects: {}
   serializedVersion: 3
@@ -16,6 +16,15 @@ VideoClipImporter:
     :
       enableTranscoding: 1
       codec: 0
+      resizeFormat: 0
+      aspectRatio: 0
+      customWidth: 1280
+      customHeight: 720
+      bitrateMode: 2
+      spatialQuality: 2
+    WebGL:
+      enableTranscoding: 1
+      codec: 1
       resizeFormat: 0
       aspectRatio: 0
       customWidth: 1280

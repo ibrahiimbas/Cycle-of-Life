@@ -797,6 +797,8 @@ MonoBehaviour:
   videoDisplay: {fileID: 1081410473}
   renderTexture: {fileID: 8400000, guid: 84843e52da9c91547b3ee50b547c323c, type: 2}
   bootImage: {fileID: 230079428}
+  videoFileName: pc_boot_sequence_1.mp4
+  videoClip: {fileID: 32900000, guid: f337613274330a747861c422c7d5f8f5, type: 3}
 --- !u!1 &1318079778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1111,8 @@ MonoBehaviour:
   globalVolume: {fileID: 2143927528}
   audioPrefKey: AudioEnabled
   postProcessingPrefKey: PostProcessingEnabled
+  resolutionWidthKey: ResolutionWidth
+  resolutionHeightKey: ResolutionHeight
 --- !u!4 &2121328000
 Transform:
   m_ObjectHideFlags: 0
