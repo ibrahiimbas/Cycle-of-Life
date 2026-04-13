@@ -33,60 +33,41 @@ public class SolitaireUI : MonoBehaviour
    
    [Header("References")]
    [SerializeField] private SettingsPanel settingsPanel;
+   [SerializeField] private SolitaireScoreKeeper scoreKeeper;
    
    [Header("Scroll Views")]
    [SerializeField] private ScrollRect themeScrollRect;
-   
+
    private void Start()
    {
+      originalHeaderColor = headerMainText.color;
       BindButtonEvents();
-      exitButton.onClick.AddListener(JumpMainScene);
-      infoOpenButton.onClick.AddListener(OpenInfoPanel);
-      infoCloseButton.onClick.AddListener(CloseInfoPanel);
-      originalHeaderColor =  headerMainText.color;
-      settingsToggle.onValueChanged.AddListener(SettingsPanelToggle);
-      openSettingsButton.onClick.AddListener(OpenSettingsMainPanel);
-      settingsCloseButton.onClick.AddListener(settingsPanel.CancelAndClose);
    }
    
    private void OnEnable()
    {
-      BindButtonEvents();
+      
    }
    
    private void BindButtonEvents()
    {
-      if (exitButton != null)
-         exitButton.onClick.RemoveAllListeners();
-      if (infoOpenButton != null)
-         infoOpenButton.onClick.RemoveAllListeners();
-      if (infoCloseButton != null)
-         infoCloseButton.onClick.RemoveAllListeners();
-      if (restartButton != null)
-         restartButton.onClick.RemoveAllListeners();
-      if (settingsToggle != null)
-         settingsToggle.onValueChanged.RemoveAllListeners();
-      if (openSettingsButton != null)
-         openSettingsButton.onClick.RemoveAllListeners();
-      if (settingsCloseButton != null)
-         settingsCloseButton.onClick.RemoveAllListeners();
+      if (exitButton != null) exitButton.onClick.RemoveAllListeners();
+      if (infoOpenButton != null) infoOpenButton.onClick.RemoveAllListeners();
+      if (infoCloseButton != null) infoCloseButton.onClick.RemoveAllListeners();
+      if (restartButton != null) restartButton.onClick.RemoveAllListeners();
+      if (settingsToggle != null) settingsToggle.onValueChanged.RemoveAllListeners();
+      if (openSettingsButton != null) openSettingsButton.onClick.RemoveAllListeners();
+      if (settingsCloseButton != null) settingsCloseButton.onClick.RemoveAllListeners();
        
-      if (exitButton != null)
-         exitButton.onClick.AddListener(JumpMainScene);
-      if (infoOpenButton != null)
-         infoOpenButton.onClick.AddListener(OpenInfoPanel);
-      if (infoCloseButton != null)
-         infoCloseButton.onClick.AddListener(CloseInfoPanel);
-      if (restartButton != null)
-         restartButton.onClick.AddListener(ResetScene);
-      if (settingsToggle != null)
-         settingsToggle.onValueChanged.AddListener(SettingsPanelToggle);
-      if (openSettingsButton != null)
-         openSettingsButton.onClick.AddListener(OpenSettingsMainPanel);
+      if (exitButton != null) exitButton.onClick.AddListener(JumpMainScene);
+      if (infoOpenButton != null) infoOpenButton.onClick.AddListener(OpenInfoPanel);
+      if (infoCloseButton != null) infoCloseButton.onClick.AddListener(CloseInfoPanel);
+      if (restartButton != null) restartButton.onClick.AddListener(ResetScene);
+      if (settingsToggle != null) settingsToggle.onValueChanged.AddListener(SettingsPanelToggle);
+      if (openSettingsButton != null) openSettingsButton.onClick.AddListener(OpenSettingsMainPanel);
       if (settingsCloseButton != null && settingsPanel != null)
          settingsCloseButton.onClick.AddListener(settingsPanel.CancelAndClose);
    }
-
 
    public void CloseSettingsMainPanel()
    {
@@ -98,7 +79,6 @@ public class SolitaireUI : MonoBehaviour
       settingsToggle.isOn = false;
       exitButton.interactable = true;
       restartButton.interactable = true;
-      //openSettingsToggle.interactable = false;
    }
    
    private void OpenSettingsMainPanel()
@@ -113,56 +93,67 @@ public class SolitaireUI : MonoBehaviour
       exitButton.interactable = false;
       restartButton.interactable = false;
       StartCoroutine(ResetScrollRectNextFrame(themeScrollRect));
-      //openSettingsToggle.interactable = false;
    }
    
    private IEnumerator ResetScrollRectNextFrame(ScrollRect scrollRect)
    {
       yield return null;
-    
       yield return new WaitForEndOfFrame();
-      
-      if (scrollRect.horizontal)
+      if (scrollRect != null && scrollRect.horizontal)
       {
          scrollRect.horizontalNormalizedPosition = 0f;
       }
-    
    }
 
    private void SettingsPanelToggle(bool isOn)
    {
-      if (isOn)
-      {
-         settingsMiniPanel.SetActive(true);
-      }
-      else
-      {
-         settingsMiniPanel.SetActive(false);
-      }
+      settingsMiniPanel.SetActive(isOn);
    }
    
    public void ResetScene()
    {
-      StopAllCoroutines();
-      
-      UpdateCardSprite[] cards = FindObjectsOfType<UpdateCardSprite>();
-      foreach (UpdateCardSprite card in cards)
+      if (scoreKeeper != null)
       {
-         Destroy(card.gameObject);
+         scoreKeeper.ResetWin();
+         scoreKeeper.RefreshTopStacks();
       }
-      ClearTopValues();
+
+      Time.timeScale = 1;
+      StopAllCoroutines();
+
       settingsToggle.isOn = false;
       settingsMiniPanel.SetActive(false);
-     
+
+      ClearTopValues();
+
       Solitaire solitaire = FindObjectOfType<Solitaire>();
       if (solitaire != null)
       {
          solitaire.PlayCards();
       }
+    
+      Time.timeScale = 1;
    }
 
    void ClearTopValues()
    {
+      Solitaire solitaire = FindObjectOfType<Solitaire>();
+      if (solitaire != null && solitaire.topPos != null)
+      {
+         foreach (GameObject topSlot in solitaire.topPos)
+         {
+            if (topSlot == null) continue;
+            CardSelectable cs = topSlot.GetComponent<CardSelectable>();
+            if (cs != null)
+            {
+               cs.suit = null;
+               cs.value = 0;
+            }
+         }
+         return;
+      }
+
+      // Yedek: tag ile bul
       CardSelectable[] selectables = FindObjectsOfType<CardSelectable>();
       foreach (CardSelectable selectable in selectables)
       {
@@ -176,6 +167,7 @@ public class SolitaireUI : MonoBehaviour
 
    private void JumpMainScene()
    {
+      Time.timeScale = 1;
       SceneManager.LoadScene("RulesScene", LoadSceneMode.Single);
    }
 
@@ -191,7 +183,6 @@ public class SolitaireUI : MonoBehaviour
       settingsToggle.isOn = false;
       exitButton.interactable = false;
       restartButton.interactable = false;
-      //openSettingsToggle.interactable = false;
    }
 
    private void CloseInfoPanel()
@@ -204,6 +195,5 @@ public class SolitaireUI : MonoBehaviour
       settingsToggle.isOn = false;
       exitButton.interactable = true;
       restartButton.interactable = true;
-      //openSettingsToggle.interactable = true;
    }
 }

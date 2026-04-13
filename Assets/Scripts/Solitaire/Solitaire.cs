@@ -26,13 +26,13 @@ public class Solitaire : MonoBehaviour
    public List<string> tripsOnDisplay = new List<string>();
    public List<List<string>> deckTrips = new List<List<string>>(); 
    
-   private List<string> bottom0=new List<string>();
-   private List<string> bottom1=new List<string>();
-   private List<string> bottom2=new List<string>();
-   private List<string> bottom3=new List<string>();
-   private List<string> bottom4=new List<string>();
-   private List<string> bottom5=new List<string>();
-   private List<string> bottom6=new List<string>();
+   private List<string> bottom0 = new List<string>();
+   private List<string> bottom1 = new List<string>();
+   private List<string> bottom2 = new List<string>();
+   private List<string> bottom3 = new List<string>();
+   private List<string> bottom4 = new List<string>();
+   private List<string> bottom5 = new List<string>();
+   private List<string> bottom6 = new List<string>();
 
    public List<string> deck;
    public List<string> discardPile = new List<string>();
@@ -44,11 +44,17 @@ public class Solitaire : MonoBehaviour
    private void Awake()
    {
       FindReferences();
+      
+      SolitaireScoreKeeper scoreKeeper = FindObjectOfType<SolitaireScoreKeeper>();
+      if (scoreKeeper != null)
+      {
+         scoreKeeper.RefreshTopStacks();
+      }
    }
 
    private void Start()
    {
-      bottoms = new List<string>[]{bottom0,bottom1,bottom2,bottom3,bottom4,bottom5,bottom6};
+      bottoms = new List<string>[]{bottom0, bottom1, bottom2, bottom3, bottom4, bottom5, bottom6};
       
       if (deckButton != null && CardBackManager.Instance != null)
       {
@@ -100,11 +106,19 @@ public class Solitaire : MonoBehaviour
 
    public void PlayCards()
    {
+      StopAllCoroutines();
       FindReferences();
+
+      DestroyAllCardObjects();
+
       foreach (List<string> list in bottoms)
       {
          list.Clear();
       }
+
+      tripsOnDisplay.Clear();
+      deckTrips.Clear();
+      discardPile.Clear();
     
       deck = GenerateDeck();
       Shuffle(deck);
@@ -113,14 +127,58 @@ public class Solitaire : MonoBehaviour
       StartCoroutine(SolitaireDeal());
       SortDeckIntoTrips();
    }
-   
-   IEnumerator ApplyCardBackAfterDeal()
+
+   void DestroyAllCardObjects()
    {
-      yield return new WaitForSeconds(0.2f);
-    
-      if (CardBackManager.Instance != null)
+      if (deckButton != null)
       {
-         CardBackManager.Instance.ApplyCardBackToAllCards();
+         List<GameObject> toDestroy = new List<GameObject>();
+         foreach (Transform child in deckButton.transform)
+         {
+            if (child.CompareTag("Card"))
+               toDestroy.Add(child.gameObject);
+         }
+         foreach (GameObject go in toDestroy)
+            DestroyImmediate(go);
+      }
+
+      if (bottomPos != null)
+      {
+         foreach (GameObject col in bottomPos)
+         {
+            if (col == null) continue;
+            List<GameObject> toDestroy = new List<GameObject>();
+            foreach (Transform child in col.transform)
+            {
+               if (child.CompareTag("Card"))
+                  toDestroy.Add(child.gameObject);
+            }
+            foreach (GameObject go in toDestroy)
+               DestroyImmediate(go);
+         }
+      }
+
+      if (topPos != null)
+      {
+         foreach (GameObject slot in topPos)
+         {
+            if (slot == null) continue;
+            List<GameObject> toDestroy = new List<GameObject>();
+            foreach (Transform child in slot.transform)
+            {
+               if (child.CompareTag("Card"))
+                  toDestroy.Add(child.gameObject);
+            }
+            foreach (GameObject go in toDestroy)
+               DestroyImmediate(go);
+         }
+      }
+
+      UpdateCardSprite[] remaining = FindObjectsOfType<UpdateCardSprite>();
+      foreach (UpdateCardSprite card in remaining)
+      {
+         if (card != null)
+            DestroyImmediate(card.gameObject);
       }
    }
    
@@ -154,8 +212,6 @@ public class Solitaire : MonoBehaviour
 
    IEnumerator SolitaireDeal()
    {
-      discardPile.Clear();
-    
       for (int i = 0; i < 7; i++)
       {
          float yOffset = 0;
@@ -184,6 +240,10 @@ public class Solitaire : MonoBehaviour
                if (card == bottoms[i][bottoms[i].Count - 1])
                {
                   cardSelectable.faceUp = true;
+               }
+               else
+               {
+                  cardSelectable.faceUp = false;
                }
             }
 
@@ -267,24 +327,29 @@ public class Solitaire : MonoBehaviour
     
       foreach (GameObject card in cardsToDestroy)
       {
-         if (deck.Contains(card.name))
+         if (tripsOnDisplay.Contains(card.name))
          {
-            deck.Remove(card.name);
+            discardPile.Add(card.name);
          }
-         discardPile.Add(card.name);
          Destroy(card);
       }
+
+      tripsOnDisplay.Clear();
     
       if (deckLocation < trips)
       {
-         tripsOnDisplay.Clear();
          float xOffset = 4.5f;
          float zOffset = -.2f;
          float yOffset = 0f;
+         
+         List<string> currentTrip = new List<string>(deckTrips[deckLocation]);
 
-         for (int i = 0; i < deckTrips[deckLocation].Count; i++)
+         currentTrip = currentTrip.Where(c => deck.Contains(c) || discardPile.Contains(c) || tripsOnDisplay.Contains(c)).ToList();
+         currentTrip = currentTrip.Where(c => deck.Contains(c)).ToList();
+
+         for (int i = 0; i < currentTrip.Count; i++)
          {
-            string card = deckTrips[deckLocation][i];
+            string card = currentTrip[i];
             GameObject newTopCard = Instantiate(cardPrefab,
                new Vector3(deckButton.transform.position.x + xOffset, 
                   deckButton.transform.position.y + yOffset,
@@ -328,7 +393,6 @@ public class Solitaire : MonoBehaviour
             cardsToDestroy.Add(child.gameObject);
          }
       }
-    
       foreach (GameObject card in cardsToDestroy)
       {
          Destroy(card);
@@ -337,17 +401,16 @@ public class Solitaire : MonoBehaviour
       tripsOnDisplay.Clear();
    
       deck.Clear();
-   
       for (int i = discardPile.Count - 1; i >= 0; i--)
       {
          deck.Add(discardPile[i]);
       }
-   
       discardPile.Clear();
    
       deckLocation = 0;
-   
       SortDeckIntoTrips();
+    
+      UpdateDeckButtonSprite();
    }
    
    public void UpdateDeckButtonSprite()

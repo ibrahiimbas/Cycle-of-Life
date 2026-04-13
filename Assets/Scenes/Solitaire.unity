@@ -6460,6 +6460,7 @@ MonoBehaviour:
   mainTabImage: {fileID: 1191474923}
   notifyAudio: {fileID: 737870006}
   settingsPanel: {fileID: 1477381984}
+  scoreKeeper: {fileID: 1477381982}
   themeScrollRect: {fileID: 182097762}
 --- !u!114 &1477381982
 MonoBehaviour:

@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic; // List için eklendi
+using System.Collections.Generic;
 
 public class SolitaireUserInput : MonoBehaviour
 {
@@ -51,7 +51,6 @@ public class SolitaireUserInput : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             clickCount++;
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10));
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
             if (hit)
@@ -152,11 +151,17 @@ public class SolitaireUserInput : MonoBehaviour
     {
         if (slot1 == null || slot1 == this.gameObject || slot1.GetComponent<CardSelectable>() == null)
             return;
-            
+
         if (slot1.CompareTag("Card"))
         {
             CardSelectable s1 = slot1.GetComponent<CardSelectable>();
-            if (s1 != null && s1.value == 1)
+            CardSelectable s2 = selected.GetComponent<CardSelectable>();
+            if (s1 == null || s2 == null) return;
+
+            bool canStack = (s1.value == 1 && s2.value == 0) ||
+                            (s1.suit == s2.suit && s1.value == s2.value + 1);
+
+            if (canStack)
             {
                 Stack(selected);
             }
@@ -198,13 +203,11 @@ public class SolitaireUserInput : MonoBehaviour
         {
             if (s2.top)
             {
-                if (s1.suit == s2.suit || (s1.value == 1 && s2.suit == null))
-                {
-                    if (s1.value == s2.value + 1)
-                    {
-                        return true;
-                    }
-                }
+                bool isEmpty = s2.value == 0;
+                bool suitMatch = s1.suit == s2.suit;
+
+                if (s1.value == 1 && isEmpty) return true;
+                if (suitMatch && s1.value == s2.value + 1) return true;
                 return false;
             }
             else
@@ -213,15 +216,7 @@ public class SolitaireUserInput : MonoBehaviour
                 {
                     bool card1Red = IsRedCard(s1.suit);
                     bool card2Red = IsRedCard(s2.suit);
-
-                    if (card1Red == card2Red)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        return true;
-                    }
+                    return card1Red != card2Red;
                 }
             }
         }
@@ -249,9 +244,60 @@ public class SolitaireUserInput : MonoBehaviour
             slot1 = this.gameObject;
             return;
         }
-        
-        float yOffset = .65f;
 
+        int oldRow = s1.row;
+        bool wasInDeckPile = s1.inDeckPile;
+        bool wasTop = s1.top;
+
+        if (wasInDeckPile)
+        {
+            solitaire.tripsOnDisplay.Remove(slot1.name);
+            RemoveCardFromDeckTrips(slot1.name);
+
+            if (!s2.top && solitaire.bottoms != null && s2.row >= 0 && s2.row < solitaire.bottoms.Length)
+            {
+                solitaire.bottoms[s2.row].Add(slot1.name);
+            }
+        }
+        else if (wasTop)
+        {
+            if (solitaire.topPos != null && oldRow < solitaire.topPos.Length)
+            {
+                CardSelectable topSelectable = solitaire.topPos[oldRow].GetComponent<CardSelectable>();
+                if (topSelectable != null)
+                {
+                    if (s1.value == 1)
+                    {
+                        topSelectable.value = 0;
+                        topSelectable.suit = null;
+                    }
+                    else
+                    {
+                        topSelectable.value = s1.value - 1;
+                    }
+                }
+            }
+
+            if (!s2.top && solitaire.bottoms != null && s2.row >= 0 && s2.row < solitaire.bottoms.Length)
+            {
+                solitaire.bottoms[s2.row].Add(slot1.name);
+            }
+        }
+        else
+        {
+            if (solitaire.bottoms != null && oldRow >= 0 && oldRow < solitaire.bottoms.Length)
+            {
+                RemoveCardAndChildrenFromBottom(slot1, oldRow);
+                RevealUnderCard(oldRow);
+            }
+
+            if (!s2.top && solitaire.bottoms != null && s2.row >= 0 && s2.row < solitaire.bottoms.Length)
+            {
+                AddCardAndChildrenToBottom(slot1, s2.row);
+            }
+        }
+
+        float yOffset = .65f;
         if (s2.top || (!s1.top && s1.value == 13))
         {
             yOffset = 0;
@@ -263,51 +309,15 @@ public class SolitaireUserInput : MonoBehaviour
             selected.transform.position.z - .01f);
         
         slot1.transform.SetParent(selected.transform, true);
-        
-        if (s1.inDeckPile)
-        {
-            solitaire.tripsOnDisplay.Remove(slot1.name);
-        }
-        else if (s1.top && s2.top && s1.value == 1)
-        {
-            if (solitaire.topPos != null && s1.row < solitaire.topPos.Length)
-            {
-                CardSelectable topSelectable = solitaire.topPos[s1.row].GetComponent<CardSelectable>();
-                if (topSelectable != null)
-                {
-                    topSelectable.value = 0;
-                    topSelectable.suit = null;
-                }
-            }
-        }
-        else if (s1.top)
-        {
-            if (solitaire.topPos != null && s1.row < solitaire.topPos.Length)
-            {
-                CardSelectable topSelectable = solitaire.topPos[s1.row].GetComponent<CardSelectable>();
-                if (topSelectable != null)
-                {
-                    topSelectable.value = s1.value - 1;
-                }
-            }
-        }
-        else
-        {
-            if (solitaire.bottoms != null && s1.row < solitaire.bottoms.Length)
-            {
-                solitaire.bottoms[s1.row].Remove(slot1.name);
-                RevealUnderCard(s1.row);
-            }
-        }
 
         s1.inDeckPile = false;
         s1.row = s2.row;
 
         if (s2.top)
         {
-            if (solitaire.topPos != null && s1.row < solitaire.topPos.Length)
+            if (solitaire.topPos != null && s2.row < solitaire.topPos.Length)
             {
-                CardSelectable topSelectable = solitaire.topPos[s1.row].GetComponent<CardSelectable>();
+                CardSelectable topSelectable = solitaire.topPos[s2.row].GetComponent<CardSelectable>();
                 if (topSelectable != null)
                 {
                     topSelectable.value = s1.value;
@@ -323,46 +333,115 @@ public class SolitaireUserInput : MonoBehaviour
         
         slot1 = this.gameObject;
         lastSelectedCard = null;
+        
+        SolitaireScoreKeeper scoreKeeper = FindObjectOfType<SolitaireScoreKeeper>();
+        if (scoreKeeper != null)
+        {
+            scoreKeeper.RefreshTopStacks();
+        }
+    }
+
+    void RemoveCardFromDeckTrips(string cardName)
+    {
+        if (solitaire.deckTrips == null) return;
+        foreach (List<string> trip in solitaire.deckTrips)
+        {
+            if (trip.Remove(cardName))
+                break;
+        }
+    }
+
+    void RemoveCardAndChildrenFromBottom(GameObject card, int row)
+    {
+        if (card == null || solitaire.bottoms == null) return;
+        if (row < 0 || row >= solitaire.bottoms.Length) return;
+
+        solitaire.bottoms[row].Remove(card.name);
+
+        foreach (Transform child in card.transform)
+        {
+            if (child.CompareTag("Card"))
+            {
+                RemoveCardAndChildrenFromBottom(child.gameObject, row);
+            }
+        }
+    }
+
+    void AddCardAndChildrenToBottom(GameObject card, int row)
+    {
+        if (card == null || solitaire.bottoms == null) return;
+        if (row < 0 || row >= solitaire.bottoms.Length) return;
+
+        solitaire.bottoms[row].Add(card.name);
+
+        foreach (Transform child in card.transform)
+        {
+            if (child.CompareTag("Card"))
+            {
+                AddCardAndChildrenToBottom(child.gameObject, row);
+            }
+        }
     }
     
     void RevealUnderCard(int row)
     {
-        if (solitaire.bottoms != null && row < solitaire.bottoms.Length && solitaire.bottoms[row].Count > 0)
+        if (solitaire.bottoms == null || row < 0 || row >= solitaire.bottoms.Length) return;
+        if (solitaire.bottoms[row].Count == 0) return;
+
+        string lastCardName = solitaire.bottoms[row].Last();
+        GameObject lastCard = FindCardInBottomColumn(row, lastCardName);
+
+        if (lastCard != null)
         {
-            string lastCardName = solitaire.bottoms[row].Last();
-            GameObject lastCard = GameObject.Find(lastCardName);
-            if (lastCard != null)
+            CardSelectable cs = lastCard.GetComponent<CardSelectable>();
+            if (cs != null && !cs.faceUp)
             {
-                CardSelectable lastCardSelectable = lastCard.GetComponent<CardSelectable>();
-                if (lastCardSelectable != null && !lastCardSelectable.faceUp)
+                cs.faceUp = true;
+            
+                UpdateCardSprite sprite = lastCard.GetComponent<UpdateCardSprite>();
+                if (sprite != null)
                 {
-                    lastCardSelectable.faceUp = true;
+                    sprite.UpdateCardBackSprite(CardBackManager.Instance?.GetCurrentCardBack());
                 }
             }
         }
     }
 
+    GameObject FindCardInBottomColumn(int row, string cardName)
+    {
+        if (solitaire.bottomPos == null || row >= solitaire.bottomPos.Length) return null;
+        GameObject columnRoot = solitaire.bottomPos[row];
+        if (columnRoot == null) return null;
+        return FindCardInChildren(columnRoot.transform, cardName);
+    }
+
+    GameObject FindCardInChildren(Transform parent, string cardName)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name == cardName && child.CompareTag("Card"))
+                return child.gameObject;
+
+            GameObject found = FindCardInChildren(child, cardName);
+            if (found != null) return found;
+        }
+        return null;
+    }
+
     bool Blocked(GameObject selected)
     {
-        if (selected == null)
-            return true;
+        if (selected == null) return true;
             
         CardSelectable s2 = selected.GetComponent<CardSelectable>();
-        if (s2 == null)
-            return true;
+        if (s2 == null) return true;
             
         if (s2.inDeckPile)
         {
-            if (solitaire.tripsOnDisplay.Count > 0 && 
-                s2.name == solitaire.tripsOnDisplay.Last())
-            {
-                return false;
-            }
-            return true;
+            return !(solitaire.tripsOnDisplay.Count > 0 && s2.name == solitaire.tripsOnDisplay.Last());
         }
         else
         {
-            if (solitaire.bottoms != null && s2.row < solitaire.bottoms.Length && 
+            if (solitaire.bottoms != null && s2.row >= 0 && s2.row < solitaire.bottoms.Length && 
                 solitaire.bottoms[s2.row].Count > 0 &&
                 s2.name == solitaire.bottoms[s2.row].Last())
             {
@@ -374,30 +453,22 @@ public class SolitaireUserInput : MonoBehaviour
 
     bool DoubleClick()
     {
-        if (timer < doubleClickTime && clickCount == 2)
-        {
-            return true;
-        }
-        return false;
+        return timer < doubleClickTime && clickCount == 2;
     }
 
     void AutoStack(GameObject selected)
     {
-        if (selected == null)
-            return;
+        if (selected == null) return;
             
         CardSelectable sCard = selected.GetComponent<CardSelectable>();
-        if (sCard == null)
-            return;
+        if (sCard == null) return;
             
         for (int i = 0; i < solitaire.topPos.Length; i++)
         {
-            if (solitaire.topPos[i] == null)
-                continue;
+            if (solitaire.topPos[i] == null) continue;
                 
             CardSelectable stack = solitaire.topPos[i].GetComponent<CardSelectable>();
-            if (stack == null)
-                continue;
+            if (stack == null) continue;
                 
             if (sCard.value == 1)
             {
@@ -412,20 +483,33 @@ public class SolitaireUserInput : MonoBehaviour
             {
                 if (stack.suit == sCard.suit && stack.value == sCard.value - 1)
                 {
-                    if (HasNoChildren(slot1))
+                    if (HasNoChildren(selected))
                     {
                         slot1 = selected;
-                        string lastCardName = GetCardNameFromSelectable(stack);
-                        GameObject lastCard = GameObject.Find(lastCardName);
-                        if (lastCard != null)
+                        GameObject topCardObj = FindTopCardObject(i, stack);
+                        if (topCardObj != null)
                         {
-                            Stack(lastCard);
-                            break;
+                            Stack(topCardObj);
                         }
+                        else
+                        {
+                            Stack(stack.gameObject);
+                        }
+                        break;
                     }
                 }
             }
         }
+    }
+
+    GameObject FindTopCardObject(int topRow, CardSelectable topSlot)
+    {
+        if (topSlot.value == 0) return topSlot.gameObject;
+
+        string cardName = GetCardNameFromSelectable(topSlot);
+        GameObject found = FindCardInChildren(solitaire.topPos[topRow].transform, cardName);
+        if (found != null) return found;
+        return solitaire.topPos[topRow].gameObject;
     }
     
     string GetCardNameFromSelectable(CardSelectable card)
@@ -440,14 +524,11 @@ public class SolitaireUserInput : MonoBehaviour
 
     bool HasNoChildren(GameObject card)
     {
-        if (card == null)
-            return true;
-            
-        int i = 0;
+        if (card == null) return true;
         foreach (Transform child in card.transform)
         {
-            i++;
+            if (child.CompareTag("Card")) return false;
         }
-        return i == 0;
+        return true;
     }
 }
