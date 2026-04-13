@@ -4308,8 +4308,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1457216155}
   m_HandleRect: {fileID: 1457216154}
   m_Direction: 2
-  m_Value: 1.0000004
-  m_Size: 0.37861305
+  m_Value: 1.0000006
+  m_Size: 0.37861314
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7659,7 +7659,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 32, y: -0.0000076293945}
-  m_SizeDelta: {x: 86.19, y: 18}
+  m_SizeDelta: {x: 179.04, y: 18}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &478531706
 MonoBehaviour:
@@ -14199,19 +14199,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 10 April 2000\n\nNew
-    Features:\n- Soundtrack has been added to Cycle of Life. You can now listen to
-    it while the simulation is running.\n- You can now drag windows around the screen.\r\n-
-    Added a popup virus. (It's not a real virus\u2026 but you probably shouldn't
-    trust them anyway.)\r\n- You can now open Internet Explorer. There's a blog website
-    you can visit inside.\r\n- Desktop is more functional \u2014 you can open some
-    apps in windows using shortcuts.\r\n- Taskbar is now dynamic.\r\n- Solitaire
-    added. (It's a bit buggy. Will be fixed in the next update.)\r\n- Solitaire Themes
-    added. You can change the card back design in the game settings.\r\n- More functional
-    desktop overall.\r\n- Minesweeper added.\r\n- Minesweeper now has 3 difficulty
-    levels.\n- You can now edit these update notes. (Changes are deleted when you
-    exit the game.)\n\n(New Features for Cycle of Life)\r\n- You can now create or
-    kill cells while the simulation is running.\r\n- You need to enable this feature
+  m_text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 13 April 2000\n\nNew
+    Features:\n- You can now drag windows around the screen.\r\n- Added a popup virus.
+    (It's not a real virus\u2026 but you probably shouldn't trust them anyway.)\r\n-
+    You can now open Internet Explorer. There's a blog website you can visit inside.\r\n-
+    Desktop is more functional \u2014 you can open some apps in windows using shortcuts.\r\n-
+    Taskbar is now dynamic.\r\n- Solitaire added.\r\n- Solitaire Themes added. You
+    can change the card back design in the game settings.\r\n- More functional desktop
+    overall.\r\n- Minesweeper added.\r\n- Minesweeper now has 3 difficulty levels.\n-
+    You can now edit these update notes. (Changes are deleted when you exit the game.)\n\n(New
+    Features for Cycle of Life)\n- Soundtrack has been added to Cycle of Life. You
+    can now listen to it while the simulation is running.\r\n- You can now create
+    or kill cells while the simulation is running.\r\n- You need to enable this feature
     in the game screen first.\r\n- Hold Ctrl + Left Mouse Button and drag to create
     new cells.\r\n- Hold Ctrl + Right Mouse Button and drag to kill alive cells.\n\nRules
     of Cycle of Life:\n- Birth Rule: An empty, or \u201Cdead,\u201D cell with precisely
@@ -14507,7 +14506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: -656.4311}
+  m_AnchoredPosition: {x: -2, y: -656.4299}
   m_SizeDelta: {x: -68, y: 1324.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &784128297
@@ -15952,19 +15951,18 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.04281996, g: 0.03631186, b: 0.4528302, a: 1}
-  m_Text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 10 April 2000\n\nNew
-    Features:\n- Soundtrack has been added to Cycle of Life. You can now listen to
-    it while the simulation is running.\n- You can now drag windows around the screen.\r\n-
-    Added a popup virus. (It's not a real virus\u2026 but you probably shouldn't
-    trust them anyway.)\r\n- You can now open Internet Explorer. There's a blog website
-    you can visit inside.\r\n- Desktop is more functional \u2014 you can open some
-    apps in windows using shortcuts.\r\n- Taskbar is now dynamic.\r\n- Solitaire
-    added. (It's a bit buggy. Will be fixed in the next update.)\r\n- Solitaire Themes
-    added. You can change the card back design in the game settings.\r\n- More functional
-    desktop overall.\r\n- Minesweeper added.\r\n- Minesweeper now has 3 difficulty
-    levels.\n- You can now edit these update notes. (Changes are deleted when you
-    exit the game.)\n\n(New Features for Cycle of Life)\r\n- You can now create or
-    kill cells while the simulation is running.\r\n- You need to enable this feature
+  m_Text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 13 April 2000\n\nNew
+    Features:\n- You can now drag windows around the screen.\r\n- Added a popup virus.
+    (It's not a real virus\u2026 but you probably shouldn't trust them anyway.)\r\n-
+    You can now open Internet Explorer. There's a blog website you can visit inside.\r\n-
+    Desktop is more functional \u2014 you can open some apps in windows using shortcuts.\r\n-
+    Taskbar is now dynamic.\r\n- Solitaire added.\r\n- Solitaire Themes added. You
+    can change the card back design in the game settings.\r\n- More functional desktop
+    overall.\r\n- Minesweeper added.\r\n- Minesweeper now has 3 difficulty levels.\n-
+    You can now edit these update notes. (Changes are deleted when you exit the game.)\n\n(New
+    Features for Cycle of Life)\n- Soundtrack has been added to Cycle of Life. You
+    can now listen to it while the simulation is running.\r\n- You can now create
+    or kill cells while the simulation is running.\r\n- You need to enable this feature
     in the game screen first.\r\n- Hold Ctrl + Left Mouse Button and drag to create
     new cells.\r\n- Hold Ctrl + Right Mouse Button and drag to kill alive cells.\n\nRules
     of Cycle of Life:\n- Birth Rule: An empty, or \u201Cdead,\u201D cell with precisely
@@ -23190,8 +23188,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1557034823}
   m_HandleRect: {fileID: 1557034822}
   m_Direction: 2
-  m_Value: 1.0000006
-  m_Size: 0.37858292
+  m_Value: 0.9999998
+  m_Size: 0.37861252
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -23990,6 +23988,8 @@ MonoBehaviour:
   guestPageScrollRect: {fileID: 1229946580}
   aboutPageScrollRect: {fileID: 751113836}
   mapPageScrollRect: {fileID: 1536358452}
+  loadingPage: {fileID: 1947934801}
+  pageStatusText: {fileID: 478531706}
   mailUrl: mailto:ibrahimbas1414@gmail.com
   githubUrl: https://github.com/ibrahiimbas
   linkedinUrl: https://www.linkedin.com/in/ibrahimbas15/
@@ -25101,6 +25101,50 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267282620}
+  m_CullTransparentMesh: 1
+--- !u!1 &1270405427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270405428}
+  - component: {fileID: 1270405429}
+  m_Layer: 5
+  m_Name: map_website_panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1270405428
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270405427}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1947934802}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 6.000122}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1270405429
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270405427}
   m_CullTransparentMesh: 1
 --- !u!1 &1270503634
 GameObject:
@@ -28876,6 +28920,7 @@ RectTransform:
   - {fileID: 1229946578}
   - {fileID: 751113834}
   - {fileID: 1536358450}
+  - {fileID: 1947934802}
   m_Father: {fileID: 1416200162}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -31263,7 +31308,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 54375915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.62141705}
+  m_AnchorMin: {x: 0, y: 0.6213869}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -38282,6 +38327,120 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1947934801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1947934802}
+  - component: {fileID: 1947934807}
+  - component: {fileID: 1947934806}
+  - component: {fileID: 1947934804}
+  - component: {fileID: 1947934803}
+  m_Layer: 5
+  m_Name: ui_explorer_loading_panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1947934802
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947934801}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1270405428}
+  m_Father: {fileID: 1462351439}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -6}
+  m_SizeDelta: {x: -12, y: -12}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!95 &1947934803
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947934801}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5918d717a26975b4186f283170d3a25c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1947934804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947934801}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
+--- !u!114 &1947934806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947934801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8039216, g: 0.8039216, b: 0.8039216, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -8550414204662972706, guid: 808260acc2821684cb8446e4be246e02, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 2
+--- !u!222 &1947934807
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947934801}
+  m_CullTransparentMesh: 1
 --- !u!1 &1951514635
 GameObject:
   m_ObjectHideFlags: 0

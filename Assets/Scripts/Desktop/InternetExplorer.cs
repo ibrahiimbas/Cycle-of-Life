@@ -35,6 +35,10 @@ public class InternetExplorer : MonoBehaviour
    [SerializeField] private ScrollRect guestPageScrollRect;
    [SerializeField] private ScrollRect aboutPageScrollRect;
    [SerializeField] private ScrollRect mapPageScrollRect;
+   [SerializeField] private GameObject loadingPage;
+   
+   [Header("Page Loading Status")]
+   [SerializeField] private TextMeshProUGUI pageStatusText;
    
    [Header("URL")] 
    [SerializeField] private string mailUrl = "mailto:ibrahimbas1414@gmail.com";
@@ -58,6 +62,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
       mapPage.SetActive(false);
+      loadingPage.SetActive(false);
       guestBookButton.onClick.AddListener(OnGuestBookClick);
       homePageButton_1.onClick.AddListener(OnHomePageButtonClick);
       homePageButton_2.onClick.AddListener(OnHomePageButtonClick);
@@ -87,6 +92,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(true);
       aboutPage.SetActive(false);
       mapPage.SetActive(false);
+      StartCoroutine(LoadingSession());
       StartCoroutine(ResetScrollRectNextFrame(mainPageScrollRect));
    }
 
@@ -97,6 +103,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
       mapPage.SetActive(false);
+      StartCoroutine(LoadingSession());
       ResetMainScrollRect(false);
    }
 
@@ -107,6 +114,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(true);
       mapPage.SetActive(false);
+      StartCoroutine(LoadingSession());
       ResetMainScrollRect(false);
    }
 
@@ -117,6 +125,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
       mapPage.SetActive(true);
+      StartCoroutine(LoadingSession());
       ResetMainScrollRect(false);
    }
    
@@ -142,6 +151,15 @@ public class InternetExplorer : MonoBehaviour
       {
          SetURL(mainPageUrl);
       }
+   }
+
+   private IEnumerator LoadingSession()
+   {
+      pageStatusText.text = "Opening page...";
+      loadingPage.SetActive(true);
+      yield return new WaitForSeconds(.5f);
+      pageStatusText.text = "Done";
+      loadingPage.SetActive(false);
    }
 
    public void ResetToHomePage()

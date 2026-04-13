@@ -662,11 +662,11 @@ MonoBehaviour:
   m_Content: {fileID: 602329482}
   m_Horizontal: 1
   m_Vertical: 0
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 3
+  m_ScrollSensitivity: 40
   m_Viewport: {fileID: 1296947128}
   m_HorizontalScrollbar: {fileID: 1296947129}
   m_VerticalScrollbar: {fileID: 0}
