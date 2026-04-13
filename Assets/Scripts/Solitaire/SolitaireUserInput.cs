@@ -297,6 +297,7 @@ public class SolitaireUserInput : MonoBehaviour
             }
         }
 
+        // Fiziksel taşıma
         float yOffset = .65f;
         if (s2.top || (!s1.top && s1.value == 13))
         {
@@ -311,7 +312,7 @@ public class SolitaireUserInput : MonoBehaviour
         slot1.transform.SetParent(selected.transform, true);
 
         s1.inDeckPile = false;
-        s1.row = s2.row;
+        UpdateRowRecursive(slot1, s2.row);
 
         if (s2.top)
         {
@@ -333,11 +334,24 @@ public class SolitaireUserInput : MonoBehaviour
         
         slot1 = this.gameObject;
         lastSelectedCard = null;
-        
-        SolitaireScoreKeeper scoreKeeper = FindObjectOfType<SolitaireScoreKeeper>();
-        if (scoreKeeper != null)
+    }
+
+    void UpdateRowRecursive(GameObject card, int newRow)
+    {
+        if (card == null) return;
+
+        CardSelectable cs = card.GetComponent<CardSelectable>();
+        if (cs != null)
         {
-            scoreKeeper.RefreshTopStacks();
+            cs.row = newRow;
+        }
+
+        foreach (Transform child in card.transform)
+        {
+            if (child.CompareTag("Card"))
+            {
+                UpdateRowRecursive(child.gameObject, newRow);
+            }
         }
     }
 
@@ -397,12 +411,6 @@ public class SolitaireUserInput : MonoBehaviour
             if (cs != null && !cs.faceUp)
             {
                 cs.faceUp = true;
-            
-                UpdateCardSprite sprite = lastCard.GetComponent<UpdateCardSprite>();
-                if (sprite != null)
-                {
-                    sprite.UpdateCardBackSprite(CardBackManager.Instance?.GetCurrentCardBack());
-                }
             }
         }
     }

@@ -72,7 +72,6 @@ public class SolitaireScoreKeeper : MonoBehaviour
     {
         if (winAudio != null)
             winAudio.Play();
-        Debug.Log("You won!");
         Time.timeScale = 0;
     }
 }
