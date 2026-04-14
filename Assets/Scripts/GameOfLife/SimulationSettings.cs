@@ -204,7 +204,7 @@ public class SimulationSettings : MonoBehaviour
     {
         if (patternButtonPrefab == null || patternButtonContainer == null)
         {
-            Debug.LogError("Missin pattern button prefab or target container");
+            Debug.LogError("Missing pattern button prefab or target container");
             return;
         }
 
@@ -292,7 +292,6 @@ public class SimulationSettings : MonoBehaviour
         {
             themeManager.ApplyThemeByIndex(index);
             
-            Debug.Log($"Theme selected: {theme.name} at index {index}");
         }
     }
     

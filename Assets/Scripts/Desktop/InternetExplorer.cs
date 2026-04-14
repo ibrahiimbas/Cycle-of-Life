@@ -92,7 +92,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(true);
       aboutPage.SetActive(false);
       mapPage.SetActive(false);
-      StartCoroutine(LoadingSession());
+      StartCoroutine(LoadingSession(guestbookPagePageUrl));
       StartCoroutine(ResetScrollRectNextFrame(mainPageScrollRect));
    }
 
@@ -103,7 +103,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
       mapPage.SetActive(false);
-      StartCoroutine(LoadingSession());
+      StartCoroutine(LoadingSession(mainPageUrl));
       ResetMainScrollRect(false);
    }
 
@@ -114,7 +114,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(true);
       mapPage.SetActive(false);
-      StartCoroutine(LoadingSession());
+      StartCoroutine(LoadingSession(aboutMePageUrl));
       ResetMainScrollRect(false);
    }
 
@@ -125,7 +125,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
       mapPage.SetActive(true);
-      StartCoroutine(LoadingSession());
+      StartCoroutine(LoadingSession(mapPagePageUrl));
       ResetMainScrollRect(false);
    }
    
@@ -153,9 +153,9 @@ public class InternetExplorer : MonoBehaviour
       }
    }
 
-   private IEnumerator LoadingSession()
+   private IEnumerator LoadingSession(string url)
    {
-      pageStatusText.text = "Opening page...";
+      pageStatusText.text = "Opening page " + url;
       loadingPage.SetActive(true);
       yield return new WaitForSeconds(.5f);
       pageStatusText.text = "Done";
