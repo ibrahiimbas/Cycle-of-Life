@@ -212,6 +212,8 @@ public class SolitaireUserInput : MonoBehaviour
             }
             else
             {
+                if (!HasNoChildren(selected)) return false;
+
                 if (s1.value == s2.value - 1)
                 {
                     bool card1Red = IsRedCard(s1.suit);
@@ -288,7 +290,6 @@ public class SolitaireUserInput : MonoBehaviour
             if (solitaire.bottoms != null && oldRow >= 0 && oldRow < solitaire.bottoms.Length)
             {
                 RemoveCardAndChildrenFromBottom(slot1, oldRow);
-                RevealUnderCard(oldRow);
             }
 
             if (!s2.top && solitaire.bottoms != null && s2.row >= 0 && s2.row < solitaire.bottoms.Length)
@@ -297,7 +298,6 @@ public class SolitaireUserInput : MonoBehaviour
             }
         }
 
-        // Fiziksel taşıma
         float yOffset = .65f;
         if (s2.top || (!s1.top && s1.value == 13))
         {
@@ -311,8 +311,13 @@ public class SolitaireUserInput : MonoBehaviour
         
         slot1.transform.SetParent(selected.transform, true);
 
+        if (!wasInDeckPile && !wasTop && oldRow >= 0 && oldRow < solitaire.bottoms.Length)
+        {
+            RevealUnderCard(oldRow);
+        }
+
         s1.inDeckPile = false;
-        UpdateRowRecursive(slot1, s2.row);
+        s1.row = s2.row;
 
         if (s2.top)
         {
@@ -334,24 +339,11 @@ public class SolitaireUserInput : MonoBehaviour
         
         slot1 = this.gameObject;
         lastSelectedCard = null;
-    }
-
-    void UpdateRowRecursive(GameObject card, int newRow)
-    {
-        if (card == null) return;
-
-        CardSelectable cs = card.GetComponent<CardSelectable>();
-        if (cs != null)
+        
+        SolitaireScoreKeeper scoreKeeper = FindObjectOfType<SolitaireScoreKeeper>();
+        if (scoreKeeper != null)
         {
-            cs.row = newRow;
-        }
-
-        foreach (Transform child in card.transform)
-        {
-            if (child.CompareTag("Card"))
-            {
-                UpdateRowRecursive(child.gameObject, newRow);
-            }
+            scoreKeeper.RefreshTopStacks();
         }
     }
 
@@ -399,11 +391,12 @@ public class SolitaireUserInput : MonoBehaviour
     
     void RevealUnderCard(int row)
     {
-        if (solitaire.bottoms == null || row < 0 || row >= solitaire.bottoms.Length) return;
-        if (solitaire.bottoms[row].Count == 0) return;
+        if (solitaire.bottomPos == null || row < 0 || row >= solitaire.bottomPos.Length) return;
 
-        string lastCardName = solitaire.bottoms[row].Last();
-        GameObject lastCard = FindCardInBottomColumn(row, lastCardName);
+        GameObject columnRoot = solitaire.bottomPos[row];
+        if (columnRoot == null) return;
+
+        GameObject lastCard = FindDeepestCard(columnRoot.transform);
 
         if (lastCard != null)
         {
@@ -411,8 +404,26 @@ public class SolitaireUserInput : MonoBehaviour
             if (cs != null && !cs.faceUp)
             {
                 cs.faceUp = true;
+                UpdateCardSprite sprite = lastCard.GetComponent<UpdateCardSprite>();
+                if (sprite != null)
+                {
+                    sprite.UpdateCardBackSprite(CardBackManager.Instance?.GetCurrentCardBack());
+                    
+                }
             }
         }
+    }
+    
+    GameObject FindDeepestCard(Transform parent)
+    {
+        GameObject deepest = null;
+        foreach (Transform child in parent)
+        {
+            if (!child.CompareTag("Card")) continue;
+            GameObject candidate = FindDeepestCard(child);
+            deepest = candidate != null ? candidate : child.gameObject;
+        }
+        return deepest;
     }
 
     GameObject FindCardInBottomColumn(int row, string cardName)
@@ -535,7 +546,9 @@ public class SolitaireUserInput : MonoBehaviour
         if (card == null) return true;
         foreach (Transform child in card.transform)
         {
-            if (child.CompareTag("Card")) return false;
+            if (!child.CompareTag("Card")) continue;
+            CardSelectable cs = child.GetComponent<CardSelectable>();
+            if (cs != null && cs.faceUp) return false;
         }
         return true;
     }
