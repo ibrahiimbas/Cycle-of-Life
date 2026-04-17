@@ -19,22 +19,26 @@ public class InternetExplorer : MonoBehaviour
    [SerializeField] private Button homePageButton_1;
    [SerializeField] private Button homePageButton_2;
    [SerializeField] private Button homePageButton_3;
+   [SerializeField] private Button homePageButton_4;
    [SerializeField] private Button aboutPageButton;
    [SerializeField] private Button mapPageButton;
    [SerializeField] private Button mailLinkButton;
    [SerializeField] private Button githubLinkButton;
    [SerializeField] private Button linkedinLinkButton;
    [SerializeField] private Button itchIOLinkButton;
+   [SerializeField] private Button msnAdButton;
    
    [Header("Pages and Scroll Rects")] 
    [SerializeField] private GameObject mainPage;
    [SerializeField] private GameObject guestPage;
    [SerializeField] private GameObject aboutPage;
    [SerializeField] private GameObject mapPage;
+   [SerializeField] private GameObject msnPage;
    [SerializeField] private ScrollRect mainPageScrollRect;
    [SerializeField] private ScrollRect guestPageScrollRect;
    [SerializeField] private ScrollRect aboutPageScrollRect;
    [SerializeField] private ScrollRect mapPageScrollRect;
+   [SerializeField] private ScrollRect msnPageScrollRect;
    [SerializeField] private GameObject loadingPage;
    
    [Header("Page Loading Status")]
@@ -52,6 +56,7 @@ public class InternetExplorer : MonoBehaviour
    [SerializeField] private string aboutMePageUrl = "http://www.synthesizertr.com/aboutme";
    [SerializeField] private string guestbookPagePageUrl = "http://www.synthesizertr.com/guestbook";
    [SerializeField] private string mapPagePageUrl = "http://www.synthesizertr.com/map";
+   [SerializeField] private string msnPagePageUrl = "http://messenger.msn.com/";
    
    private string formattedTime;
 
@@ -63,16 +68,19 @@ public class InternetExplorer : MonoBehaviour
       aboutPage.SetActive(false);
       mapPage.SetActive(false);
       loadingPage.SetActive(false);
+      msnPage.SetActive(false);
       guestBookButton.onClick.AddListener(OnGuestBookClick);
       homePageButton_1.onClick.AddListener(OnHomePageButtonClick);
       homePageButton_2.onClick.AddListener(OnHomePageButtonClick);
       homePageButton_3.onClick.AddListener(OnHomePageButtonClick);
+      homePageButton_4.onClick.AddListener(OnHomePageButtonClick);
       aboutPageButton.onClick.AddListener(OnAboutPageButtonClick);
       mapPageButton.onClick.AddListener(OnMapPageButtonClick);
       mailLinkButton.onClick.AddListener(OpenMailLink);
       githubLinkButton.onClick.AddListener(OpenGithubLink);
       linkedinLinkButton.onClick.AddListener(OpenLinkedinLink);
       itchIOLinkButton.onClick.AddListener(OpenitchIOLink);
+      msnAdButton.onClick.AddListener(OnMsnAdButtonClick);
    }
 
    private void Update()
@@ -92,6 +100,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(true);
       aboutPage.SetActive(false);
       mapPage.SetActive(false);
+      msnPage.SetActive(false);
       StartCoroutine(LoadingSession(guestbookPagePageUrl));
       StartCoroutine(ResetScrollRectNextFrame(mainPageScrollRect));
    }
@@ -103,6 +112,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
       mapPage.SetActive(false);
+      msnPage.SetActive(false);
       StartCoroutine(LoadingSession(mainPageUrl));
       ResetMainScrollRect(false);
    }
@@ -114,6 +124,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(true);
       mapPage.SetActive(false);
+      msnPage.SetActive(false);
       StartCoroutine(LoadingSession(aboutMePageUrl));
       ResetMainScrollRect(false);
    }
@@ -125,7 +136,20 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
       mapPage.SetActive(true);
+      msnPage.SetActive(false);
       StartCoroutine(LoadingSession(mapPagePageUrl));
+      ResetMainScrollRect(false);
+   }
+
+   private void OnMsnAdButtonClick()
+   {
+      SetURL(msnPagePageUrl);
+      mainPage.SetActive(false);
+      guestPage.SetActive(false);
+      aboutPage.SetActive(false);
+      mapPage.SetActive(false);
+      msnPage.SetActive(true);
+      StartCoroutine(LoadingSession(msnPagePageUrl));
       ResetMainScrollRect(false);
    }
    
@@ -146,6 +170,7 @@ public class InternetExplorer : MonoBehaviour
       StartCoroutine(ResetScrollRectNextFrame(guestPageScrollRect));
       StartCoroutine(ResetScrollRectNextFrame(aboutPageScrollRect));
       StartCoroutine(ResetScrollRectNextFrame(mapPageScrollRect));
+      StartCoroutine(ResetScrollRectNextFrame(msnPageScrollRect));
       
       if (resetUrl)
       {
@@ -168,6 +193,7 @@ public class InternetExplorer : MonoBehaviour
       guestPage.SetActive(false);
       aboutPage.SetActive(false);
       mapPage.SetActive(false);
+      msnPage.SetActive(false);
    }
 
    private void SetURL(string url)

@@ -271,6 +271,7 @@ public class RulesSceneScript : MonoBehaviour
         yield return new WaitForSeconds(shutDownAudio.clip.length);
 #if UNITY_WEBGL
         CursorReset();
+        ClearNotepadContent();
         SceneManager.LoadScene("BootScene", LoadSceneMode.Single);
 #else
         ExitSimulation();
