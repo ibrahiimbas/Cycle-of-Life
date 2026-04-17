@@ -29,7 +29,9 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Button firstInfoOkButton;
     [SerializeField] private Button updateNotepadButton;
     [SerializeField] private Button closeTestPanelButton;
+    [SerializeField] private Button closeMediaPlayerPanelButton;
     [SerializeField] private Toggle testBottomToggle;
+    [SerializeField] private Toggle mediaPlayerBottomToggle;
     
     [SerializeField] private TextMeshProUGUI currentTimeText;
     [SerializeField] private GameObject notepadTab;
@@ -38,6 +40,7 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private GameObject shutDownPanelTab;
     [SerializeField] private GameObject firstInfoPanel;
     [SerializeField] private GameObject testPanel;
+    [SerializeField] private GameObject mediaPlayerPanel;
     [SerializeField] private Image notepadImage;
     [SerializeField] private Sprite notepadOpenSprite;
     [SerializeField] private Sprite notepadClosedSprite;
@@ -55,6 +58,9 @@ public class RulesSceneScript : MonoBehaviour
     [Header("Explorer")]
     [SerializeField] private InternetExplorer explorer;
     [SerializeField] private VirusPopUp virus;
+    
+    [Header("Media Player")]
+    [SerializeField] private MediaPlayer mediaPlayer;
 
     private bool isStartTabOpen = false;
     
@@ -75,7 +81,9 @@ public class RulesSceneScript : MonoBehaviour
         firstInfoOkButton.onClick.AddListener(FirstInfoPanelClose);
         updateNotepadButton.onClick.AddListener(NotepadOpen);
         closeTestPanelButton.onClick.AddListener(CloseTestPanel);
+        closeMediaPlayerPanelButton.onClick.AddListener(CloseMediaPlayerPanel);
         testBottomToggle.onValueChanged.AddListener(OnTestPanelToggleChanged);
+        mediaPlayerBottomToggle.onValueChanged.AddListener(OnMediaPlayerPanelToggleChanged);
         
         
         originalHeaderColor = notepadTabHeaderText.color;
@@ -223,6 +231,15 @@ public class RulesSceneScript : MonoBehaviour
         virus.ClosePopUp();
     }
 
+    private void CloseMediaPlayerPanel()
+    {
+        mediaPlayerPanel.SetActive(false);
+        mediaPlayerBottomToggle.gameObject.SetActive(false);
+        
+        // If media is playing stop it 
+        mediaPlayer.StopAndResetSong();
+    }
+
     private void OnTestPanelToggleChanged(bool isOn)
     {
         if (isOn)
@@ -232,6 +249,18 @@ public class RulesSceneScript : MonoBehaviour
         else
         {
                 testPanel.SetActive(false);
+        }
+    }
+
+    private void OnMediaPlayerPanelToggleChanged(bool isOn)
+    {
+        if (isOn)
+        {
+            mediaPlayerPanel.SetActive(true);
+        }
+        else
+        {
+            mediaPlayerPanel.SetActive(false);
         }
     }
     

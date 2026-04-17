@@ -1,0 +1,275 @@
+fileFormatVersion: 2
+guid: 7e34d0e33a885064da5db161fcc7ff37
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -396901457319503749
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_0
+  - first:
+      213: -43234086574140338
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_1
+  - first:
+      213: 3490207631293165887
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_2
+  - first:
+      213: 2297781429487529136
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_3
+  - first:
+      213: -4218382598023996367
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_4
+  - first:
+      213: 6056141761716380535
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_5
+  - first:
+      213: 3328041352597582970
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_6
+  - first:
+      213: 1413382472775986164
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_7
+  - first:
+      213: 9076452639088405979
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_8
+  - first:
+      213: 5632985918695888208
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_9
+  - first:
+      213: 8534709319306297690
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_10
+  - first:
+      213: 2149433901849759180
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_11
+  - first:
+      213: 1794236389390866742
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_12
+  - first:
+      213: 4807642769346563108
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_13
+  - first:
+      213: 13848281958257505
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_14
+  - first:
+      213: -9102656977032385844
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_15
+  - first:
+      213: -7890794627958170911
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_16
+  - first:
+      213: -4501303202912454432
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_17
+  - first:
+      213: -325777968873398000
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_18
+  - first:
+      213: 8854014481478931694
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_19
+  - first:
+      213: 7893829450362691162
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_20
+  - first:
+      213: -5666208642299992809
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_21
+  - first:
+      213: 4421935819331934708
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_22
+  - first:
+      213: -7594514199068482964
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_23
+  - first:
+      213: 1468337545470151933
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_24
+  - first:
+      213: 8505152880742614509
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_25
+  - first:
+      213: 6464052628181436944
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_26
+  - first:
+      213: 8202161384604110003
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_27
+  - first:
+      213: 5197948610507855401
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_28
+  - first:
+      213: 1716222799530065383
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_29
+  - first:
+      213: 8176611280668731259
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_30
+  - first:
+      213: 2317077391246154583
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_31
+  - first:
+      213: -1219108345057757852
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_32
+  - first:
+      213: 8945766591693890692
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_33
+  - first:
+      213: 5779521940419465726
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_34
+  - first:
+      213: -934483318803415898
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_35
+  - first:
+      213: 927173774118617073
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_36
+  - first:
+      213: 5125949345385506432
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_37
+  - first:
+      213: 3305671764937972284
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_38
+  - first:
+      213: -4683528826286097441
+    second: windows_98_symbol_logo_png_by_love16love24_dfqreld_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 856
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: windows_98_symbol_logo_png_by_love16love24_dfqreld_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 856
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b78d2a93a3ced7af0800000000000000
+      internalID: -396901457319503749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ed094945b590b664dae7a7e981e109f2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1000.0,"y":856.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      windows_98_symbol_logo_png_by_love16love24_dfqreld_0: -396901457319503749
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
