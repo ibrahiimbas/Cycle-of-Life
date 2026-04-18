@@ -12,6 +12,7 @@ using UnityEngine.Video;
 using Button = UnityEngine.UI.Button;
 using Slider = UnityEngine.UI.Slider;
 using Toggle = UnityEngine.UI.Toggle;
+using UnityEngine.EventSystems;
 
 public class MediaPlayer : MonoBehaviour
 {
@@ -60,6 +61,16 @@ public class MediaPlayer : MonoBehaviour
       {
          timeText.text = FormatTime(0f) + " / " + FormatTime(windowsSong.clip.length);
       }
+      
+      EventTrigger trigger = progressSlider.gameObject.AddComponent<EventTrigger>();
+
+      var pointerDown = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
+      pointerDown.callback.AddListener((_) => SetDragging(true));
+      trigger.triggers.Add(pointerDown);
+
+      var pointerUp = new EventTrigger.Entry { eventID = EventTriggerType.PointerUp };
+      pointerUp.callback.AddListener((_) => SetDragging(false));
+      trigger.triggers.Add(pointerUp);
    }
    
    private void Update()
@@ -95,6 +106,19 @@ public class MediaPlayer : MonoBehaviour
          {
             timeText.text = FormatTime(value) + " / " + FormatTime(windowsSong.clip.length);
          }
+      }
+   }
+   
+   public void SetDragging(bool dragging)
+   {
+      isDraggingSlider = dragging;
+
+      if (!dragging)
+      {
+         windowsSong.time = progressSlider.value;
+
+         if (videoPlayer != null)
+            videoPlayer.time = progressSlider.value;
       }
    }
    
