@@ -58,6 +58,10 @@ public class InternetExplorer : MonoBehaviour
    [SerializeField] private string mapPagePageUrl = "http://www.synthesizertr.com/map";
    [SerializeField] private string msnPagePageUrl = "http://messenger.msn.com/";
    
+   [Header("Tab and Taskbar Header")]
+   [SerializeField] private TextMeshProUGUI tabHeader;
+   [SerializeField] private TextMeshProUGUI taskbarHeader;
+   
    private string formattedTime;
 
    private void Start()
@@ -81,6 +85,8 @@ public class InternetExplorer : MonoBehaviour
       linkedinLinkButton.onClick.AddListener(OpenLinkedinLink);
       itchIOLinkButton.onClick.AddListener(OpenitchIOLink);
       msnAdButton.onClick.AddListener(OnMsnAdButtonClick);
+      tabHeader.text = "Synthesizer's Web Page - Microsoft Internet Explorer";
+      taskbarHeader.text = "Synthesizer's Web Pag...";
    }
 
    private void Update()
@@ -114,6 +120,8 @@ public class InternetExplorer : MonoBehaviour
       mapPage.SetActive(false);
       msnPage.SetActive(false);
       StartCoroutine(LoadingSession(mainPageUrl));
+      tabHeader.text = "Synthesizer's Web Page - Microsoft Internet Explorer";
+      taskbarHeader.text = "Synthesizer's Web Pag...";
       ResetMainScrollRect(false);
    }
 
@@ -150,6 +158,8 @@ public class InternetExplorer : MonoBehaviour
       mapPage.SetActive(false);
       msnPage.SetActive(true);
       StartCoroutine(LoadingSession(msnPagePageUrl));
+      tabHeader.text = "Msn Messenger - Microsoft Internet Explorer";
+      taskbarHeader.text = "Msn Messenger";
       ResetMainScrollRect(false);
    }
    
@@ -175,6 +185,8 @@ public class InternetExplorer : MonoBehaviour
       if (resetUrl)
       {
          SetURL(mainPageUrl);
+         tabHeader.text = "Synthesizer's Web Page - Microsoft Internet Explorer";
+         taskbarHeader.text = "Synthesizer's Web Pag...";
       }
    }
 
