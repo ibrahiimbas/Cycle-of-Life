@@ -30,8 +30,10 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Button updateNotepadButton;
     [SerializeField] private Button closeTestPanelButton;
     [SerializeField] private Button closeMediaPlayerPanelButton;
+    [SerializeField] private Button closeImageViewerPanelButton;
     [SerializeField] private Toggle testBottomToggle;
     [SerializeField] private Toggle mediaPlayerBottomToggle;
+    [SerializeField] private Toggle imageViewerBottomToggle;
     
     [SerializeField] private TextMeshProUGUI currentTimeText;
     [SerializeField] private GameObject notepadTab;
@@ -41,6 +43,7 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private GameObject firstInfoPanel;
     [SerializeField] private GameObject testPanel;
     [SerializeField] private GameObject mediaPlayerPanel;
+    [SerializeField] private GameObject imageViewerPanel;
     [SerializeField] private Image notepadImage;
     [SerializeField] private Sprite notepadOpenSprite;
     [SerializeField] private Sprite notepadClosedSprite;
@@ -61,6 +64,9 @@ public class RulesSceneScript : MonoBehaviour
     
     [Header("Media Player")]
     [SerializeField] private MediaPlayer mediaPlayer;
+    
+    [Header("Photo Viewer")]
+    [SerializeField] private PhotoViewer photoViewer;
 
     private bool isStartTabOpen = false;
     
@@ -82,8 +88,10 @@ public class RulesSceneScript : MonoBehaviour
         updateNotepadButton.onClick.AddListener(NotepadOpen);
         closeTestPanelButton.onClick.AddListener(CloseTestPanel);
         closeMediaPlayerPanelButton.onClick.AddListener(CloseMediaPlayerPanel);
+        closeImageViewerPanelButton.onClick.AddListener(CloseImageViewer);
         testBottomToggle.onValueChanged.AddListener(OnTestPanelToggleChanged);
         mediaPlayerBottomToggle.onValueChanged.AddListener(OnMediaPlayerPanelToggleChanged);
+        imageViewerBottomToggle.onValueChanged.AddListener(OnImageViewerPanelToggleChanged);
         
         
         originalHeaderColor = notepadTabHeaderText.color;
@@ -240,6 +248,13 @@ public class RulesSceneScript : MonoBehaviour
         mediaPlayer.StopAndResetSong();
     }
 
+    private void CloseImageViewer()
+    {
+        imageViewerPanel.SetActive(false);
+        imageViewerBottomToggle.gameObject.SetActive(false);
+        photoViewer.GoToFirstPhoto(0);
+    }
+
     private void OnTestPanelToggleChanged(bool isOn)
     {
         if (isOn)
@@ -283,6 +298,18 @@ public class RulesSceneScript : MonoBehaviour
                 notepadTabHeaderText.color = inactiveHeaderColor;
                 notepadTab.SetActive(false);
             }
+        }
+    }
+
+    private void OnImageViewerPanelToggleChanged(bool isOn)
+    {
+        if (isOn)
+        {
+            imageViewerPanel.SetActive(true);
+        }
+        else
+        {
+            imageViewerPanel.SetActive(false);
         }
     }
 
