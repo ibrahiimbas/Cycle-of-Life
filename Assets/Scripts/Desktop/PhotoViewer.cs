@@ -9,9 +9,10 @@ public class PhotoViewer : MonoBehaviour
     [Header("UI Components")]
     [SerializeField] private Image photoDisplayImage;
     [SerializeField] private TextMeshProUGUI photoCountText; 
+    [SerializeField] private TextMeshProUGUI photoNameText; 
     
     [Header("Photo List")]
-    [SerializeField] private List<Sprite> photoList = new List<Sprite>();
+    [SerializeField] private List<PhotoData> photoList = new List<PhotoData>();
     
     [Header("Buttons")]
     [SerializeField] private Button nextButton;
@@ -90,10 +91,23 @@ public class PhotoViewer : MonoBehaviour
     {
         if (photoDisplayImage != null && photoList != null && photoList.Count > 0 && currentIndex < photoList.Count)
         {
-            photoDisplayImage.sprite = photoList[currentIndex];
+            photoDisplayImage.sprite = photoList[currentIndex].photoSprite;
+            
+            if (photoNameText != null)
+            {
+                photoNameText.text = photoList[currentIndex].photoName;
+            }
+            
+            UpdatePhotoCountText();
         }
-
-        GetPhotoCountText();
+    }
+    
+    private void UpdatePhotoCountText()
+    {
+        if (photoCountText != null)
+        {
+            photoCountText.text = (currentIndex + 1).ToString() + " / " + photoList.Count.ToString();
+        }
     }
     
     public void GoToFirstPhoto(int index)
@@ -104,19 +118,33 @@ public class PhotoViewer : MonoBehaviour
         ShowCurrentPhoto();
     }
     
-    public void GetPhotoCountText()
+    private void OnDestroy()
     {
+        if (nextButton != null)
+            nextButton.onClick.RemoveListener(NextPhoto);
         
-        photoCountText.text= (currentIndex + 1).ToString() +" / " + photoList.Count().ToString();
+        if (previousButton != null)
+            previousButton.onClick.RemoveListener(PreviousPhoto);
     }
     
-    public void SetPhotoList(List<Sprite> newPhotoList)
+}
+
+[System.Serializable]
+public class PhotoData
+{
+    [Header("Photo Info")]
+    public string photoName;
+    public Sprite photoSprite;
+    
+    public PhotoData(string name, Sprite sprite)
     {
-        if (newPhotoList != null)
-        {
-            photoList = newPhotoList;
-            currentIndex = 0;
-            ShowCurrentPhoto();
-        }
+        photoName = name;
+        photoSprite = sprite;
+    }
+    
+    public PhotoData()
+    {
+        photoName = "New Photo";
+        photoSprite = null;
     }
 }
