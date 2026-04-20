@@ -7,6 +7,7 @@ public class BlueScreen : MonoBehaviour
 {
    [SerializeField] private GameObject blueScreen;
    [SerializeField] private AudioSource errorSound;
+   [SerializeField] private MediaPlayer mediaPlayer;
 
    private void Start()
    {
@@ -31,6 +32,8 @@ public class BlueScreen : MonoBehaviour
          
          blueScreen.SetActive(true);
          errorSound.Play();
+         
+         mediaPlayer.StopAndResetSong();
          
          yield return new WaitForSeconds(5f);
          

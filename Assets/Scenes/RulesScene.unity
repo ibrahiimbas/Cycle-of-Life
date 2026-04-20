@@ -18122,7 +18122,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 18 April 2000\n\nNew
+  m_text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 20 April 2000\n\nNew
     Features:\n- Image Viewer added.\n- You can use Windows Media Player! There is
     one sample song you can play in it.\n- You can click Msn Messenger advertisement
     and open Msn Messenger website.\n- You can now drag windows around the screen.\r\n-
@@ -20113,7 +20113,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 1
   m_SelectionColor: {r: 0.04281996, g: 0.03631186, b: 0.4528302, a: 1}
-  m_Text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 18 April 2000\n\nNew
+  m_Text: "Cycle of Life\r\nVersion: 0.7.5 Beta\r\nLast updated: 20 April 2000\n\nNew
     Features:\n- Image Viewer added.\n- You can use Windows Media Player! There is
     one sample song you can play in it.\n- You can click Msn Messenger advertisement
     and open Msn Messenger website.\n- You can now drag windows around the screen.\r\n-
@@ -29686,6 +29686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BlueScreen
   blueScreen: {fileID: 1255231235}
   errorSound: {fileID: 1399447582}
+  mediaPlayer: {fileID: 1229161537}
 --- !u!114 &1229161537
 MonoBehaviour:
   m_ObjectHideFlags: 0
