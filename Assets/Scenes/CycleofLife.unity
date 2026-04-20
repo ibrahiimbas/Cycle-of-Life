@@ -9600,6 +9600,8 @@ MonoBehaviour:
   tracks:
   - trackName: Silent Promise - Hasan Arthur Altuntas
     audioClip: {fileID: 8300000, guid: 9c60252c119e18840ad31d08d40b183a, type: 3}
+  - trackName: Fading Stillness - Hasan Arthur Altuntas
+    audioClip: {fileID: 8300000, guid: 2784e9d03fb74fc48a162514a3367c3e, type: 3}
   - trackName: Motion - Liborio Conti
     audioClip: {fileID: 8300000, guid: bc66426499816f04cabd4704316bddb3, type: 3}
   - trackName: Transient - Liborio Conti
