@@ -51,8 +51,8 @@ body {
 
 #unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
 #unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
-#unity-progress-bar-empty { width: 256px; height: 20px; background: url('progress-bar-empty.png') no-repeat left }
-#unity-progress-bar-full { width: 0%; height: 20px; background: url('progress-bar-full.png') no-repeat left }
+#unity-progress-bar-empty { width: 256px; height: 20px; background: url('progress_bar_empty_new.png') no-repeat left }
+#unity-progress-bar-full { width: 0%; height: 20px; background: url('progress_bar_full_new.png') no-repeat left }
 
 #unity-container.unity-mobile { width: 100%; height: 100% }
 .unity-mobile #unity-footer { display: none }
