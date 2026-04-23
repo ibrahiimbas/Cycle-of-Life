@@ -57,7 +57,7 @@
     </tr>
       <tr>
         <td align="center"><img src="https://github.com/user-attachments/assets/ec94000c-85ab-427c-a032-82003a60d012" width="600"/><br/>Cycle of Life</td>
-      <td align="center"><img src="https://github.com/user-attachments/assets/0ed36a46-1cd3-4cdb-8d88-dad25da1d4ea" width="600"/><br/>Desktop with multible windows open</td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/0ed36a46-1cd3-4cdb-8d88-dad25da1d4ea" width="600"/><br/>Desktop with multiple windows open</td>
       </tr>
   </table>
 </div>
