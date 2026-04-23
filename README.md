@@ -47,6 +47,23 @@
 </tbody></table>
 <p><br></p>
 <p><br></p>
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><img src="https://github.com/user-attachments/assets/9f8118b5-b359-49ae-b95b-60b7a91594d4" width="600"/><br/>Windows Media Player</td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/93da8ab9-be87-49f3-ad99-aae4cddf862a" width="600"/><br/>Internet Explorer</td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/cd4093c0-7e2b-4e0f-8a65-1bafed83fc0e" width="600"/><br/>Solitaire</td>
+    </tr>
+      <tr>
+        <td align="center"><img src="https://github.com/user-attachments/assets/ec94000c-85ab-427c-a032-82003a60d012" width="600"/><br/>Cycle of Life</td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/0ed36a46-1cd3-4cdb-8d88-dad25da1d4ea" width="600"/><br/>Desktop with multible windows open</td>
+      </tr>
+  </table>
+</div>
+
+<p><br></p>
+<p><br></p>
 <h3>Credits:</h3>
 <ul><li>Some music by Hasan Arthur Altuntaş. Used with permission. Listen to more at the link below.<ol><a href="https://open.spotify.com/intl-tr/artist/6D5NDnftFDOelT5ssMe0ef?si=VxLr4AVuSKmsRAZ9lVsBkg" target="_blank">Spotify</a><br>
 <a href="https://www.youtube.com/@HasanArthurAltunta%C5%9F" target="_blank">Youtube</a></ol></li></ul>
