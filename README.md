@@ -28,8 +28,10 @@
 <p><strong>Birth Rule:</strong> An empty, or “dead” cell with precisely three “live” neighbors becomes live.</p>
 <p><strong>Death Rule: </strong>A live cell with zero or one neighbors dies of isolation; a live cell with four or more neighbors dies of overcrowding.</p>
 <p><strong>Survival Rule:</strong> A live cell with two or three neighbors remains alive.</p>
-<h4>Some Example Templates:</h4>
-<table border="0" cellpadding="10">
+<p><br></p>
+<p><br></p>
+<h3 align="center">Some Example Templates</h3>
+<table border="0" cellpadding="10" align="center">
   <tbody><tr>
     <td align="center">
       <a target="_blank" href="https://en.wikipedia.org/wiki/Glider_(Conway%27s_Game_of_Life)">
@@ -45,10 +47,12 @@
     </td>
   </tr>
 </tbody></table>
+ <h4 align="center">Note: You can click the template to learn more about it.</h4>
 <p><br></p>
 <p><br></p>
 
 <div align="center">
+    <h3>Screenshots</h3>
   <table>
     <tr>
       <td align="center"><img src="https://github.com/user-attachments/assets/9f8118b5-b359-49ae-b95b-60b7a91594d4" width="600"/><br/>Windows Media Player</td>
