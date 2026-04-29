@@ -31,9 +31,11 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Button closeTestPanelButton;
     [SerializeField] private Button closeMediaPlayerPanelButton;
     [SerializeField] private Button closeImageViewerPanelButton;
+    [SerializeField] private Button closeAsciiArtPanelButton;
     [SerializeField] private Toggle testBottomToggle;
     [SerializeField] private Toggle mediaPlayerBottomToggle;
     [SerializeField] private Toggle imageViewerBottomToggle;
+    [SerializeField] private Toggle asciiArtBottomToggle;
     
     [SerializeField] private TextMeshProUGUI currentTimeText;
     [SerializeField] private GameObject notepadTab;
@@ -44,6 +46,7 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private GameObject testPanel;
     [SerializeField] private GameObject mediaPlayerPanel;
     [SerializeField] private GameObject imageViewerPanel;
+    [SerializeField] private GameObject asciiArtPanel;
     [SerializeField] private Image notepadImage;
     [SerializeField] private Sprite notepadOpenSprite;
     [SerializeField] private Sprite notepadClosedSprite;
@@ -89,9 +92,11 @@ public class RulesSceneScript : MonoBehaviour
         closeTestPanelButton.onClick.AddListener(CloseTestPanel);
         closeMediaPlayerPanelButton.onClick.AddListener(CloseMediaPlayerPanel);
         closeImageViewerPanelButton.onClick.AddListener(CloseImageViewer);
+        closeAsciiArtPanelButton.onClick.AddListener(CloseAsciiArt);
         testBottomToggle.onValueChanged.AddListener(OnTestPanelToggleChanged);
         mediaPlayerBottomToggle.onValueChanged.AddListener(OnMediaPlayerPanelToggleChanged);
         imageViewerBottomToggle.onValueChanged.AddListener(OnImageViewerPanelToggleChanged);
+        asciiArtBottomToggle.onValueChanged.AddListener(OnAsciiArtPanelToggleChanged);
         
         
         originalHeaderColor = notepadTabHeaderText.color;
@@ -255,6 +260,12 @@ public class RulesSceneScript : MonoBehaviour
         photoViewer.GoToFirstPhoto(0);
     }
 
+    private void CloseAsciiArt()
+    {
+        asciiArtPanel.SetActive(false);
+        asciiArtBottomToggle.gameObject.SetActive(false);
+    }
+
     private void OnTestPanelToggleChanged(bool isOn)
     {
         if (isOn)
@@ -310,6 +321,18 @@ public class RulesSceneScript : MonoBehaviour
         else
         {
             imageViewerPanel.SetActive(false);
+        }
+    }
+    
+    private void OnAsciiArtPanelToggleChanged(bool isOn)
+    {
+        if (isOn)
+        {
+            asciiArtPanel.SetActive(true);
+        }
+        else
+        {
+            asciiArtPanel.SetActive(false);
         }
     }
 
