@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 public class AsciiArt : MonoBehaviour
 {
@@ -168,5 +168,5 @@ public class AsciiArtData
     [Header("Ascii Art Info")] 
     public string asciiArtName;
     public Sprite asciiArtDataImage;
-    public AnimatorController asciiAnimation; 
+    public RuntimeAnimatorController  asciiAnimation; 
 }
