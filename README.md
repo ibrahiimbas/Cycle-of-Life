@@ -1,11 +1,20 @@
-<h1 class="text-center"><br>Cycle of Life&nbsp;</h1>
+<div align="center">
+<img src="https://blob.gifcities.org/gifcities/KYVTTDBRSMKUGAYIMCJP5JWKNCPFW4ET.gif" />
+</div>
 
 <div align="center">
-<p>You can play the game on Itch.io</p>
-    
+
 [![Play on Itch.io](https://img.shields.io/badge/Play-Itch.io-red?style=for-the-badge&logo=itchdotio&logoColor=white)](https://synthseizer.itch.io/cycle-of-life)
 
+[![Status](https://img.shields.io/badge/status-beta-yellow?style=flat)](https://github.com/ibrahiimbas/Cycle-of-Life)
+[![Unity Version](https://img.shields.io/badge/Unity-black?style=flat&logo=unity)](https://unity.com)
+![WebGL](https://img.shields.io/badge/platform-WebGL-orange?style=flat&logo=webgl)
+
+
 </div>
+
+> [!NOTE]
+> ⚠️🚧 **Beta** – This project is currently under active development. Feel free to play the web build on [itch.io](https://synthseizer.itch.io/cycle-of-life), open issues, or leave feedback for future updates!
 
 <p>&nbsp; &nbsp; &nbsp;Cycle of Life&nbsp;is a small game created for my portfolio. The game takes place in a world set in the year 2000, where you can open desktop applications and games as if you were using Windows 98. You can interact with some of the applications and games on the desktop, including experiencing the game that gives the project its name:&nbsp;Cycle of Life.
 </p>
@@ -17,9 +26,10 @@
 </p>
 <p>Cycle of Life&nbsp;offers you a nostalgic experience.</p>
 <p>&nbsp;<br></p>
-<h4>Note:</h4>
-<p>Fullscreen is recommended. But when you first launch the game, pressing the fullscreen button gives an error sometimes. Just close the popup and press the fullscreen button again, it will work fine.</p>
-<p><br></p>
+
+> [!WARNING]
+> <p>Fullscreen is recommended. But when you first launch the game, pressing the fullscreen button gives an error sometimes. Just close the popup and press the fullscreen button again, it will work fine.</p>
+
 <p><strong>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</strong></p>
 <h3>How to Play</h3>
 <ul><li>Use the arrow keys or WASD to move around the area.</li><li>&nbsp;Use Mouse Editing Toggle to enable or disable mouse edit.</li><li>&nbsp;Drag mouse while holding CTRL and left mouse button to create alive cells.</li><li>&nbsp;Drag mouse while holding CTRL and right mouse button to kill alive cells.&nbsp;&nbsp;</li><li>&nbsp;Select patterns from the pattern menu.</li><li>&nbsp;Adjust camera speed and zoom levels using the sliders.</li><li>&nbsp;Pause, resume, and reset the simulation using the buttons.</li><li>&nbsp;Change the theme by using theme button.</li></ul>
