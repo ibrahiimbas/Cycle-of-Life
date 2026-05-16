@@ -1,6 +1,12 @@
 <div align="center">
-<img src="https://blob.gifcities.org/gifcities/KYVTTDBRSMKUGAYIMCJP5JWKNCPFW4ET.gif" />
+<img src="https://blob.gifcities.org/gifcities/Z2C5RDSCKCMX2G2DLUGQO3Y4XFE3ZTUL.gif"/ width=1024 height=2>
 </div>
+<img alt="Image" src="https://github.com/user-attachments/assets/29c6ba69-f709-4b5d-9cf5-c05b982238ea" />
+<div align="center">
+<img src="https://blob.gifcities.org/gifcities/Z2C5RDSCKCMX2G2DLUGQO3Y4XFE3ZTUL.gif"/ width=1024 height=2>
+</div>
+
+<br></br>
 
 <div align="center">
 
@@ -14,7 +20,7 @@
 </div>
 
 <div align="center">
-<img src="https://blob.gifcities.org/gifcities/ONF7PVW3J4UC7E7G3YBM7WC37WB5E4XE.gif"/ >
+<img src="https://blob.gifcities.org/gifcities/BWOWAK2II2XDD4QIAI6AFIFEG4YNK32V.gif"/ >
 </div>
 
 > [!NOTE]
@@ -38,16 +44,35 @@
 <img src="https://blob.gifcities.org/gifcities/44AVCRAGZJ7URH5NAIWWGF7H6J2RHCYP.gif"/ width=1024>
 </div>
 
-<h3>How to Play</h3>
-<ul><li>Use the arrow keys or WASD to move around the area.</li><li>&nbsp;Use Mouse Editing Toggle to enable or disable mouse edit.</li><li>&nbsp;Drag mouse while holding CTRL and left mouse button to create alive cells.</li><li>&nbsp;Drag mouse while holding CTRL and right mouse button to kill alive cells.&nbsp;&nbsp;</li><li>&nbsp;Select patterns from the pattern menu.</li><li>&nbsp;Adjust camera speed and zoom levels using the sliders.</li><li>&nbsp;Pause, resume, and reset the simulation using the buttons.</li><li>&nbsp;Change the theme by using theme button.</li></ul>
+## 🎮 How to Play
+
+- **Move around** – Use `Arrow Keys` or `WASD`
+- **Toggle Edit Mode** – Use *Mouse Editing Toggle* to enable/disable cell editing
+- **Create live cells** – Hold `CTRL` + `Left Mouse Button` and drag
+- **Kill live cells** – Hold `CTRL` + `Right Mouse Button` and drag
+- **Add patterns** – Select from the *Pattern Menu*
+- **Adjust view** – Use sliders to change camera speed and zoom level
+- **Control simulation** – Pause, resume, or reset with the on-screen buttons
+- **Change theme** – Click the *Theme Button* to switch visual styles
+
 <p><br></p>
-<h3>Rules of Cycle of Life</h3>
-<p><strong>Birth Rule:</strong> An empty, or “dead” cell with precisely three “live” neighbors becomes live.</p>
-<p><strong>Death Rule: </strong>A live cell with zero or one neighbors dies of isolation; a live cell with four or more neighbors dies of overcrowding.</p>
-<p><strong>Survival Rule:</strong> A live cell with two or three neighbors remains alive.</p>
+
+## 🧬 Rules of the Cycle of Life
+
+| Rule | Condition |
+|------|------------|
+| **Birth** | A dead cell with **exactly 3 live neighbors** becomes alive |
+| **Death** | A live cell with **0 or 1 neighbor** dies (isolation) <br> A live cell with **4 or more neighbors** dies (overcrowding) |
+| **Survival** | A live cell with **2 or 3 neighbors** stays alive |
+
+> 🔁 These rules are applied simultaneously to all cells in every iteration.
+
+
 <p><br></p>
 <p><br></p>
-<h3 align="center">Some Example Templates</h3>
+
+## 🧩 Example Templates
+
 <table border="0" cellpadding="10" align="center">
   <tbody><tr>
     <td align="center">
@@ -71,8 +96,9 @@
 <p><br></p>
 <p><br></p>
 
+## 📸 Screenshots
+
 <div align="center">
-    <h3>Screenshots</h3>
   <table>
     <tr>
       <td align="center"><img src="https://github.com/user-attachments/assets/9f8118b5-b359-49ae-b95b-60b7a91594d4" width="600"/><br/>Windows Media Player</td>
@@ -88,6 +114,22 @@
 
 <p><br></p>
 <p><br></p>
-<h3>Credits:</h3>
-<ul><li>Some music by Hasan Arthur Altuntaş. Used with permission. Listen to more at the link below.<ol><a href="https://open.spotify.com/intl-tr/artist/6D5NDnftFDOelT5ssMe0ef?si=VxLr4AVuSKmsRAZ9lVsBkg" target="_blank">Spotify</a><br>
-<a href="https://www.youtube.com/@HasanArthurAltunta%C5%9F" target="_blank">Youtube</a></ol></li></ul>
+
+## 🙏 Credits
+
+> [!NOTE]
+> Some music by Hasan Arthur Altuntaş. Used with permission. Listen to more at the link below.
+
+[![Spotify](https://img.shields.io/badge/Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white)](https://open.spotify.com/intl-tr/artist/6D5NDnftFDOelT5ssMe0ef?si=VxLr4AVuSKmsRAZ9lVsBkg)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@HasanArthurAltunta%C5%9F)
+</li></ul>
+
+<br></br>
+
+<div align="center">
+<img src="https://blob.gifcities.org/gifcities/44AVCRAGZJ7URH5NAIWWGF7H6J2RHCYP.gif"/ width=1024>
+</div>
+
+<div align="center">
+<img src="https://blob.gifcities.org/gifcities/N73QEVDML2NUYTDIFAIDPEDQBCXHDJNU.gif"/>
+</div>
