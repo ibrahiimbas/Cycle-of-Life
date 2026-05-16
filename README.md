@@ -67,8 +67,6 @@
 
 > 🔁 These rules are applied simultaneously to all cells in every iteration.
 
-
-<p><br></p>
 <p><br></p>
 
 ## 🧩 Example Templates
@@ -94,7 +92,6 @@
 > You can click the template to learn more about it.
 
 <p><br></p>
-<p><br></p>
 
 ## 📸 Screenshots
 
@@ -113,7 +110,6 @@
 </div>
 
 <p><br></p>
-<p><br></p>
 
 ## 🙏 Credits
 
@@ -124,7 +120,7 @@
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@HasanArthurAltunta%C5%9F)
 </li></ul>
 
-<br></br>
+<p><br></p>
 
 <div align="center">
 <img src="https://blob.gifcities.org/gifcities/44AVCRAGZJ7URH5NAIWWGF7H6J2RHCYP.gif"/ width=1024>
