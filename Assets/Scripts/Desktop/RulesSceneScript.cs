@@ -32,10 +32,12 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private Button closeMediaPlayerPanelButton;
     [SerializeField] private Button closeImageViewerPanelButton;
     [SerializeField] private Button closeAsciiArtPanelButton;
+    [SerializeField] private Button closeTtsPanelButton;
     [SerializeField] private Toggle testBottomToggle;
     [SerializeField] private Toggle mediaPlayerBottomToggle;
     [SerializeField] private Toggle imageViewerBottomToggle;
     [SerializeField] private Toggle asciiArtBottomToggle;
+    [SerializeField] private Toggle ttsBottomToggle;
     
     [SerializeField] private TextMeshProUGUI currentTimeText;
     [SerializeField] private GameObject notepadTab;
@@ -47,6 +49,7 @@ public class RulesSceneScript : MonoBehaviour
     [SerializeField] private GameObject mediaPlayerPanel;
     [SerializeField] private GameObject imageViewerPanel;
     [SerializeField] private GameObject asciiArtPanel;
+    [SerializeField] private GameObject ttsPanel;
     [SerializeField] private Image notepadImage;
     [SerializeField] private Sprite notepadOpenSprite;
     [SerializeField] private Sprite notepadClosedSprite;
@@ -73,6 +76,9 @@ public class RulesSceneScript : MonoBehaviour
     
     [Header("ASCII Art")]
     [SerializeField] private AsciiArt asciiArt;
+    
+    [Header("Text to Speech")]
+    [SerializeField] private SpeechManager tts;
 
     private bool isStartTabOpen = false;
     
@@ -96,10 +102,12 @@ public class RulesSceneScript : MonoBehaviour
         closeMediaPlayerPanelButton.onClick.AddListener(CloseMediaPlayerPanel);
         closeImageViewerPanelButton.onClick.AddListener(CloseImageViewer);
         closeAsciiArtPanelButton.onClick.AddListener(CloseAsciiArt);
+        closeTtsPanelButton.onClick.AddListener(CloseTts);
         testBottomToggle.onValueChanged.AddListener(OnTestPanelToggleChanged);
         mediaPlayerBottomToggle.onValueChanged.AddListener(OnMediaPlayerPanelToggleChanged);
         imageViewerBottomToggle.onValueChanged.AddListener(OnImageViewerPanelToggleChanged);
         asciiArtBottomToggle.onValueChanged.AddListener(OnAsciiArtPanelToggleChanged);
+        ttsBottomToggle.onValueChanged.AddListener(OnTtsPanelToggleChanged);
         
         
         originalHeaderColor = notepadTabHeaderText.color;
@@ -270,6 +278,14 @@ public class RulesSceneScript : MonoBehaviour
         asciiArt.ResetColorWhenClosed();
     }
 
+    private void CloseTts()
+    {
+        ttsPanel.SetActive(false);
+        ttsBottomToggle.gameObject.SetActive(false);
+        // Reset textbox
+        tts.StopAndResetOutside();
+    }
+    
     private void OnTestPanelToggleChanged(bool isOn)
     {
         if (isOn)
@@ -337,6 +353,18 @@ public class RulesSceneScript : MonoBehaviour
         else
         {
             asciiArtPanel.SetActive(false);
+        }
+    }
+    
+    private void OnTtsPanelToggleChanged(bool isOn)
+    {
+        if (isOn)
+        {
+            ttsPanel.SetActive(true);
+        }
+        else
+        {
+            ttsPanel.SetActive(false);
         }
     }
 
