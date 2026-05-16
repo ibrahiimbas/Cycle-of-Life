@@ -13,6 +13,10 @@
 
 </div>
 
+<div align="center">
+<img src="https://blob.gifcities.org/gifcities/ONF7PVW3J4UC7E7G3YBM7WC37WB5E4XE.gif"/ >
+</div>
+
 > [!NOTE]
 > ⚠️🚧 **Beta** – This project is currently under active development. Feel free to play the web build on [itch.io](https://synthseizer.itch.io/cycle-of-life), open issues, or leave feedback for future updates!
 
@@ -25,12 +29,15 @@
 <p>&nbsp; &nbsp; &nbsp;Apart from this game, you can also play Solitaire and Minesweeper, as they appeared on Windows 98. By opening Internet Explorer, you can browse and explore a blog site from the year 2000 (watch out for pop-up viruses). You can also try Windows Media Player and Image Viewer.&nbsp;You can follow the update notes through the Notepad application on the desktop, and change a few settings from the Control Panel.
 </p>
 <p>Cycle of Life&nbsp;offers you a nostalgic experience.</p>
-<p>&nbsp;<br></p>
 
 > [!WARNING]
 > <p>Fullscreen is recommended. But when you first launch the game, pressing the fullscreen button gives an error sometimes. Just close the popup and press the fullscreen button again, it will work fine.</p>
 
-<p><strong>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</strong></p>
+
+<div align="center">
+<img src="https://blob.gifcities.org/gifcities/44AVCRAGZJ7URH5NAIWWGF7H6J2RHCYP.gif"/ width=1024>
+</div>
+
 <h3>How to Play</h3>
 <ul><li>Use the arrow keys or WASD to move around the area.</li><li>&nbsp;Use Mouse Editing Toggle to enable or disable mouse edit.</li><li>&nbsp;Drag mouse while holding CTRL and left mouse button to create alive cells.</li><li>&nbsp;Drag mouse while holding CTRL and right mouse button to kill alive cells.&nbsp;&nbsp;</li><li>&nbsp;Select patterns from the pattern menu.</li><li>&nbsp;Adjust camera speed and zoom levels using the sliders.</li><li>&nbsp;Pause, resume, and reset the simulation using the buttons.</li><li>&nbsp;Change the theme by using theme button.</li></ul>
 <p><br></p>
@@ -57,7 +64,10 @@
     </td>
   </tr>
 </tbody></table>
- <h4 align="center">Note: You can click the template to learn more about it.</h4>
+
+> [!NOTE]
+> You can click the template to learn more about it.
+
 <p><br></p>
 <p><br></p>
 
