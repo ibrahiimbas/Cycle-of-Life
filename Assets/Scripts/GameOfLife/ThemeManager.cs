@@ -42,8 +42,6 @@ public class ThemeManager : MonoBehaviour
         }
         
         OnThemeChanged?.Invoke(theme);
-        
-        Debug.Log($"Theme applied: {theme.name}");
     }
     
     public Theme GetCurrentTheme()

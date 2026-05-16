@@ -204,7 +204,6 @@ public class SimulationSettings : MonoBehaviour
     {
         if (patternButtonPrefab == null || patternButtonContainer == null)
         {
-            Debug.LogError("Missing pattern button prefab or target container");
             return;
         }
 
@@ -236,20 +235,17 @@ public class SimulationSettings : MonoBehaviour
             patternButtons.Add(newButton);
         }
         
-        Debug.Log($"{patternButtons.Count} pattern buttons created");
     }
 
     private void CreateThemeButtons()
     {
         if (themeButtonPrefab == null || themeButtonContainer == null)
         {
-            Debug.LogError("Missing theme button prefab or target container");
             return;
         }
 
         if (themeManager == null)
         {
-            Debug.LogError("Theme Manager is not assigned!");
             return;
         }
 
@@ -283,7 +279,6 @@ public class SimulationSettings : MonoBehaviour
             themeButtons.Add(newButton);
         }
         
-        Debug.Log($"{themeButtons.Count} theme buttons created");
     }
     
     private void SelectTheme(Theme theme, int index)
