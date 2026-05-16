@@ -70,6 +70,9 @@ public class RulesSceneScript : MonoBehaviour
     
     [Header("Photo Viewer")]
     [SerializeField] private PhotoViewer photoViewer;
+    
+    [Header("ASCII Art")]
+    [SerializeField] private AsciiArt asciiArt;
 
     private bool isStartTabOpen = false;
     
@@ -264,6 +267,7 @@ public class RulesSceneScript : MonoBehaviour
     {
         asciiArtPanel.SetActive(false);
         asciiArtBottomToggle.gameObject.SetActive(false);
+        asciiArt.ResetColorWhenClosed();
     }
 
     private void OnTestPanelToggleChanged(bool isOn)
