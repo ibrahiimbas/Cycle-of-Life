@@ -6,16 +6,24 @@
 <img src="https://blob.gifcities.org/gifcities/Z2C5RDSCKCMX2G2DLUGQO3Y4XFE3ZTUL.gif"/ width=1024 height=2>
 </div>
 
-<br></br>
+
+<div align="center">
+<img src="https://blob.gifcities.org/gifcities/YYPZ3YAGWR3M5MDHDPQNOADO4SLIQDY4.gif"/>
+</div>
 
 <div align="center">
 
-[![Play on Itch.io](https://img.shields.io/badge/Play-Itch.io-red?style=for-the-badge&logo=itchdotio&logoColor=white)](https://synthseizer.itch.io/cycle-of-life)
+[![Play on Itch.io](https://img.shields.io/badge/Play_It_On-Itch.io-red?style=for-the-badge&logo=itchdotio&logoColor=white)](https://synthseizer.itch.io/cycle-of-life)
 
-[![Status](https://img.shields.io/badge/status-beta-yellow?style=flat)](https://github.com/ibrahiimbas/Cycle-of-Life)
+[![Status](https://img.shields.io/badge/version-beta_0.7.7-cyan?style=flat)](https://github.com/ibrahiimbas/Cycle-of-Life)
 [![Unity Version](https://img.shields.io/badge/Unity-black?style=flat&logo=unity)](https://unity.com)
 ![WebGL](https://img.shields.io/badge/platform-WebGL-orange?style=flat&logo=webgl)
 
+<p align="center">
+  <img src="https://img.shields.io/github/last-commit/ibrahiimbas/Cycle-of-Life?style=flat-badge" alt="Last Commit">
+  <img src="https://img.shields.io/github/commit-activity/m/ibrahiimbas/Cycle-of-Life?style=flat-badge" alt="Commits per month">
+  <img src="https://img.shields.io/github/issues/ibrahiimbas/Cycle-of-Life?style=flat-badge" alt="Issues">
+</p>
 
 </div>
 
@@ -24,7 +32,7 @@
 </div>
 
 > [!NOTE]
-> ⚠️🚧 **Beta** – This project is currently under active development. Feel free to play the web build on [itch.io](https://synthseizer.itch.io/cycle-of-life), open issues, or leave feedback for future updates!
+> 🚧 **Beta** – This project is currently under active development. Feel free to play the web build on [itch.io](https://synthseizer.itch.io/cycle-of-life), open issues, or leave feedback for future updates!
 
 <p>&nbsp; &nbsp; &nbsp;Cycle of Life&nbsp;is a small game created for my portfolio. The game takes place in a world set in the year 2000, where you can open desktop applications and games as if you were using Windows 98. You can interact with some of the applications and games on the desktop, including experiencing the game that gives the project its name:&nbsp;Cycle of Life.
 </p>
@@ -32,9 +40,9 @@
 </p>
 <p>&nbsp; &nbsp; &nbsp;As an addition to the original game,&nbsp;Cycle of Life&nbsp;includes features such as intervening in the simulation while it is running, UI themes,&nbsp; templates, and an in-game mini music player.
 </p>
-<p>&nbsp; &nbsp; &nbsp;Apart from this game, you can also play Solitaire and Minesweeper, as they appeared on Windows 98. By opening Internet Explorer, you can browse and explore a blog site from the year 2000 (watch out for pop-up viruses). You can also try Windows Media Player and Image Viewer.&nbsp;You can follow the update notes through the Notepad application on the desktop, and change a few settings from the Control Panel.
+<p>&nbsp; &nbsp; &nbsp;Apart from this game, you can also play Solitaire and Minesweeper, as they appeared on Windows 98. By opening Internet Explorer, you can browse and explore a blog site from the year 2000 (watch out for pop-up viruses). You can also try Windows Media Player, ASCII Art , Image Viewer and Text to Speech.&nbsp;You can follow the update notes through the Notepad application on the desktop, and change a few settings from the Control Panel.
 </p>
-<p>Cycle of Life&nbsp;offers you a nostalgic experience.</p>
+<p>Cycle of Life&nbsp;offers you a <b>nostalgic</b> experience.</p>
 
 > [!WARNING]
 > <p>Fullscreen is recommended. But when you first launch the game, pressing the fullscreen button gives an error sometimes. Just close the popup and press the fullscreen button again, it will work fine.</p>
