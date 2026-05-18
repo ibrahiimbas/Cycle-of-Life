@@ -19,6 +19,8 @@ public class SpeechManager : MonoBehaviour
     [SerializeField] private TMP_InputField textInput;
     [SerializeField] private Button speakButton;
     [SerializeField] private Button stopButton;
+    [SerializeField] private Image idleEmoticon;
+    [SerializeField] private Image talkingEmoticon;
 
     [Header("Sound Settings")]
     [Range(0.1f, 2f)] public float rate   = 0.75f;
@@ -29,6 +31,8 @@ public class SpeechManager : MonoBehaviour
     {
         speakButton.onClick.AddListener(() => Speak(textInput.text));
         stopButton.onClick.AddListener(() => Stop());
+        idleEmoticon.gameObject.SetActive(true);
+        talkingEmoticon.gameObject.SetActive(false);
     }
 
     public bool IsCurrentlySpeaking => IsSpeaking() == 1;
@@ -36,6 +40,8 @@ public class SpeechManager : MonoBehaviour
     public void Speak(string text)
     {
         if (string.IsNullOrWhiteSpace(text)) return;
+        idleEmoticon.gameObject.SetActive(false);
+        talkingEmoticon.gameObject.SetActive(true);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
         SpeakText(text, rate, pitch, volume);
@@ -46,6 +52,9 @@ public class SpeechManager : MonoBehaviour
 
     public void Stop()
     {
+        idleEmoticon.gameObject.SetActive(true);
+        talkingEmoticon.gameObject.SetActive(false);
+        
 #if UNITY_WEBGL && !UNITY_EDITOR
         StopSpeech();
 #endif
