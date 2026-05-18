@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Runtime.InteropServices;
 using UnityEngine.UI;
@@ -15,6 +14,9 @@ public class SpeechManager : MonoBehaviour
     [DllImport("__Internal")]
     private static extern int IsSpeaking();
     
+    [DllImport("__Internal")]
+    private static extern void InitSpeech();
+
     [Header("UI Components")]
     [SerializeField] private TMP_InputField textInput;
     [SerializeField] private Button speakButton;
@@ -27,21 +29,24 @@ public class SpeechManager : MonoBehaviour
     [Range(0f,   2f)] public float pitch  = 0.4f;
     [Range(0f,   1f)] public float volume = 1f;
 
+    public bool IsCurrentlySpeaking => IsSpeaking() == 1;
+
     private void Start()
     {
         speakButton.onClick.AddListener(() => Speak(textInput.text));
-        stopButton.onClick.AddListener(() => Stop());
-        idleEmoticon.gameObject.SetActive(true);
-        talkingEmoticon.gameObject.SetActive(false);
+        stopButton.onClick.AddListener(Stop);
+        SetEmoticon(isTalking: false);
+        
+#if UNITY_WEBGL && !UNITY_EDITOR
+    InitSpeech();
+#endif
     }
-
-    public bool IsCurrentlySpeaking => IsSpeaking() == 1;
 
     public void Speak(string text)
     {
         if (string.IsNullOrWhiteSpace(text)) return;
-        idleEmoticon.gameObject.SetActive(false);
-        talkingEmoticon.gameObject.SetActive(true);
+
+        SetEmoticon(isTalking: true);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
         SpeakText(text, rate, pitch, volume);
@@ -52,9 +57,8 @@ public class SpeechManager : MonoBehaviour
 
     public void Stop()
     {
-        idleEmoticon.gameObject.SetActive(true);
-        talkingEmoticon.gameObject.SetActive(false);
-        
+        SetEmoticon(isTalking: false);
+
 #if UNITY_WEBGL && !UNITY_EDITOR
         StopSpeech();
 #endif
@@ -66,7 +70,17 @@ public class SpeechManager : MonoBehaviour
         textInput.text = "Write whatever you want me to read...";
     }
 
+    private void SetEmoticon(bool isTalking)
+    {
+        idleEmoticon.gameObject.SetActive(!isTalking);
+        talkingEmoticon.gameObject.SetActive(isTalking);
+    }
+
     public void OnSpeechStart() => Debug.Log("[TTS] Started");
-    public void OnSpeechEnd()   => Debug.Log("[TTS] Finished");
-    public void OnSpeechError(string error) => Debug.LogWarning("[TTS] Error: " + error);
+    public void OnSpeechEnd()   => SetEmoticon(isTalking: false);
+    public void OnSpeechError(string error)
+    {
+        Debug.LogWarning($"[TTS] Error: {error}");
+        SetEmoticon(isTalking: false); 
+    }
 }
