@@ -15,7 +15,7 @@
 
 [![Play on Itch.io](https://img.shields.io/badge/Play_It_On-Itch.io-red?style=for-the-badge&logo=itchdotio&logoColor=white)](https://synthseizer.itch.io/cycle-of-life)
 
-[![Status](https://img.shields.io/badge/version-beta_0.7.7-cyan?style=flat)](https://github.com/ibrahiimbas/Cycle-of-Life)
+[![Status](https://img.shields.io/badge/version-beta_0.7.8-cyan?style=flat)](https://github.com/ibrahiimbas/Cycle-of-Life)
 [![Unity Version](https://img.shields.io/badge/Unity-black?style=flat&logo=unity)](https://unity.com)
 ![WebGL](https://img.shields.io/badge/platform-WebGL-orange?style=flat&logo=webgl)
 
