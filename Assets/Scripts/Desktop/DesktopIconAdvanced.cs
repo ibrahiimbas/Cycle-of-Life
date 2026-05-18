@@ -34,6 +34,9 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
     [Header("Tick for Explorer only!!")] 
     [SerializeField] private bool isExplorer = false;
     [SerializeField] private VirusPopUp virus;
+
+    [Header("TTS")] 
+    [SerializeField] private SpeechManager tts;
     
     private float lastClickTime;
     private bool isSelected;
@@ -49,6 +52,7 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
             
         if (iconImage != null)
             iconImage.color = normalColor;
+        
     }
     
     public void OnPointerClick(PointerEventData eventData)
@@ -105,6 +109,7 @@ public class DesktopIconAdvanced : MonoBehaviour, IPointerClickHandler, IPointer
     
         if (!string.IsNullOrEmpty(targetScene) && !isWindowedApp)
         {
+            tts.StopAndResetOutside();
             UnityEngine.SceneManagement.SceneManager.LoadScene(targetScene);
         }
         

@@ -381,6 +381,7 @@ public class RulesSceneScript : MonoBehaviour
         shutDownAudio.Play();
         yield return new WaitForSeconds(shutDownAudio.clip.length);
 #if UNITY_WEBGL
+        tts.StopAndResetOutside();
         CursorReset();
         ClearNotepadContent();
         SceneManager.LoadScene("BootScene", LoadSceneMode.Single);
