@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine.UI;
 using TMPro;
@@ -13,7 +14,7 @@ public class SpeechManager : MonoBehaviour
 
     [DllImport("__Internal")]
     private static extern int IsSpeaking();
-    
+
     [DllImport("__Internal")]
     private static extern void InitSpeech();
 
@@ -31,14 +32,17 @@ public class SpeechManager : MonoBehaviour
 
     public bool IsCurrentlySpeaking => IsSpeaking() == 1;
 
+    private bool _speechEndHandled = false;
+    private Coroutine _watchCoroutine;
+
     private void Start()
     {
         speakButton.onClick.AddListener(() => Speak(textInput.text));
         stopButton.onClick.AddListener(Stop);
         SetEmoticon(isTalking: false);
-        
+
 #if UNITY_WEBGL && !UNITY_EDITOR
-    InitSpeech();
+        InitSpeech();
 #endif
     }
 
@@ -46,10 +50,19 @@ public class SpeechManager : MonoBehaviour
     {
         if (string.IsNullOrWhiteSpace(text)) return;
 
+        _speechEndHandled = false;
+        
         SetEmoticon(isTalking: true);
+
+        if (_watchCoroutine != null)
+        {
+            StopCoroutine(_watchCoroutine);
+            _watchCoroutine = null;
+        }
 
 #if UNITY_WEBGL && !UNITY_EDITOR
         SpeakText(text, rate, pitch, volume);
+        _watchCoroutine = StartCoroutine(WatchSpeechEnd());
 #else
         Debug.Log($"[TTS] Would speak: {text}");
 #endif
@@ -57,6 +70,14 @@ public class SpeechManager : MonoBehaviour
 
     public void Stop()
     {
+        if (_watchCoroutine != null)
+        {
+            StopCoroutine(_watchCoroutine);
+            _watchCoroutine = null;
+        }
+
+        _speechEndHandled = true;
+        
         SetEmoticon(isTalking: false);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -70,6 +91,19 @@ public class SpeechManager : MonoBehaviour
         textInput.text = "Write whatever you want me to read...";
     }
 
+    private IEnumerator WatchSpeechEnd()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        while (IsCurrentlySpeaking)
+        {
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        OnSpeechEnd();
+        _watchCoroutine = null;
+    }
+
     private void SetEmoticon(bool isTalking)
     {
         idleEmoticon.gameObject.SetActive(!isTalking);
@@ -77,10 +111,28 @@ public class SpeechManager : MonoBehaviour
     }
 
     public void OnSpeechStart() => Debug.Log("[TTS] Started");
-    public void OnSpeechEnd()   => SetEmoticon(isTalking: false);
+
+    public void OnSpeechEnd()
+    {
+        if (_speechEndHandled) return;
+        _speechEndHandled = true;
+
+        SetEmoticon(isTalking: false);
+        Debug.Log("[TTS] Ended");
+
+    }
+
     public void OnSpeechError(string error)
     {
+        if (_watchCoroutine != null)
+        {
+            StopCoroutine(_watchCoroutine);
+            _watchCoroutine = null;
+        }
+
+        _speechEndHandled = true;
+        
         Debug.LogWarning($"[TTS] Error: {error}");
-        SetEmoticon(isTalking: false); 
+        SetEmoticon(isTalking: false);
     }
 }
