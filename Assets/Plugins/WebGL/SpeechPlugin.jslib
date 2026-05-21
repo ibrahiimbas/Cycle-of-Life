@@ -1,7 +1,9 @@
 mergeInto(LibraryManager.library, {
+
   InitSpeech: function () {
     window._ttsChosenVoice = null;
-    window._ttsWatchdog    = null;
+    window._ttsCurrentUtterance = null;  
+    window._ttsWatchdog = null;
 
     function findVoice() {
       var voices = window.speechSynthesis.getVoices();
@@ -26,7 +28,7 @@ mergeInto(LibraryManager.library, {
           var v = voices[j];
           if (v.lang.indexOf("en") === 0) {
             var nameLower = v.name.toLowerCase();
-            var isFemale  = false;
+            var isFemale = false;
             for (var k = 0; k < excludeKeywords.length; k++) {
               if (nameLower.indexOf(excludeKeywords[k]) !== -1) {
                 isFemale = true;
@@ -62,44 +64,66 @@ mergeInto(LibraryManager.library, {
       return;
     }
 
-    window.speechSynthesis.cancel();
+    if (window._ttsCurrentUtterance) {
+      window.speechSynthesis.cancel();
+    }
 
-    if (window._ttsWatchdog) clearInterval(window._ttsWatchdog);
-    window._ttsWatchdog = setInterval(function () {
-      if (window.speechSynthesis.speaking) {
-        window.speechSynthesis.pause();
-        window.speechSynthesis.resume();
-      } else {
-        clearInterval(window._ttsWatchdog);
-        window._ttsWatchdog = null;
-      }
-    }, 10000);
+    if (window._ttsWatchdog) {
+      clearInterval(window._ttsWatchdog);
+      window._ttsWatchdog = null;
+    }
 
-    var utt      = new SpeechSynthesisUtterance(text);
-    utt.rate     = rateFloat;
-    utt.pitch    = pitchFloat;
-    utt.volume   = volumeFloat;
+    var utt = new SpeechSynthesisUtterance(text);
+    utt.rate = rateFloat;
+    utt.pitch = pitchFloat;
+    utt.volume = volumeFloat;
     if (window._ttsChosenVoice) utt.voice = window._ttsChosenVoice;
 
+    var self = this;
+
     utt.onstart = function () {
-      SendMessage("GameManager", "OnSpeechStart");
+      if (window._ttsCurrentUtterance === utt) {
+        SendMessage("GameManager", "OnSpeechStart");
+      }
     };
 
     utt.onend = function () {
-      if (window._ttsWatchdog) {
-        clearInterval(window._ttsWatchdog);
-        window._ttsWatchdog = null;
+      if (window._ttsCurrentUtterance === utt) {
+        window._ttsCurrentUtterance = null;
+        if (window._ttsWatchdog) {
+          clearInterval(window._ttsWatchdog);
+          window._ttsWatchdog = null;
+        }
+        SendMessage("GameManager", "OnSpeechEnd");
       }
-      SendMessage("GameManager", "OnSpeechEnd");
     };
 
     utt.onerror = function (e) {
-      if (window._ttsWatchdog) {
+      if (window._ttsCurrentUtterance === utt) {
+        window._ttsCurrentUtterance = null;
+        if (window._ttsWatchdog) {
+          clearInterval(window._ttsWatchdog);
+          window._ttsWatchdog = null;
+        }
+        SendMessage("GameManager", "OnSpeechError", e.error);
+      }
+    };
+
+    window._ttsCurrentUtterance = utt;
+
+    window._ttsWatchdog = setInterval(function () {
+      if (window._ttsCurrentUtterance && window.speechSynthesis.speaking) {
+        window.speechSynthesis.pause();
+        window.speechSynthesis.resume();
+      } else if (!window.speechSynthesis.speaking && window._ttsCurrentUtterance) {
+        console.warn("[TTS] Watchdog: forcing end");
+        var deadUtt = window._ttsCurrentUtterance;
+        window._ttsCurrentUtterance = null;
         clearInterval(window._ttsWatchdog);
         window._ttsWatchdog = null;
+        SendMessage("GameManager", "OnSpeechEnd");
       }
-      SendMessage("GameManager", "OnSpeechError", e.error);
-    };
+    }, 10000);
 
     window.speechSynthesis.speak(utt);
   },
@@ -109,11 +133,17 @@ mergeInto(LibraryManager.library, {
       clearInterval(window._ttsWatchdog);
       window._ttsWatchdog = null;
     }
-    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+    if (window._ttsCurrentUtterance) {
+      window._ttsCurrentUtterance = null;
+      SendMessage("GameManager", "OnSpeechEnd");
+    }
   },
 
   IsSpeaking: function () {
     if (!window.speechSynthesis) return 0;
-    return window.speechSynthesis.speaking ? 1 : 0;
+    return (window.speechSynthesis.speaking || window._ttsCurrentUtterance !== null) ? 1 : 0;
   }
 });

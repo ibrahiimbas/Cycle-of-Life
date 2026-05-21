@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine.UI;
 using TMPro;
@@ -26,113 +25,98 @@ public class SpeechManager : MonoBehaviour
     [SerializeField] private Image talkingEmoticon;
 
     [Header("Sound Settings")]
-    [Range(0.1f, 2f)] public float rate   = 0.75f;
-    [Range(0f,   2f)] public float pitch  = 0.4f;
-    [Range(0f,   1f)] public float volume = 1f;
+    [Range(0.1f, 2f)] public float rate = 0.75f;
+    [Range(0f, 2f)] public float pitch = 0.4f;
+    [Range(0f, 1f)] public float volume = 1f;
 
-    public bool IsCurrentlySpeaking => IsSpeaking() == 1;
-
-    private bool _speechEndHandled = false;
-    private Coroutine _watchCoroutine;
+    private bool _isSpeaking = false;
 
     private void Start()
     {
         speakButton.onClick.AddListener(() => Speak(textInput.text));
         stopButton.onClick.AddListener(Stop);
-        SetEmoticon(isTalking: false);
+
+        SetEmoticon(false);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-        InitSpeech();
+        InitSpeech(); 
 #endif
+
+        if (string.IsNullOrEmpty(textInput.text))
+            textInput.text = "";
     }
 
     public void Speak(string text)
     {
         if (string.IsNullOrWhiteSpace(text)) return;
+        if (text == "") return;
 
-        _speechEndHandled = false;
-        
-        SetEmoticon(isTalking: true);
-
-        if (_watchCoroutine != null)
-        {
-            StopCoroutine(_watchCoroutine);
-            _watchCoroutine = null;
-        }
+        SetEmoticon(true);
+        _isSpeaking = true;
 
 #if UNITY_WEBGL && !UNITY_EDITOR
         SpeakText(text, rate, pitch, volume);
-        _watchCoroutine = StartCoroutine(WatchSpeechEnd());
 #else
-        Debug.Log($"[TTS] Would speak: {text}");
+        Debug.Log($"[TTS] Editor mode - Speaking: {text}");
+        float duration = Mathf.Clamp(text.Length * 0.05f, 0.5f, 5f);
+        Invoke(nameof(SimulateSpeechEnd), duration);
 #endif
     }
 
     public void Stop()
     {
-        if (_watchCoroutine != null)
-        {
-            StopCoroutine(_watchCoroutine);
-            _watchCoroutine = null;
-        }
+        if (!_isSpeaking) return;
 
-        _speechEndHandled = true;
-        
-        SetEmoticon(isTalking: false);
+        _isSpeaking = false;
+        SetEmoticon(false);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-        StopSpeech();
+        StopSpeech();  
 #endif
     }
 
     public void StopAndResetOutside()
     {
         Stop();
-        textInput.text = "Write whatever you want me to read...";
+        textInput.text = "";
     }
 
-    private IEnumerator WatchSpeechEnd()
+    public void OnSpeechStart()
     {
-        yield return new WaitForSeconds(0.5f);
-
-        while (IsCurrentlySpeaking)
-        {
-            yield return new WaitForSeconds(0.3f);
-        }
-
-        OnSpeechEnd();
-        _watchCoroutine = null;
+        Debug.Log("[TTS] Speech started (callback)");
+        SetEmoticon(true);
+        _isSpeaking = true;
     }
-
-    private void SetEmoticon(bool isTalking)
-    {
-        idleEmoticon.gameObject.SetActive(!isTalking);
-        talkingEmoticon.gameObject.SetActive(isTalking);
-    }
-
-    public void OnSpeechStart() => Debug.Log("[TTS] Started");
 
     public void OnSpeechEnd()
     {
-        if (_speechEndHandled) return;
-        _speechEndHandled = true;
-
-        SetEmoticon(isTalking: false);
-        Debug.Log("[TTS] Ended");
-
+        Debug.Log("[TTS] Speech ended (callback)");
+        _isSpeaking = false;
+        SetEmoticon(false);
     }
 
     public void OnSpeechError(string error)
     {
-        if (_watchCoroutine != null)
-        {
-            StopCoroutine(_watchCoroutine);
-            _watchCoroutine = null;
-        }
+        Debug.LogWarning($"[TTS] Speech error: {error}");
+        OnSpeechEnd();
+    }
 
-        _speechEndHandled = true;
-        
-        Debug.LogWarning($"[TTS] Error: {error}");
-        SetEmoticon(isTalking: false);
+    private void SimulateSpeechEnd()
+    {
+        OnSpeechEnd();
+    }
+
+    private void SetEmoticon(bool isTalking)
+    {
+        if (idleEmoticon != null)
+            idleEmoticon.gameObject.SetActive(!isTalking);
+        if (talkingEmoticon != null)
+            talkingEmoticon.gameObject.SetActive(isTalking);
+    }
+
+    private void OnDestroy()
+    {
+        speakButton?.onClick.RemoveAllListeners();
+        stopButton?.onClick.RemoveAllListeners();
     }
 }
