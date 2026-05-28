@@ -9481,6 +9481,7 @@ MonoBehaviour:
   patternButtonContainer: {fileID: 2042435337}
   patternScrollRect: {fileID: 1914121854}
   themeScrollRect: {fileID: 221409025}
+  rulesScrollRect: {fileID: 1861742738}
   rulesScrollBar: {fileID: 1615356711}
   editMouseToggle: {fileID: 1287253245}
   url: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life

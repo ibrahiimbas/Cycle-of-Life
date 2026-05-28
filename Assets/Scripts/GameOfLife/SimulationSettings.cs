@@ -45,6 +45,7 @@ public class SimulationSettings : MonoBehaviour
     [Header("Scroll Views")]
     [SerializeField] private ScrollRect patternScrollRect;
     [SerializeField] private ScrollRect themeScrollRect;
+    [SerializeField] private ScrollRect rulesScrollRect;
     [SerializeField] private Scrollbar rulesScrollBar;
 
     [Header("Edit With Mouse Toggle")] [SerializeField]
@@ -157,6 +158,7 @@ public class SimulationSettings : MonoBehaviour
         rulesTabCloseButton.interactable = true;
         rulesScrollBar.interactable = true;
         ChangeTabActive(infoTabSprite,rulesHeaderTxt);
+        //StartCoroutine(ResetScrollRectNextFrame(rulesScrollRect));
     }
 
     private void ChangeTabInactive(Image tabImage, TextMeshProUGUI headerText)
@@ -374,6 +376,7 @@ public class SimulationSettings : MonoBehaviour
      themeMenuOpenButton.interactable = true;
      editMouseToggle.interactable = true;
      ChangeTabActive(mainTabSprite,currentPatterntxt,mainHeadertxt);
+     StartCoroutine(ResetScrollRectNextFrame(rulesScrollRect));
      
      if (isPaused == false)
      {
