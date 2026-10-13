@@ -52,7 +52,7 @@
 <img src="https://blob.gifcities.org/gifcities/44AVCRAGZJ7URH5NAIWWGF7H6J2RHCYP.gif"/ width=1024>
 </div>
 
-## 🎮 How to Play
+## How to Play
 
 - **Move around** – Use `Arrow Keys` or `WASD`
 - **Toggle Edit Mode** – Use *Mouse Editing Toggle* to enable/disable cell editing
@@ -65,7 +65,7 @@
 
 <p><br></p>
 
-## 🧬 Rules of the Cycle of Life
+## Rules of the Cycle of Life
 
 | Rule | Condition |
 |------|------------|
@@ -73,11 +73,11 @@
 | **Death** | A live cell with **0 or 1 neighbor** dies (isolation) <br> A live cell with **4 or more neighbors** dies (overcrowding) |
 | **Survival** | A live cell with **2 or 3 neighbors** stays alive |
 
-> 🔁 These rules are applied simultaneously to all cells in every iteration.
+>  These rules are applied simultaneously to all cells in every iteration.
 
 <p><br></p>
 
-## 🧩 Example Templates
+##  Example Templates
 
 <table border="0" cellpadding="10" align="center">
   <tbody><tr>
@@ -101,7 +101,7 @@
 
 <p><br></p>
 
-## 📸 Screenshots
+## Screenshots
 
 <div align="center">
   <table>
@@ -119,7 +119,7 @@
 
 <p><br></p>
 
-## 🙏 Credits
+## Credits
 
 > [!NOTE]
 > Some music by Hasan Arthur Altuntaş. Used with permission. Listen to more at the link below.
