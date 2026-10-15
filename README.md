@@ -25,6 +25,12 @@
   <img src="https://img.shields.io/github/issues/ibrahiimbas/Cycle-of-Life?style=flat-badge" alt="Issues">
 </p>
 
+<p align="center">
+  <a href="https://buymeacoffee.com/synthesizer">
+    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-3D5E6C?style=for-the-badge&logo=buymeacoffee&logoColor=FFDD00" alt="Buy Me a Coffee">
+  </a>
+</p>
+
 </div>
 
 <div align="center">
